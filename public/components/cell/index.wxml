@@ -1,0 +1,48 @@
+<view class="xi-cell-wrap xi-class"
+  bindtap="handleClick"
+  hover-class="{{ isLink ? 'clickHover' : '' }}"
+  hover-stay-time="100">
+  <label class="label {{ border === 'none' ? '' : 'border' }}" for="scope">
+    <view class="xi-cell_icon"
+      wx:if="{{ icon }}">
+      <xi-icon
+        icon="{{ icon }}"></xi-icon>
+    </view>
+    <view class="xi-cell_title">
+      <view class="titel">{{ title }}</view>
+      <view class="cell-label" wx:if="{{ label }}">{{ label }}</view>
+    </view>
+
+    <!-- 自定义插槽 -->
+    <view class="xi-cell_msg"
+      wx:if="{{ cellType === '' }}">
+      <slot name="msg"></slot>
+      <view wx:if="{{ isLink }}">
+        <xi-icon icon="icon-jiantou1"></xi-icon>
+      </view>
+    </view>
+
+    <!-- input -->
+    <view class="xi-cell_msg"
+      wx:if="{{ cellType === 'input' }}">
+      <slot name="msg"></slot>
+      <input 
+        class="xi-cell__input"
+        type="{{ inputType || 'text' }}"
+        value="{{ value }}"
+        placeholder="{{ inputPlaceholder }}"
+        cursor-spacing="100rpx"
+        bindinput="handleInput" />
+    </view>
+    <!-- radio -->
+
+    <!-- switch -->
+    <view
+      wx:if="{{ cellType === 'switch' }}">
+      <slot name="msg"></slot>
+      <switch id="scope"
+        checked="{{ switchChecked }}"
+        bindchange="handleSwitch"></switch>
+    </view>
+  </label>
+</view>

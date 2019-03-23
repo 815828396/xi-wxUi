@@ -1,0 +1,4 @@
+/**index.wxss**/
+.title { font-weight: bold; font-size: 24rpx; text-align: center; line-height: 60rpx; color: #fff; }
+.title .nav { margin: 30rpx 0;  background: #ccc; }
+.title .className { color: black; }

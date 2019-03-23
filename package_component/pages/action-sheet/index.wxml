@@ -1,0 +1,20 @@
+<xi-button
+  bind:click="handleAction">弹出 action-sheet </xi-button>
+
+
+<!--
+  visiable ：显示隐藏
+  cancel-text: 取消按钮 自带关闭弹出层效果
+  {Array} actions: 内置属性
+            { titel, desc, fn, disabled }
+
+-->
+
+<xi-action
+  cancel-text="取消"
+  actions="{{ actions }}"
+  visiable="{{ visiable }}">
+</xi-action>
+<xi-action
+  actions="{{ actions }}"
+  visiable="{{ visiable1 }}"></xi-action>

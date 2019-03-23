@@ -1,0 +1,3 @@
+<view class="iconfont-wrap xi-class">
+  <text class="iconfont {{ icon }} {{ 'icon-size' }} icon-{{ size }}"></text>
+</view>

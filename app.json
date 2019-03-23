@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "subpackages": [
+    {
+      "root": "package_component",
+      "pages": [
+        "pages/dialog/index",
+        "pages/modal/index",
+        "pages/action-sheet/index",
+        "pages/cell/index"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/logs/logs": {
+      "packages": [
+        "package_component"
+      ]
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "xi-icon": "./public/components/icon/index",
+    "cell": "./public/components/cell/index",
+    "xi-action": "./public/components/action-sheet/index",
+    "xi-button": "./public/components/button/index",
+    "xi-dialog": "./public/components/dialog/index",
+    "xi-modal": "./public/components/modal/index"
+  }
+}

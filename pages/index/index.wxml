@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="compnent-wrap">
+  <view class="title">
+    <navigator wx:for="{{ navlist }}" wx:key="{{ index }}"
+      class="nav"
+      url="../../package_component/pages/{{ item.url }}/index" 
+      hover-class="className">{{ item.title }}</navigator>
+  </view>
+</view>

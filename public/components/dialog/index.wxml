@@ -1,0 +1,28 @@
+<view class="dialog-filter {{ visiable ? 'dialog-filter--show' : '' }}"
+  data-target="filter"
+  bindtap="closeDialog">
+  <view class="dialog_wrap {{ visiable ? 'dialog_wrap--show' : '' }}">
+    <!-- 关闭按钮 -->
+    <view class="dialog-title" wx:if="{{ title }}">
+      <view class="title {{ center ? 'center' : '' }}">{{ title }}</view>
+      <xi-icon icon="icon-loading"></xi-icon>
+    </view>
+
+    <!-- 状态图片 -->
+    <image wx:if="{{ imgsrc }}" src="{{ imgsrc }}" class="dialog_img {{ !showClose ? 'mt40' : '' }}" ></image>
+
+    <!-- 描述内容 -->
+    <view class="dialog_content">
+      <slot></slot>
+    </view>
+
+    <view class="dialog_btn">
+      <view class="btn" wx:if="{{ !showCancel }}">
+        <xi-button type="default" target="cancel" bind:click="btnClick">{{ cancel }}</xi-button>
+      </view>
+      <view class="btn">
+        <xi-button target="confirm" bind:click="btnClick">{{ confirm }}</xi-button>
+      </view>
+    </view>
+  </view>
+</view>

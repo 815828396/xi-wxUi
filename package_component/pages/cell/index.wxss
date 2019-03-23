@@ -1,0 +1,4 @@
+/* package_component/pages/cell/index.wxss */
+@import '../../../assets/styles/_mixin.wxss';
+page { background: #F5F5FA; }
+.mt20 { margin-top: 20rpx; }

@@ -1,0 +1,43 @@
+@import '../../../assets/styles/mixinFn.less';
+.xi-background {
+  .filter-background();
+  &.xi-visiable {
+    .xi-visiable();
+  }
+  &.xi-show {
+    .xi-show();
+  }
+}
+.xi-container {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  min-height: 300rpx;
+  font-size: @14;
+  transition: all .3s ease-in-out;
+  &.xi-action--show{
+    bottom: 0;
+    z-index: 1001
+  }
+  .xi-item {
+    .line-height(100rpx);
+    padding: 0 25rpx;
+    box-sizing: border-box;
+    text-align: center;
+    background: #fff;
+    &.xi-cancel--text {
+      margin-top: @10;
+      color: @thameAuxColor;
+    }
+    &.clickHover {
+      .xi-click-hover(.8);
+    }
+    &.disabled {
+      color: @thameSmColor;
+    }
+    .xi-item--desc {
+      font-size: @12;
+      color: @thameAuxColor;
+    }
+  } // e xi-item
+}

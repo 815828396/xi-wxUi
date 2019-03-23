@@ -1,0 +1,41 @@
+@import '../../../assets/styles/mixinFn.less';
+.xi-cell-wrap {
+  background: #fff;
+  padding: 0 0 0 30rpx;
+  &.clickHover {
+    .xi-click-hover(.8, @thameSmColor);
+  }
+  .label {
+    display: flex;
+    padding: 25rpx 30rpx 25rpx 0;
+    box-sizing: border-box;
+    font-size: @16;
+    line-height: 1.4;
+    &.border {
+      .border-init();
+      &::after {
+        .border-bottom();
+      }
+    }
+    .xi-cell_icon {
+      .height-center();
+      margin-right: @10;
+    }
+    .xi-cell_title {
+      .height-center();
+      flex-grow: 1;
+      .cell-label {
+        font-size: @14;
+        color: @thameMidColor;
+      }
+    }
+    .xi-cell_msg {
+      .height-center();
+      justify-content: flex-end;
+      min-width: 200rpx;
+      .xi-cell__input {
+        text-align: right;
+      }
+    }
+  }
+}

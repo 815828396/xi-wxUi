@@ -1,0 +1,117 @@
+// 主题描述颜色
+@thameColor: #1EA0FF;
+@thameBlackColor: #1E2328;
+@thameAuxColor: #73737D;
+@thameMidColor: #969BA5;
+@thameSmColor: #C8C8D2;
+
+// 提示信息等颜色
+@errorColor: #FF5151;
+@warningColor: #ed4014;
+@successColor: #19be6b;
+@defaultColor: #2db7f5;
+
+// 背景及边框颜色
+@backgroundColor: #F5F5FA;
+@borderColor: #E6E6EB;
+
+// 字体大小 @2x
+@10: 20rpx;
+@12: 24rpx;
+@14: 28rpx;
+@16: 32rpx;
+@18: 36rpx;
+// modal 背景层
+.filter-background () {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .7);
+}
+// modal 层隐藏
+.xi-visiable () {
+  opacity: 0;
+  z-index: -1000;
+  transition: all .3s ease-in-out;
+}
+// modal 层展示
+.xi-show () {
+  opacity: 1;
+  z-index: 1000;
+}
+// 无线旋转
+.loading-rotate () {
+  display: inline-block; 
+  animation: rotateAll .8s linear infinite;
+}
+// 超出省略号
+.overflow () {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+// 文字垂直居中
+.line-height (@height) {
+  height: @height;
+  line-height: @height;
+}
+// 未知元素垂直居中 
+.height-center () {
+  display: flex;
+  align-items: center;
+}
+// 点击样式
+.xi-click-hover (@opacity) {
+  opacity: @opacity;
+}
+.xi-click-hover (@opacity; @background) {
+  background: @background;
+  opacity: @opacity;
+  color: #fff;
+}
+// 1px 边框
+.border-init () {
+  position: relative;
+}
+.border-after () {
+  position: absolute;
+  content: '';
+  background-color: #E6E6EB;
+  -webkit-transform: scale(1, 0.5);
+  transform: scale(1, 0.5);
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
+.border-top () {
+  .border-after();
+  width: 100%;
+  height: 1rpx;
+  left: 0;
+  top: 0;
+}
+.border-bottom () {
+  .border-after();
+  width: 100%;
+  height: 1rpx;
+  left: 0;
+  bottom: 0;
+}
+.border-right () {
+  .border-after();
+  width: 1px;
+  right: 0;
+  top: 0;
+  height: 100%;
+}
+.border-left () {
+  .border-after();
+  width: 1px;
+  left: 0;
+  top: 0;
+  height: 100%;
+}

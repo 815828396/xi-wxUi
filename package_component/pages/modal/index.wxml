@@ -1,0 +1,20 @@
+<xi-button
+  bind:click="visiable">展示 modal</xi-button>
+
+<!--
+  modal 自动禁止点击 背景层关闭， 并且无配置项
+  visiable: 显示与隐藏
+  title: 对话框标题
+  confirm: 确认文字
+  cancel: 取消文字
+  click: 按钮事件
+  {Boolean} border: 是否显示 title下面的 横线 默认 ： 显示
+-->
+<xi-modal
+  visiable="{{ isModal }}"
+  title="提示"
+  confirm="确认"
+  bind:click="handleClick"
+>
+  这是一个简单的 对话框内容
+</xi-modal>

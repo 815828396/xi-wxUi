@@ -1,0 +1,45 @@
+// @import '../../../assets/styles/mixinFn.less';
+.btnSize (@font-size; @color) {
+  font-size: @font-size;
+  color: @color;
+}
+.btnWh (@width; @height) {
+  width: @width;
+  height: @height;
+  line-height: @height;
+  text-align: center;
+}
+.btnColor (@background; @border-color; @color: auto) {
+  background: @background;
+  color: @color;
+  border: 1rpx solid @border-color;
+}
+.button-wrap {
+  width: 100%;
+  &.btn--active {
+    opacity: .8;
+  }
+  &.small {
+    .button-box {
+      .btnWh(auto; 64rpx);
+      .btnSize(28rpx; #fff);
+      padding: 0 18rpx;
+    }
+  }
+  .icon {
+    margin-right: 10rpx;
+  }
+  .button-box {
+    .btnWh(auto; 80rpx);
+    .btnSize(32rpx; #fff);
+    &.default {
+      .btnColor(transparent; #C8C8D2; #1E2328);
+    }
+    &.disabled {
+      .btnColor(#969BA5; #969BA5);
+    }
+    &.primary {
+      .btnColor(#1EA0FF; #1EA0FF);
+    }
+  } // e button-box
+}

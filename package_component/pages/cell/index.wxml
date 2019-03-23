@@ -1,0 +1,39 @@
+<!--package_component/pages/cell/index.wxml-->
+<cell
+  title="选项">
+  <view slot="msg">描述</view>
+</cell>
+<cell
+  label="label小子"
+  title="选项">
+  <view slot="msg">描述</view>
+</cell>
+<cell
+  isLink
+  xi-class="mt20"
+  title="选项">
+  <view slot="msg">链接</view>
+</cell>
+<cell
+  icon="icon-loading"
+  isLink
+  query="{{ { a: 1, b: 2 } }}"
+  xi-class="mt20"
+  title="选项"
+  label="图片"
+  bind:click="click">
+  <view slot="msg">链接</view>
+</cell>
+
+<cell
+  title="选项"
+  cell-type="input"
+  input-placeholder="请输入">
+  <text slot="msg">描述</text>
+</cell>
+<cell
+  title="选项"
+  cell-type="switch"
+  bind:switch="switch">
+  <text slot="msg">描述</text>
+</cell>

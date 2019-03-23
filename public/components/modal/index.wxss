@@ -1,0 +1,54 @@
+@import '../../../assets/styles/_mixin.wxss';
+.xi-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: -200;
+  background-color: rgba(0, 0, 0, .5);
+  tranition: all .3s ease-in-out;
+}
+.xi-modal--show {
+  opacity: 1;
+  z-index: 1000;
+}
+.xi-modal-content {
+  width: 650rpx;
+  min-height: 200rpx;
+  padding: 20rpx 50rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  background: #fff;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  transform: translateY(-20rpx);
+}
+.xi-modal-content--show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.xi-modal__title {
+  width: 100%;
+  margin: 0 auto;
+  padding: 12rpx 0;
+  font-size: 36rpx;
+  text-align: center;
+}
+.xi-modal__cont {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #6D6D6D;
+}
+.xi-modal__button {
+  display: flex;
+  margin: 50rpx 0 30rpx;
+}
+.xi-modal__button .btn-item {
+  flex-grow: 1;
+  margin-left: 20rpx;
+}

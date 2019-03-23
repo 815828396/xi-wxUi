@@ -1,0 +1,31 @@
+<xi-button bind:click="popDialog" loading="{{ true }}">普通dialog</xi-button>
+<xi-button bind:click="popDialog1">弹出dialog对话框</xi-button>
+
+<!--
+  配置项：
+    visiable : 展示与隐藏
+    title : 标题内容, 为空时不展示
+    imgsrc : 可传入一个图片在中间显示
+    closeDialogModal : 禁止通过 点击 modal 关闭  默认：可关闭 
+    confirm : 确认按钮文字
+    cancel  : 取消按钮文字
+    center : 标题居中展示
+    show-cancel : 是否显示取消按钮 默认： 展示
+    click: 按钮点击事件
+-->
+<xi-dialog 
+  title="提示"
+  bind:click="handleClick"
+  visiable="{{ visiableDialog }}">
+  <view>
+    普通 dialog
+  </view>
+</xi-dialog>
+<xi-dialog 
+  bind:click="handleClick"
+  show-cancel="false"
+  visiable="{{ visiableDialog1 }}">
+  <view>
+    无标题 dialog
+  </view>
+</xi-dialog>
