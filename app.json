@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/timeAxis/timeAxis",
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -10,7 +11,8 @@
         "pages/dialog/index",
         "pages/modal/index",
         "pages/action-sheet/index",
-        "pages/cell/index"
+        "pages/cell/index",
+        "pages/message/index"
       ]
     }
   ],
@@ -28,8 +30,11 @@
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
-    "xi-icon": "./public/components/icon/index",
+    "message": "./public/components/message/index",
     "cell": "./public/components/cell/index",
+    "xi-step": "./public/components/step/index",
+    "xi-steps": "./public/components/steps/index",
+    "xi-icon": "./public/components/icon/index",
     "xi-action": "./public/components/action-sheet/index",
     "xi-button": "./public/components/button/index",
     "xi-dialog": "./public/components/dialog/index",

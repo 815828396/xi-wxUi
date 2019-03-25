@@ -17,6 +17,9 @@ Page({
       }, {
         url: 'cell',
         title: 'cell组件'
+      }, {
+        url: 'message',
+        title: 'mesage组件'
       }
     ]
   },

@@ -1,4 +1,4 @@
-// @import '../../../assets/styles/mixinFn.less';
+@import '../../../assets/styles/mixinFn.less';
 .btnSize (@font-size; @color) {
   font-size: @font-size;
   color: @color;
@@ -34,6 +34,9 @@
     .btnSize(32rpx; #fff);
     &.default {
       .btnColor(transparent; #C8C8D2; #1E2328);
+    }
+    &.warning {
+      .btnColor(@warningColor; transparent; #fff);
     }
     &.disabled {
       .btnColor(#969BA5; #969BA5);

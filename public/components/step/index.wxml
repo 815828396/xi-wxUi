@@ -1,0 +1,4 @@
+<view class="xi-step-item">
+  <slot name="title" class="asd"></slot>
+  <slot name="label"></slot>
+</view>

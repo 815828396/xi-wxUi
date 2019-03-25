@@ -1,0 +1,28 @@
+<!--package_component/pages/message/index.wxml-->
+<view
+  style="margin-top: 300rpx;">
+<xi-button
+  target="default"
+  bind:click="showMessage">
+  弹出默认
+</xi-button>
+<xi-button
+  target="success"
+  bind:click="showMessage">
+  弹出成功
+</xi-button>
+<xi-button
+  type="warning"
+  target="warning"
+  bind:click="showMessage">
+  弹出警告
+</xi-button>
+<xi-button
+  target="error"
+  bind:click="showMessage">
+  弹出失败
+</xi-button>
+  
+</view>
+
+<message id="message" xi-class="asd"></message>

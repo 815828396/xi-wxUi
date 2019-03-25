@@ -1,0 +1,3 @@
+<view class="xi-message xi-class xi-message--{{ type }} {{ visiable ? 'show' : '' }}">
+  {{ content }}
+</view>
