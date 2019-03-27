@@ -1,0 +1,9 @@
+<xi-papaw
+  papawCont="{{ arr }}"
+  head-img="{{ headImg }}"
+  header
+  footer
+  scrollHeight="1100"
+  bind:click="hand"
+>
+</xi-papaw>

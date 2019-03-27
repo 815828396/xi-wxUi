@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/papaw/index",
     "pages/timeAxis/timeAxis",
     "pages/index/index",
     "pages/logs/logs"
@@ -32,10 +33,11 @@
   "usingComponents": {
     "message": "./public/components/message/index",
     "cell": "./public/components/cell/index",
-    "xi-step": "./public/components/step/index",
     "xi-steps": "./public/components/steps/index",
+    "xi-step": "./public/components/step/index",
     "xi-icon": "./public/components/icon/index",
     "xi-action": "./public/components/action-sheet/index",
+    "xi-papaw": "./public/components/papaw/index",
     "xi-button": "./public/components/button/index",
     "xi-dialog": "./public/components/dialog/index",
     "xi-modal": "./public/components/modal/index"

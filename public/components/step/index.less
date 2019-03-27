@@ -1,9 +1,112 @@
+@import  '../../../assets/styles/mixinFn.less';
+.status-color (@color: @thameColor; @background: #fff) {
+  color: @color;
+  background: @background;
+}
+.line-size (@width; @height) {
+  position: absolute;
+  content: "";
+  display: block;
+  width: @width;
+  height: @height;
+  background: #fff;
+}
+
 .xi-step-item {
-  &.columns {
+  display: inline-block;
+  font-size: @14;
+  text-align: center;
+  .xi-step-ico {
+    position: relative;
+    margin: 20rpx auto;
+    .step_icon {
+      font-size: @10;
+    }
+    .line-pos {
+      position: relative;
+      &::after,
+      &::before {
+        .line-size(30rpx; 5px);
+      }
+      &::before {
+        top: 5px;
+        left: -32rpx;
+      }
+      &::after {
+        top: 5px;
+        right: -32rpx
+      }
+    } // 线条定位
+    &.active {
+      .step_icon {
+        .status-color(#fff; transparent);
+      }
+      .xi-step-icon--number {
+        .status-color(#fff; @thameColor);
+        border: 1rpx solid @thameColor;
+      }
+    } // e 图标状态样式
+    .xi-step-icon--number {
+      width: 30rpx;
+      height: 30rpx;
+      line-height: 28rpx;
+      font-size: @10;
+      text-align: center;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 1rpx solid @thameSmColor;
+      .status-color(@thameSmColor);
+      &.error {
+        border: 1rpx solid @errorColor;
+        .status-color(#fff; @errorColor);
+      }
+      &.warning {
+        border: 1rpx solid @warningColor;
+        .status-color(#fff; @warningColor);
+      }
+    }
+    .xi-step--line {
+      position: absolute;
+      top: 8px;
+      z-index: -1;
+      left: 50%;
+      width: 100%;
+      height: 1px;
+      background: @thameSmColor; 
+      &.active {        
+        background: @thameColor;
+      }
+      &.error {
+        background: @errorColor
+      }
+      &.warning {
+        background: @warningColor
+      }
+    }
+  } // e xi-step-ico
+  .xi-step-main {
+    .xi-step-main--content {
+      font-size: @12;
+      color: @thameAuxColor;
+      margin-top: 5rpx;
+      .content {
+        .overflow();
+      }
+    }
+  } // e xi-step-main
+  // 纵向展示
+  &.colums {
+    text-align: left;
     display: flex;
-    flex-direction: column;
-  }
-  .asd {
-    font-size: 12rpx
+    align-items: center;
+    height: 150rpx;
+    // margin: 30rpx 0;
+    .xi-step-ico {
+      margin: 0 40rpx;
+      .xi-step--line {
+        height: 150rpx;
+        width: 1px;
+      }
+    }
   }
 }

@@ -1,0 +1,18 @@
+module.exports = {
+  calcWidth: function (length, direction) {
+    if (direction === 'horizontal')
+      return "width: " + ~~(100 / length) + "%";
+    else
+      return 'width: 100%';
+  },
+  // 激活状态，默认： 图标形式的
+  // 图标的索引值比线条索引值 大1
+  active: function (current, active, line) {
+    return line ? 
+      (current < active ? 'active' : '') :
+      (current <= active ? 'active' : '')
+  },
+  status: function (cindex, status) {
+    return cindex == 0 ? '' : status
+  }
+}

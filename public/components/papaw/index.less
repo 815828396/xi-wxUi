@@ -1,0 +1,110 @@
+@import '../../../assets/styles/mixinFn.less';
+
+.img {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.xi-papaw-wrap {
+  padding: 50rpx 0;
+  .inner {
+    position: relative;
+    border: 1rpx solid @thameSmColor;
+  }
+  // header
+  .xi-papaw--header{
+    position: absolute;
+    top: -25rpx;
+    left: 30rpx;
+    z-index: 10;
+    background: #fff;
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 0 20rpx;
+      font-size: @14;
+    }
+  }
+  // 对话内容
+  .xi-papaw--container {
+    position: relative;
+    height: 1000rpx;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    .papaw-list {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      // margin: 70rpx 30rpx 120rpx;
+      font-size: @12;
+      .papaw-item {
+        margin: 30rpx 0;
+        overflow: hidden;
+        display: flex;
+        transition: all .3s;
+        &:last-child {
+          margin-bottom: 100rpx;
+        }
+        &.right {          
+          justify-content: flex-end;
+          .item {
+            image {
+              margin-left: 20rpx;
+            }
+          }
+        }
+        &.left {
+          .item {
+            background: @backgroundColor;
+            padding: 5rpx 10rpx;
+          }
+        }
+        .item {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      // .papaw-item{
+      //   margin: 30rpx 0;
+      //   clear: both;
+      //   overflow: hidden;
+      //   .left {
+      //     max-width: 80%;
+      //     float: left;
+      //   }
+      //   .right {
+      //     max-width: 80%;
+      //     float: right;
+      //   }
+      // }
+    }
+
+  }
+
+  // footer
+  .xi-papaw--footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    .footer {
+      display: flex;
+      padding: 5rpx 20rpx;
+      background: @backgroundColor;
+      .input {
+        flex-grow: 1;
+        font-size: @12;
+        height: 64rpx;
+        padding: 0 10rpx;
+        border-radius: 5rpx;
+        background: #fff;
+      }
+      .btn {
+        margin-left: 10rpx;
+        height: 30rpx;
+      }
+    }
+  }
+}

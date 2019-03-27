@@ -8,7 +8,13 @@ Component({
     [relations_child_url]: {
       type: 'child',
       linked (target) {
-        // console.log(target)
+        this._updateCurrent();
+      },
+      linkChanged () {
+        this._updateCurrent();
+      },
+      unlinked () {
+        this._updateCurrent();
       }
     }
   },
@@ -17,7 +23,7 @@ Component({
   behaviors: [behavior, relations],
 
   properties: {
-    // 显示的索引
+    // 当前显示的索引
     current: {
       type: Number,
       value: -1,
@@ -36,7 +42,21 @@ Component({
   methods: {
     _updateCurrent () {
       const childs = this.getChildNodes(this.data.component_name);
-      console.log(childs);
+      const length = childs.length;
+      if (
+        this.data.direction === 'horizontal' && 
+        length > 4
+      ) console.warn('direction: horizontal - 属性模式推荐使用四个 ');
+      if (childs.length === 0) return;
+      
+      childs.forEach((child, index) => {
+        child.setData({
+          currentIndex: index,
+          activeIndex: this.data.current,
+          direction: this.data.direction,
+          length: length
+        })
+      });
     }
   }
 })

@@ -1,6 +1,4 @@
 <!--public/components/steps/index.wxml-->
-<view class="xi-steps-wrap">
+<view class="xi-steps-wrap {{ direction === 'horizontal' ? '' : 'columns' }}">
   <slot></slot>
 </view>
-
-<input type="radio" checked="{{ item.check === 'asd' }}" />

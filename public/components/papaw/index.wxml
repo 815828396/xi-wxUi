@@ -1,0 +1,76 @@
+<view class="xi-class xi-papaw-wrap">
+  <view class="inner">
+    <!-- header -->
+    <view class="xi-papaw--header">
+      <view wx:if="{{ header }}" class="header">
+        <image src="{{ headImg }}" class="img"></image>
+        <text>{{ '小达' }}</text>
+      </view>
+      <view wx:else class="header">
+        <slot name="header"></slot>
+      </view>
+    </view>
+    <!-- container -->
+    <view class="xi-papaw--container" style="height: {{scrollHeight}}rpx">
+      <!-- 初次渲染的 问题列表 -->
+      <view class="question"
+        wx:for="{{ question }}"
+        wx:key="{{ index }}"
+        catchtap="handleQuestion"
+      >
+      </view>
+      <!-- 对话内容 -->
+      <!--<view class="papaw-list">
+        <view class="papaw-item {{ item.pos }}"
+          wx:for="{{ papawCont }}"
+          wx:key="{{ index }}"
+        >
+          <view wx:if="{{ item.pos === 'left' }}" class="item">
+            <image src="{{ headImg }}" class="img {{ item.pos }}"></image>
+            {{ item.val }}
+          </view>
+          <view wx:if="{{ item.pos === 'right' }}" class="item">
+            {{ item.val }}
+            <image src="{{ headImg }}" class="img {{ item.pos }}"></image>
+          </view>
+        </view>
+      </view>-->
+
+      <scroll-view class="papaw-list" scroll-y="true" style="height: 100%" scroll-top="{{ top }}">
+        <view class="papaw-item {{ item.pos }} {{ item.new }}"
+          wx:for="{{ papawCont }}"
+          wx:key="{{ index }}"
+        >
+          <view wx:if="{{ item.pos === 'left' }}" class="item">
+            <image src="{{ headImg }}" class="img {{ item.pos }}"></image>
+            {{ item.val }}
+          </view>
+          <view wx:if="{{ item.pos === 'right' }}" class="item">
+            {{ item.val }}
+            <image src="{{ headImg }}" class="img {{ item.pos }}"></image>
+          </view>
+          <!--<view class="{{ item.pos }}">
+          {{ item.val }}
+          </view>-->
+        </view>
+      </scroll-view>
+
+    </view>
+    <!-- footer -->
+    <view class="xi-papaw--footer">
+      <view wx:if="{{ footer }}" class="footer">
+        <input class="input" 
+        type="text" 
+        value="{{ value }}"
+        placeholder="请输入问题"
+        bindinput="handleInput" />
+        <xi-button xi-class="btn" 
+          small
+          bind:click="handleClick">send</xi-button>
+      </view>
+      <view wx:else class="footer">
+        <slot name="footer"></slot>
+      </view>
+    </view>
+  </view>
+</view>

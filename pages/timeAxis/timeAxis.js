@@ -1,7 +1,8 @@
 // pages/timeAxis/timeAxis.js
 Page({
   data: {
-    options: 5,
+    options: 3,
+    index: 0,
     currentIndex: 0
   },
 
@@ -9,9 +10,10 @@ Page({
 
   },
   click () {
-    this.setData({
-      options: ++this.data.options,
-      currentIndex: ++this.data.currentIndex
-    })
+    this.setData({ index: ++this.data.index })
+    // this.setData({
+    //   options: ++this.data.options,
+    //   currentIndex: ++this.data.currentIndex
+    // })
   }
 })
