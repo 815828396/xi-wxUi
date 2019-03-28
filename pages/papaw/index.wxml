@@ -1,9 +1,11 @@
 <xi-papaw
   papawCont="{{ arr }}"
+  question="{{ question }}"
   head-img="{{ headImg }}"
   header
   footer
-  scrollHeight="1100"
+  scrollHeight="900"
   bind:click="hand"
+  bind:fn="onFn"
 >
 </xi-papaw>

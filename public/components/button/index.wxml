@@ -1,9 +1,9 @@
 <!--public/components/button/button.wxml-->
 <view class="xi-class button-wrap {{ small ? 'small' : '' }} {{ 'xi-class' }}"
-  hover-class="btn--active"
+  hover-class="{{ !disabled ? 'btn--active' : '' }}"
   hover-stay-time="100"
   catchtap="handleClick">
-  <view class="button-box {{ type }}">
+  <view class="button-box {{ type }} {{ disabled ? 'disabled' : '' }}">
     <xi-icon
       wx:if="{{ loading }}"
       class="icon {{ loading ? 'loading-rotate' : '' }}"

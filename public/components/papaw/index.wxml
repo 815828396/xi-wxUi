@@ -3,7 +3,7 @@
     <!-- header -->
     <view class="xi-papaw--header">
       <view wx:if="{{ header }}" class="header">
-        <image src="{{ headImg }}" class="img"></image>
+        <!--<image src="{{ headImg }}" class="img"></image>-->
         <text>{{ '小达' }}</text>
       </view>
       <view wx:else class="header">
@@ -12,46 +12,51 @@
     </view>
     <!-- container -->
     <view class="xi-papaw--container" style="height: {{scrollHeight}}rpx">
-      <!-- 初次渲染的 问题列表 -->
-      <view class="question"
-        wx:for="{{ question }}"
-        wx:key="{{ index }}"
-        catchtap="handleQuestion"
-      >
-      </view>
-      <!-- 对话内容 -->
-      <!--<view class="papaw-list">
-        <view class="papaw-item {{ item.pos }}"
-          wx:for="{{ papawCont }}"
-          wx:key="{{ index }}"
-        >
-          <view wx:if="{{ item.pos === 'left' }}" class="item">
-            <image src="{{ headImg }}" class="img {{ item.pos }}"></image>
-            {{ item.val }}
-          </view>
-          <view wx:if="{{ item.pos === 'right' }}" class="item">
-            {{ item.val }}
-            <image src="{{ headImg }}" class="img {{ item.pos }}"></image>
-          </view>
-        </view>
-      </view>-->
-
       <scroll-view class="papaw-list" scroll-y="true" style="height: 100%" scroll-top="{{ top }}">
+        <!-- 初次渲染的 问题列表 -->
+        <view class="question-wrap">
+          <view class="question"
+            wx:for="{{ question }}"
+            wx:key="{{ index }}"
+            data-qindex="{{ index }}"
+            hover-class="click"
+            hover-stay-time="100"
+            catchtap="handleQuestion"
+          >{{ item.Q }}</view>
+        </view>
+        <!-- 对话列表 -->
         <view class="papaw-item {{ item.pos }} {{ item.new }}"
           wx:for="{{ papawCont }}"
-          wx:key="{{ index }}"
-        >
-          <view wx:if="{{ item.pos === 'left' }}" class="item">
-            <image src="{{ headImg }}" class="img {{ item.pos }}"></image>
-            {{ item.val }}
+          wx:for-index="qindex"
+          wx:key="{{ qindex }}">
+          <view class="maxW">
+            <!-- 左侧对话框 -->
+            <view 
+              class="item"
+              wx:if="{{ item.pos === 'left' }}">
+
+              <image src="{{ headImg }}" class="img {{ item.pos }}"></image>
+
+              <view>
+                <view class="desc">{{ item.val }}</view>
+                <view class="question"
+                  wx:for="{{ item.fnVal }}"
+                  wx:key="{{ index }}"
+                  data-qindex="{{ qindex }}"
+                  data-index="{{ index }}"
+                  wx:for-item="fnVal"
+                  catchtap="handleQuestion">
+                  {{ fnVal.Q }}
+                </view>
+              </view>
+            </view>
+
+            <!-- 右侧对话框 -->
+            <view wx:if="{{ item.pos === 'right' }}" class="item">
+              {{ item.val }}
+              <image src="{{ headImg }}" class="img {{ item.pos }}"></image>
+            </view>
           </view>
-          <view wx:if="{{ item.pos === 'right' }}" class="item">
-            {{ item.val }}
-            <image src="{{ headImg }}" class="img {{ item.pos }}"></image>
-          </view>
-          <!--<view class="{{ item.pos }}">
-          {{ item.val }}
-          </view>-->
         </view>
       </scroll-view>
 

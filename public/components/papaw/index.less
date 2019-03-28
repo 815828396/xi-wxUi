@@ -5,6 +5,7 @@
   height: 60rpx;
   border-radius: 50%;
   margin-right: 20rpx;
+  flex-shrink: 0;
 }
 .xi-papaw-wrap {
   padding: 50rpx 0;
@@ -14,24 +15,46 @@
   }
   // header
   .xi-papaw--header{
-    position: absolute;
-    top: -25rpx;
-    left: 30rpx;
-    z-index: 10;
+    // position: absolute;
+    // top: -45rpx;
+    // left: 30rpx;
+    // z-index: 10;
     background: #fff;
     .header {
       display: flex;
       align-items: center;
+      justify-content: center;
       padding: 0 20rpx;
+      margin: -50rpx 0 50rpx;
       font-size: @14;
     }
   }
-  // 对话内容
+  // 主体文字
   .xi-papaw--container {
     position: relative;
     height: 1000rpx;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
+    // 主动推出问题样式
+    .question-wrap {
+      position: relative;
+      max-width: 80%;
+      padding: 30rpx 30rpx 0 30rpx;
+      margin: 0 0 10rpx 30rpx;
+      display: inline-block;
+      border-radius: 10rpx;
+      background: @backgroundColor;
+      color: #0088cc;
+      .question {
+        .overflow();
+        margin-bottom: 30rpx;
+        text-decoration: underline;
+      }
+      .click {
+        .xi-click-hover(.7, @thameSmColor);
+      }
+    }
+    // 对话内容样式
     .papaw-list {
       position: absolute;
       width: 100%;
@@ -40,7 +63,7 @@
       // margin: 70rpx 30rpx 120rpx;
       font-size: @12;
       .papaw-item {
-        margin: 30rpx 0;
+        margin-bottom: 30rpx;
         overflow: hidden;
         display: flex;
         transition: all .3s;
@@ -61,9 +84,21 @@
             padding: 5rpx 10rpx;
           }
         }
+        .maxW {
+          max-width: 80%;
+        }
         .item {
           display: flex;
-          align-items: center;
+          // align-items: center;
+          .desc { 
+            padding-top: 15rpx;
+            box-sizing: border-box;
+          }
+          .question {
+            color: #0088cc;
+            margin: 20rpx 0;
+            text-decoration: underline;
+          }
         }
       }
 

@@ -16,6 +16,7 @@ Component({
       type: String,
       value: 'icon-loading1'
     },
+    disabled: Boolean,
     small: Boolean,
     loading: Boolean
   },
@@ -26,6 +27,8 @@ Component({
 
   methods: {
     handleClick () {
+      if (this.data.disabled) return;
+      
       this.triggerEvent('click', {
         ...this.returnPro(),
         dataset: this.dataset || {}
