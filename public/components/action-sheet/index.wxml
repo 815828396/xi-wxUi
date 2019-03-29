@@ -7,6 +7,9 @@
     <!-- header -->
     <view><slot name="header"></slot></view>
 
+    <!-- 自定义内容 -->
+    <slot></slot>
+
     <!-- 单项表 -->
     <view class="xi-item ellipsis {{ 'item-class' }} {{ action.disabled ? 'disabled' : '' }}"
       wx:for="{{ actions }}"
@@ -14,8 +17,9 @@
       wx:key="{{ index }}"
       bindtap="handleItemClick"
 
+      data-index="{{ index }}"
       data-disabled="{{ action.disabled || false }}"
-      data-fn="{{ action.fn || false }}"
+      data-callback="{{ action.callback || false }}"
 
       hover-class="{{ action.disabled ? '' : 'clickHover'}}"
       hover-stay-time="100">

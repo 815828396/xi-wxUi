@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/picker/index",
+    "pages/index/index",
     "pages/papaw/index",
     "pages/timeAxis/timeAxis",
-    "pages/index/index",
     "pages/logs/logs"
   ],
   "subpackages": [

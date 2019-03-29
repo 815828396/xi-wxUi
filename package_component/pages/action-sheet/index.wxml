@@ -13,7 +13,8 @@
 <xi-action
   cancel-text="取消"
   actions="{{ actions }}"
-  visiable="{{ visiable }}">
+  visiable="{{ visiable }}"
+  bind:action="action">
 </xi-action>
 <xi-action
   actions="{{ actions }}"

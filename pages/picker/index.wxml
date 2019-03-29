@@ -1,0 +1,29 @@
+<xi-button
+  bind:click="click">弹出picker</xi-button>  
+
+<xi-action
+  cancel-text="取消"
+  visiable="{{ visiable }}">
+  <view class="w">
+    <picker-view
+      indicator-style="height: 50px;"
+      style="width: 100%; height: 300px; text-align: center"
+      value="{{ [ 1, 2 , 4 ] }}"
+      bindchange="bindChange"
+    >
+      <picker-view-column>
+        <view wx:for="{{20}}" style="line-height: 50px">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{30}}" style="line-height: 50px">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{10}}" style="line-height: 50px">{{item}}日</view>
+      </picker-view-column>
+    </picker-view>
+    <view class="picker-btn">
+      <xi-button
+        bind:click="sureChange">确定</xi-button>
+    </view>
+  </view>
+</xi-action>

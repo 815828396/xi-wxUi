@@ -35,16 +35,20 @@ Component({
       this.triggerEvent('cancel')
     },
     handleItemClick (e) {
-      const { disabled, Fn } = e.currentTarget.dataset;
+      const { disabled, callback, index } = e.currentTarget.dataset;
 
       if (disabled) return;
 
-      if (!Fn)
-        this.triggerEvent('action', {
-          dataset: e.currentTarget.dataset
+      if (!callback)
+        this.trigger('action', {
+          ...this.returnPro(),
+          key: index
         })
 
-        Fn && this.getPage()[Fn]({ dataset: e.currentTarget.dataset });
+        callback && this.getPage()[callback]({ 
+          dataset: e.currentTarget.dataset,
+          key: index
+        });
     }
   }
 })
