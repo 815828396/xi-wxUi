@@ -56,7 +56,7 @@ Component({
       const question = question_arr[qIndex] || "";
 
       if (question_arr.length > 0 && question) {
-        // triggerEvent: 
+        
         this.trigger('fn', {
           obj: fnIndex !== -1 ? this.data.papawCont[qIndex] : this.data.question[qIndex],
           fnIndex: fnIndex
