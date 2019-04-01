@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/province/index",
+    "pages/index/index",
     "pages/image/index",
     "pages/picker/index",
-    "pages/index/index",
     "pages/papaw/index",
     "pages/timeAxis/timeAxis",
     "pages/logs/logs"
@@ -35,6 +36,7 @@
   "usingComponents": {
     "message": "./public/components/message/index",
     "cell": "./public/components/cell/index",
+    "province-group": "./public/components/province/index",
     "xi-steps": "./public/components/steps/index",
     "xi-step": "./public/components/step/index",
     "xi-icon": "./public/components/icon/index",

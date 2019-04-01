@@ -19,15 +19,18 @@ Component({
      * @param {Array} fnVal 问题数组 { Q, A }
      */
     papawCont: Array,
+
     /**
      * 初次渲染问题数组
      * @param {String} Q 问题
      * @param {String} A 答案
      */
     question: Array,
+
     // Default {header} {footer} Element
     header: String,
     footer: String,
+    
     // headimg
     headImg: String,
     scrollHeight: {

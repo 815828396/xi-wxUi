@@ -36,19 +36,22 @@ Component({
     },
     handleItemClick (e) {
       const { disabled, callback, index } = e.currentTarget.dataset;
-
+      
       if (disabled) return;
 
-      if (!callback)
+      // 判断是否存在用户自定义回调函数
+      if (!callback) {
         this.trigger('action', {
           ...this.returnPro(),
           key: index
         })
+      }
 
-        callback && this.getPage()[callback]({ 
-          dataset: e.currentTarget.dataset,
-          key: index
-        });
+      callback && this.getPage()[callback]({ 
+        dataset: e.currentTarget.dataset,
+        key: index
+      });
+        
     }
   }
 })

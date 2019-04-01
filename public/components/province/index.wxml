@@ -1,0 +1,46 @@
+<!--public/components/province/province.wxml-->
+<view class="xi-province xi-class">
+  <cell
+    target="province"
+    title="省份"
+    bind:click="handlePickerView">
+    <view slot="msg">
+      省份
+      <xi-icon icon="icon-jiantou1"></xi-icon>
+    </view>
+  </cell>
+
+  <cell wx:if="{{ zIndex > 1  }}">
+    <view slot="title">城市</view>
+    <picker slot="msg"
+      data-target="city"
+      mode="selector"
+      range="{{ city }}"
+      range-key="name"
+      value="{{ index[1] === -1 ? index[1] + 1 : index[1] }}"
+      disabled="{{ city.length === 0 }}"
+      bindchange="handleChange">
+      <text>{{ city[ index[1] ].name || '请选择' }}</text>
+      <font-icon iconClass="icon-jiantou1"></font-icon>
+    </picker>
+  </cell>
+
+  <cell wx:if="{{ zIndex > 2 }}">
+    <view slot="title">选择地区</view>
+    <picker slot="msg"
+      data-target="area"
+      mode="selector"
+      range="{{ area }}"
+      range-key="name"
+      value="{{ index[2] === -1 ? index[2] + 1 : index[2] }}"
+      disabled="{{ area.length === 0 }}"
+      bindchange="handleChange">
+      <text>{{ area[ index[2] ].name || '请选择' }}</text>
+      <font-icon iconClass="icon-jiantou1"></font-icon>
+    </picker>
+  </cell>
+</view>
+
+<xi-action visiable="{{ visiable }}"
+  actions="{{ [{ title: '123', callback: 'asd' }, { title: '123' }] }}">
+</xi-action>

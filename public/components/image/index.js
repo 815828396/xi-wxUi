@@ -86,7 +86,7 @@ Component({
       });
       // 终止上传
       // uploadTask.abort();
-      
+
       // Listen Upload Task
       uploadTask.onProgressUpdate(pro => {
         this.setData({
