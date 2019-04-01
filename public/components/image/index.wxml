@@ -5,7 +5,7 @@
   bindtap="handleChooseImage">
   <!-- 上传图片进度条 -->
   <view class="upload-progress {{ progress ? 'visiable' : '' }}">
-    <view class="upload-progress--line {{ progress > 30 && progress < 60 ? 'warn' : progress == 100 ? 'succ' : '' }}"
+    <view class="upload-progress--line {{ style.getClass(progress) }}"
       style="width: {{ progress }}%"
     >
     </view>
@@ -27,3 +27,15 @@
 <view class="privew-btn"
   wx:if="{{ zoom }}"
   bindtap="handleZoomImage">查看大图</view>
+
+<wxs module="style">
+module.exports = {
+  getClass: function (progress) {
+    return progress > 30 && progress < 60 
+      ? 'warn' 
+      : progress == 100 
+        ? 'succ' 
+        : '' 
+  }
+}
+</wxs>
