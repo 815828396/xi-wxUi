@@ -13,8 +13,8 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.2",
-	"appid": "wx3b315199825457e8",
+	"libVersion": "2.6.4",
+	"appid": "wx6b3eae5c7e2bdd53",
 	"projectname": "xi-wx-ui",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -25,6 +25,8 @@
 		"beforePreview": "npm run build",
 		"beforeUpload": ""
 	},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

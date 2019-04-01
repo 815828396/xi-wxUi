@@ -1,0 +1,12 @@
+<view class="xi-list">
+  <view class="xi-list__header">上传图片</view>
+  <view style="height: 300rpx;">
+    <xi-image
+      zoom
+      cannotUpdate
+      upload-url="{{ uploadUrl }}"
+      privew-image-path="{{ imgs }}"
+    >
+    </xi-image>
+  </view>
+</view>

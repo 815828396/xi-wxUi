@@ -1,0 +1,29 @@
+<!--public/components/uploadImage/upload-image.wxml-->
+<view class="upload-wrap {{ (uploadImagePath != '' || privewImagePath != '') ? '' : 'upload-wrap--line' }}"
+  hover-class="upload--active"
+  hover-stay-time="100"
+  bindtap="handleChooseImage">
+  <!-- 上传图片进度条 -->
+  <view class="upload-progress {{ progress ? 'visiable' : '' }}">
+    <view class="upload-progress--line {{ progress > 30 && progress < 60 ? 'warn' : progress == 100 ? 'succ' : '' }}"
+      style="width: {{ progress }}%"
+    >
+    </view>
+  </view>
+  
+  <!-- 展示图片 -->
+  <view class="upload-image--privew"
+    wx:if="{{ uploadImagePath || privewImagePath }}">
+    <image class="upload-image--privew_image" src="{{ uploadImagePath || privewImagePath }}" mode="aspectFit"></image>
+  </view>
+
+  <!-- 上传图片 -->
+  <view class="upload-image--up" wx:else>
+    <image class="upload-image--up_image {{ imageSize }}" src="{{ defaultSrc }}"></image>
+    <text class="upload-image--up_text">{{ label }}</text>
+  </view>
+</view>
+
+<view class="privew-btn"
+  wx:if="{{ zoom }}"
+  bindtap="handleZoomImage">查看大图</view>

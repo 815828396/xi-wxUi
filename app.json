@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/image/index",
     "pages/picker/index",
     "pages/index/index",
     "pages/papaw/index",
@@ -27,9 +28,9 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#1EA0FF",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "usingComponents": {
     "message": "./public/components/message/index",
@@ -41,6 +42,8 @@
     "xi-papaw": "./public/components/papaw/index",
     "xi-button": "./public/components/button/index",
     "xi-dialog": "./public/components/dialog/index",
-    "xi-modal": "./public/components/modal/index"
-  }
+    "xi-modal": "./public/components/modal/index",
+    "xi-image": "./public/components/image/index"
+  },
+  "sitemapLocation": "sitemap.json"
 }
