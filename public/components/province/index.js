@@ -105,7 +105,7 @@ Component({
     },
     /**
      * 修改picker-view数据
-     * @param {String} arrKey 当前数组在data中的字符串名字
+     * @param {String} arrKey 数组名称
      * @param {String} key 匹配数组中的 Key 值
      * @param {Number} _index 需要修改的 index 中的索引值
      */
