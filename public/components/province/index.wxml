@@ -2,45 +2,43 @@
 <view class="xi-province xi-class">
   <cell
     target="province"
-    title="省份"
+    title="地区"
     bind:click="handlePickerView">
-    <view slot="msg">
-      省份
+    <view slot="msg" class="msg">
+      <text>{{ province[index[0]].name }} </text>
+      <text wx:if="{{ zIndex > 1 }}">{{ city[index[1]].name}} </text>
+      <text wx:if="{{ zIndex > 2 }}">{{ area[index[2]].name }}</text>
       <xi-icon icon="icon-jiantou1"></xi-icon>
     </view>
   </cell>
 
-  <cell wx:if="{{ zIndex > 1  }}">
-    <view slot="title">城市</view>
-    <picker slot="msg"
-      data-target="city"
-      mode="selector"
-      range="{{ city }}"
-      range-key="name"
-      value="{{ index[1] === -1 ? index[1] + 1 : index[1] }}"
-      disabled="{{ city.length === 0 }}"
-      bindchange="handleChange">
-      <text>{{ city[ index[1] ].name || '请选择' }}</text>
-      <font-icon iconClass="icon-jiantou1"></font-icon>
-    </picker>
-  </cell>
-
-  <cell wx:if="{{ zIndex > 2 }}">
-    <view slot="title">选择地区</view>
-    <picker slot="msg"
-      data-target="area"
-      mode="selector"
-      range="{{ area }}"
-      range-key="name"
-      value="{{ index[2] === -1 ? index[2] + 1 : index[2] }}"
-      disabled="{{ area.length === 0 }}"
-      bindchange="handleChange">
-      <text>{{ area[ index[2] ].name || '请选择' }}</text>
-      <font-icon iconClass="icon-jiantou1"></font-icon>
-    </picker>
-  </cell>
 </view>
 
-<xi-action visiable="{{ visiable }}"
-  actions="{{ [{ title: '123', callback: 'asd' }, { title: '123' }] }}">
+<xi-action visiable="{{ visiable }}">
+  <view style="background: #fff; text-align: center;">
+    <picker-view
+      indicator-style="height: 50px;"
+      style="width: 100%; height: 300px;"
+      value="{{ index }}"
+      bindchange="pickerChange"
+    >
+      <picker-view-column>
+        <view style="line-height: 50px;"
+          wx:for="{{ province }}"
+          wx:key="{{ index }}">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column
+        wx:if="{{ zIndex > 1 }}">
+        <view style="line-height: 50px;"
+          wx:for="{{ city }}"
+          wx:key="{{ index }}">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column
+        wx:if="{{ zIndex > 2 }}">
+        <view style="line-height: 50px;"
+          wx:for="{{ area }}"
+          wx:key="{{ index }}">{{item.name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
 </xi-action>

@@ -1,1 +1,1 @@
-/* public/components/province/index.wxss */
+.msg { font-size: 28rpx; color: #73737D }
