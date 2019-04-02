@@ -1,6 +1,10 @@
+
+const BASE_URL = 'https://xmp.ctbls.com/smx/'
+// const BASE_URL = 'https://mp.ctbls.com/smx/'
 export default class Base_config {
   constructor () {
-    this.base_url = '';
+    this.base_url = 'https://xmp.ctbls.com/smx/';
+    // this.base_url = 'https://mp.ctbls.com/smx/';
     this.data = "";
     this.method = 'POST';
     this.content_type = 'application/json';

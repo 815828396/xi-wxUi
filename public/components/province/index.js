@@ -1,5 +1,5 @@
 import behavior from '../../../utils/behaviors/behaviors'
-import { $get } from '../../../assets/js/fetch/fetch'
+import fetch from '../../../assets/js/fetch/fetch'
 
 const env_provice = 'Login/getProvince';
 const env_city = 'Login/getCity';
@@ -63,7 +63,7 @@ Component({
     },
     // 获取省份数据
     _initProvince () {
-      $get(env_provice).then(res => {
+      fetch.$get(env_provice).then(res => {
         this.setData({ province: res.data });
 
         // 首次加载,自动获取城市信息数据
@@ -79,7 +79,7 @@ Component({
               || pro_id;
       const data = { id };
       
-      $get(env_city, data).then(res => {
+      fetch.$get(env_city, data).then(res => {
         this.setData({ city: res.data });
 
         this._initArea();
@@ -97,7 +97,7 @@ Component({
               || city_id;
       const data = { id };
 
-      $get(env_area, data).then(res => {
+      fetch.$get(env_area, data).then(res => {
         this.setData({ area: res.data });
 
         this.data.isDefault && this.updPickerData('area', 'name', 2);
