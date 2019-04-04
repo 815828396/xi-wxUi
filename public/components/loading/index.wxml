@@ -1,0 +1,18 @@
+<view class="xi-loading-wrap xi-class">
+  <!-- 气泡加载 -->
+  <view class="loading-bubble" wx:if="{{ type === 'bubble' }}">
+    <view class="loading-bubble__inner"></view>
+  </view>
+  <!-- 旋转加载 -->
+  <view wx:if="{{ type === 'page' }}">
+    <xi-icon icon="icon-loading" xi-class="rotate"></xi-icon>
+    <slot></slot>
+  </view>
+
+  <!-- 弱加载 -->
+  <view wx:if="{{ type === 'default' }}">
+    <button loading="true" class="loading-btn">
+      <slot></slot>
+    </button>
+  </view>
+</view>

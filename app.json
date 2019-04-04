@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/loading/loading",
     "pages/province/index",
     "pages/index/index",
     "pages/image/index",
@@ -39,6 +40,7 @@
     "province-group": "./public/components/province/index",
     "xi-steps": "./public/components/steps/index",
     "xi-step": "./public/components/step/index",
+    "xi-loading": "./public/components/loading/index",
     "xi-icon": "./public/components/icon/index",
     "xi-action": "./public/components/action-sheet/index",
     "xi-papaw": "./public/components/papaw/index",

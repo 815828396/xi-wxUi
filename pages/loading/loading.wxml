@@ -1,0 +1,19 @@
+<view class="local" style="padding: 30rpx;">
+  <view>
+    zhasd klasjdklasjdasjdjadklasdkasdkjs
+  </view>
+  <view class="local-loading">
+    <xi-loading wx:if="true" type="bubble">
+    </xi-loading>
+  </view>
+</view>
+<view style="padding: 30rpx;">
+  <xi-loading wx:if="true" type="page">
+    <text style="margin-left: 10rpx;">加载中</text>
+  </xi-loading>
+</view>
+<view style="padding: 30rpx;">
+  <xi-loading wx:if="true">
+    <text style="margin-left: 10rpx;">加载中</text>
+  </xi-loading>
+</view>
