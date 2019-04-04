@@ -1,0 +1,17 @@
+<view>
+  <xi-divider>我是有底线的</xi-divider>
+</view>
+<view>
+  <xi-divider
+    line-color="red">我是有底线的</xi-divider>
+</view>
+<view>
+  <xi-divider
+    line-color="red"
+    color="red">我是有底线的</xi-divider>
+</view>
+<view>
+  <xi-divider
+    line-color="blue"
+    color="red">我是有底线的</xi-divider>
+</view>

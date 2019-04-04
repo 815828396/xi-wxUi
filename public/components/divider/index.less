@@ -1,0 +1,23 @@
+@import '../../../assets/styles/mixinFn.less';
+.pseudo {
+  position: absolute; 
+  top: 20rpx; 
+  display: block; 
+  content: ""; 
+  width: 200rpx; 
+  height: 1rpx; 
+  background: #E6E6EB;
+}
+.xi-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  &__line {
+    flex-grow: 1;
+    height: 1px;
+  }
+  &__cont {
+    padding: 5px 25px;
+    font-size: @12;
+  }
+}

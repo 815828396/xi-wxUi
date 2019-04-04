@@ -1,0 +1,5 @@
+<view class="xi-divider">
+  <view class="xi-divider__line" style="background: {{ lineColor }}"></view>
+  <text class="xi-divider__cont" style="color: {{ color }}"><slot></slot></text>
+  <view class="xi-divider__line" style="background: {{ lineColor }}"></view>
+</view>

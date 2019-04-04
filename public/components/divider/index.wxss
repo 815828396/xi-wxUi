@@ -1,0 +1,1 @@
+.pseudo{position:absolute;top:20rpx;display:block;content:"";width:200rpx;height:1rpx;background:#E6E6EB}.xi-divider{position:relative;display:flex;align-items:center}.xi-divider__line{flex-grow:1;height:1px}.xi-divider__cont{padding:5px 25px;font-size:24rpx}
