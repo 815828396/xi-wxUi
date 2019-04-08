@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/date/index",
+    "pages/index/index",
     "pages/divider/index",
     "pages/province/index",
     "pages/loading/loading",
-    "pages/index/index",
     "pages/image/index",
     "pages/picker/index",
     "pages/papaw/index",
@@ -41,6 +42,7 @@
     "province-group": "./public/components/province/index",
     "xi-steps": "./public/components/steps/index",
     "xi-step": "./public/components/step/index",
+    "xi-date": "./public/components/date/index",
     "xi-divider": "./public/components/divider/index",
     "xi-loading": "./public/components/loading/index",
     "xi-icon": "./public/components/icon/index",

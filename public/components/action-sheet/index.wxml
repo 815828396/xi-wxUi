@@ -15,7 +15,7 @@
       wx:for="{{ actions }}"
       wx:for-item="action"
       wx:key="{{ index }}"
-      bindtap="handleItemClick"
+      catchtap="handleItemClick"
 
       data-index="{{ index }}"
       data-disabled="{{ action.disabled || false }}"
@@ -33,7 +33,8 @@
     <view class="xi-item xi-cancel--text"
       wx:if="{{ cancelText }}"
       data-target="close"
-      bindtap="handleClose"
+      data-btn="true"
+      catchtap="handleClose"
       hover-class="clickHover"
       hover-stay-time="100">
       {{ cancelText }}

@@ -10,7 +10,7 @@ Component({
   behaviors: [behavior],
 
   properties: {
-    
+    closeDialogModal: null,
     visiable: Boolean,
 
     // 取消文本
@@ -24,7 +24,10 @@ Component({
   },
   methods: {
     handleClose (e) {
-      const { target } = e.target.dataset;
+      
+      const { target, btn = "" } = e.target.dataset;
+      
+      if (this.data.closeDialogModal && !btn) return;
 
       if (target !== 'close') return;
 

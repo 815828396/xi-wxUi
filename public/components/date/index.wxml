@@ -1,0 +1,34 @@
+<xi-action
+  visiable="{{ visiable }}"
+  cancel-text="取消"
+  closeDialogModal
+>
+  <view class="xi-date">
+    <picker-view
+      indicator-style="height: 50px;"
+      class="xi-date__picker"
+      value="{{ keep_live_value }}"
+      bindchange="pickerChange"
+    >
+      <picker-view-column>
+        <view class="column" 
+          wx:for="{{ year }}"
+          wx:key="{{ index }}">{{ item }}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view class="column" 
+          wx:for="{{ months }}"
+          wx:key="{{ index }}">{{ item + 1 }}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view class="column" 
+          wx:for="{{ days }}"
+          wx:key="{{ index }}">{{ item + 1 }}日</view>
+      </picker-view-column>
+    </picker-view>
+    <view class="picker-btn">
+      <xi-button
+        bind:click="sureChange">确定</xi-button>
+    </view>
+  </view>
+</xi-action>

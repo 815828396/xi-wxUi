@@ -1,0 +1,11 @@
+<xi-button
+  target="date"
+  bind:click="pickerData">日期选择器</xi-button>
+<xi-button
+  target="time"
+  bind:click="pickerData">时间选择器</xi-button>
+
+<xi-date
+  visiable="{{ visiableDate }}"
+  bind:change="change"
+></xi-date>
