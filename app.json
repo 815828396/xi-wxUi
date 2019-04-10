@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/movable-view/movable-view",
     "pages/loading/loading",
     "pages/date/index",
     "pages/index/index",
@@ -40,6 +41,9 @@
     "message": "./public/components/message/index",
     "cell": "./public/components/cell/index",
     "province-group": "./public/components/province/index",
+    "xi-poster": "./public/components/poster/index",
+    "xi-poster-canvas": "./public/components/poster-canvas/index",
+    "xi-poster-operate": "./public/components/poster-operate/index",
     "xi-steps": "./public/components/steps/index",
     "xi-step": "./public/components/step/index",
     "xi-date": "./public/components/date/index",

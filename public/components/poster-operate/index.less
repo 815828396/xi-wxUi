@@ -1,0 +1,50 @@
+@import '../../../assets/styles/mixinFn.less';
+
+.canvas-operate {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 -5rpx 10rpx #ccc;
+  &__horizontal {
+    display: flex;
+    // justify-content: space-around;
+    background: @backgroundColor;
+    .item {
+      flex-grow: 1;
+      padding: 30rpx 0;
+      text-align: center;
+      color: @thameAuxColor;
+      &.click {
+        color: @defaultColor;
+        .xi-click-hover(.5);
+      }
+      &:last-child {
+        border: none;
+      }
+      .inner {
+        border-right: 1px solid #ccc;
+        .icon-size {
+          font-size: 36rpx !important;
+        }
+      }
+    }
+  }
+}
+// 模态框样式
+.btn-group {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 0 10rpx;
+  view {
+    flex-grow: 1;
+    text-align: center;
+  }
+  .btn-confirm {
+    color: @successColor;
+  }
+  .btn-cancel {
+    color: @thameAuxColor;
+    border-right: 1rpx solid @thameSmColor;
+  }
+}

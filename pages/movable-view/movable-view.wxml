@@ -1,0 +1,9 @@
+
+<view class="canvas-wrap">
+  <xi-poster
+
+  >
+    <xi-poster-canvas></xi-poster-canvas>
+    <xi-poster-operate></xi-poster-operate>
+  </xi-poster>
+</view>

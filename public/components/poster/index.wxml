@@ -1,0 +1,6 @@
+<!--public/components/poster-canvas/index.wxml-->
+<view
+  class="xi-class"
+  style="width: 100%; height: 100%; position: relateive">
+  <slot></slot>
+</view>

@@ -4,8 +4,10 @@ import regeneratorRuntime  from './regenerator-runtime/runtime'
 
 /**
  * 获取 单个或多个标签 selector 元素属性信息
+ * 可获取属性:
+ *  height, width, top, left, right, bottom, dataset
  * @param {String} property 需要获取的属性, 当传入 {} 空对象时， 返回所有属性
- * @param  {...any} args 获取的 标签元素ID 如：'#tab'
+ * @param {...any} args 获取的 标签元素ID 如：'#tab'
  */
 export let getSelectorAttr = ({ property: ARG_property = {} }, ...args) => {
   /** if have the Property */
@@ -25,7 +27,7 @@ export let getSelectorAttr = ({ property: ARG_property = {} }, ...args) => {
       _selec.exec(res => {
         try {
           if (Object.keys(ARG_property).length !== 0) result.push(res[0][ARG_property])
-          /** Dont have the Property , Return all Property */
+          // Dont have the Property , Return all Property
           else result.push(res[0])
         } catch (err) {
           console.warn('getSelectorAttr 参数中 可能传入不存在的 id 元素,请检查')

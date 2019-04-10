@@ -12,7 +12,8 @@
     </view>
 
     <!-- button -->
-    <view class="xi-modal__button">
+    <view class="xi-modal__button"
+      wx:if="{{ cancel || confirm }}">
       <view class="btn-item"
         wx:if="{{ cancel }}">
         <xi-button type="default"

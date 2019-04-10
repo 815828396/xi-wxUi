@@ -1,0 +1,35 @@
+<view
+  style='padding: 30rpx; box-sizing: border-box;'
+>
+  <movable-area
+    class="xi-calss canvas-wrap"
+  >
+    <movable-view
+      class="canvas-wrap__{{ item.type }} {{ item.direction || '' }}"
+      wx:for="{{ canvasOptions }}"
+      wx:key="{{ index }}"
+      style="{{ style.text(item) }}"
+      direction="all"
+      bindchange="onChange"
+      bindscale="onScale"
+    >
+    {{ item.value }}
+    </movable-view>
+  </movable-area>
+</view>
+
+<wxs module="style">
+  module.exports = {
+    // 类型为文本
+    text: function (options) {
+      var colorCss = "color: " + options.color + ";";
+      var fontSizeCss = "font-size: " + options.size + "px;";
+      console.log(colorCss + fontSizeCss);
+      return colorCss + fontSizeCss;
+    },
+    // 类型为图片
+    image: function () {
+
+    }
+  }
+</wxs>

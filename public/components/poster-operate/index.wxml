@@ -1,0 +1,85 @@
+<view class="canvas-operate">
+  <view class="canvas-operate__horizontal">
+    <view class="item"
+      hover-class="click"
+      hover-stay-time="100"
+      data-target="wenben"
+      bindtap="handleClick"
+      bindlongtap="privewBrief">
+      <view class="inner">
+        <xi-icon xi-class="icon-size" icon="icon-wenben"></xi-icon>
+      </view>
+    </view>
+    <view class="item"
+      hover-class="click"
+      hover-stay-time="100"
+      data-target="wenbenBianji"
+      bindtap="handleClick"
+      bindlongtap="privewBrief">
+      <view class="inner">
+        <xi-icon xi-class="icon-size" icon="icon-zitiyanse"></xi-icon>
+      </view>
+    </view>
+    <view class="item"
+      hover-class="click"
+      hover-stay-time="100"
+      data-target="yanse"
+      bindtap="handleClick"
+      bindlongtap="privewBrief">
+      <view class="inner">
+        <xi-icon xi-class="icon-size" icon="icon-yanse"></xi-icon>
+      </view>
+    </view>
+    <view class="item"
+      hover-class="click"
+      hover-stay-time="100"
+      data-target="scale"
+      bindtap="handleClick"
+      bindlongtap="privewBrief">
+      <view class="inner">
+        <xi-icon xi-class="icon-size" icon="icon-renjijiaohuD-sanweisuofang"></xi-icon>
+      </view>
+    </view>
+    <view class="item"
+      hover-class="click"
+      hover-stay-time="100"
+      data-target="tupian"
+      bindtap="handleClick"
+      bindlongtap="privewBrief">
+      <view class="inner">
+        <xi-icon xi-class="icon-size" icon="icon-tupian"></xi-icon>
+      </view>
+    </view>
+    <view class="item"
+      hover-class="click"
+      hover-stay-time="100"
+      data-target="huizhi"
+      bindtap="handleClick"
+      bindlongtap="privewBrief">
+      <view class="inner">
+        <xi-icon xi-class="icon-size" icon="icon-renjijiaohuDzoom-suofangD"></xi-icon>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 插入文本 模態框 -->
+<xi-modal
+  visiable="{{ visiableEditorText }}"
+  title="插入文本"
+>
+  <view class="container">
+    <input type="text" 
+      cursor-spacing="100"
+      focus="{{ visiableEditorText }}" 
+      value="{{ visiableEditorText ? textValue : '' }}"
+      placeholder="请输入文本" 
+      bindinput="handleInput"/>
+  </view>
+  <view class="btn-group">
+    <view class="btn-cancel"
+      data-target="visiableEditorText"
+      bindtap="cancel">取消</view>
+    <view class="btn-confirm"
+      bindtap="confirm">确定</view>
+  </view>
+</xi-modal>

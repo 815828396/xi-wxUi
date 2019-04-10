@@ -1,6 +1,6 @@
 <view class="xi-loading-wrap xi-class">
   <!-- 呼吸灯动画 -->
-  <view class="loading-bubble" wx:if="{{ type === 'bubble' }}">
+  <view class="loading-bubble" wx:if="{{ type === 'breath' }}">
     <view class="loading-bubble__circle shrink"></view>
     <view class="loading-bubble__circle zoom"></view>
   </view>
