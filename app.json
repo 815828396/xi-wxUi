@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/loading/loading",
     "pages/date/index",
     "pages/index/index",
     "pages/divider/index",
     "pages/province/index",
-    "pages/loading/loading",
     "pages/image/index",
     "pages/picker/index",
     "pages/papaw/index",
