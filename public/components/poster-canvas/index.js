@@ -40,7 +40,7 @@ Component({
     canvasOptions: [],
   },
   methods: {
-    inertText(options) {
+    initText(options) {
       let { value, size, color } = options;
       let canvasOptions = this.data.canvasOptions;
       canvasOptions.push({
@@ -49,6 +49,36 @@ Component({
       })
       this.setData({ canvasOptions });
       // this.data.
+    },
+
+    // 
+    initImage() {
+
+    },
+
+    /**
+     * 监听元素双指缩放事件
+     * @param {Object} detail 缩放比例尺寸信息
+     */
+    onScale({ detail }) {
+      const { x, y, scale } = detail;
+      console.log(x, y, scale);
+    },
+    
+    /**
+     * 监听元素拖动事件
+     * @param {Object} e 事件源
+     */
+    onChange(e) {
+      const { x, y, source } = e.detail;
+
+      // 移动超出界限删除当前元素
+      if (source.indexOf('bounds') > 0) {
+        this.setData({ is: true });
+        return;
+      } 
+
+      console.log(x, y, source);
     }
   }
 })

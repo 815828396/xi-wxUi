@@ -62,10 +62,31 @@
     </view>
   </view>
 </view>
-<!-- 插入文本 模態框 -->
+<!-- 插入文本 modal框 -->
 <xi-modal
-  visiable="{{ visiableEditorText }}"
+  visiable="{{ visiableEditor_wenben }}"
   title="插入文本"
+>
+  <view class="container">
+    <input type="text" 
+      cursor-spacing="100"
+      focus="{{ visiableEditor_wenben }}" 
+      value="{{ visiableEditor_wenben ? value : '' }}"
+      placeholder="请输入文本" 
+      bindinput="text_handleInput"/>
+  </view>
+  <view class="btn-group">
+    <view class="btn-cancel"
+      data-target="visiableEditor_wenben"
+      bindtap="cancel">取消</view>
+    <view class="btn-confirm"
+      bindtap="text_confirm">确定</view>
+  </view>
+</xi-modal>
+<!-- 插入图片配置 modal框 -->
+<xi-modal
+  visiable="{{ visiableEditor_tupian }}"
+  title="配置图片质量"
 >
   <view class="container">
     <input type="text" 
@@ -73,13 +94,13 @@
       focus="{{ visiableEditorText }}" 
       value="{{ visiableEditorText ? textValue : '' }}"
       placeholder="请输入文本" 
-      bindinput="handleInput"/>
+      bindinput="text_handleInput"/>
   </view>
   <view class="btn-group">
     <view class="btn-cancel"
       data-target="visiableEditorText"
-      bindtap="cancel">取消</view>
+      bindtap="text_cancel">取消</view>
     <view class="btn-confirm"
-      bindtap="confirm">确定</view>
+      bindtap="text_confirm">确定</view>
   </view>
 </xi-modal>

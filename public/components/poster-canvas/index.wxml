@@ -2,18 +2,25 @@
   style='padding: 30rpx; box-sizing: border-box;'
 >
   <movable-area
-    class="xi-calss canvas-wrap"
+    class="xi-class canvas-wrap"
   >
     <movable-view
-      class="canvas-wrap__{{ item.type }} {{ item.direction || '' }}"
+      class="canvas-wrap__{{ option.type }} {{ option.direction || '' }}"
       wx:for="{{ canvasOptions }}"
+      wx:for-item="option"
       wx:key="{{ index }}"
-      style="{{ style.text(item) }}"
+      style="{{ style.textStyle(option) }}"
+
+      out-of-bounds="true"
       direction="all"
+      scale="true"
       bindchange="onChange"
       bindscale="onScale"
     >
-    {{ item.value }}
+      <!-- 文本 -->
+      <text wx:if="{{ option.type === 'text' }}">{{ option.value }}</text>
+      <!-- 图片 -->
+      <image wx:else src="{{ option.path }}"></image>
     </movable-view>
   </movable-area>
 </view>
@@ -21,15 +28,13 @@
 <wxs module="style">
   module.exports = {
     // 类型为文本
-    text: function (options) {
+    textStyle: function (options) {
       var colorCss = "color: " + options.color + ";";
       var fontSizeCss = "font-size: " + options.size + "px;";
       console.log(colorCss + fontSizeCss);
       return colorCss + fontSizeCss;
     },
     // 类型为图片
-    image: function () {
-
-    }
+    image: function () {}
   }
 </wxs>

@@ -26,8 +26,14 @@ Component({
 
   },
   data: {
-    ...def_options
+    ...def_options,
+    parentComponent: ""
   },
+
+  ready() { 
+    this.data.parentComponent = this.getRelationNodes(relation_parent_url)[0];
+  },
+
   methods: {
     // 长按工具,查看简介
     privewBrief(e) {
@@ -37,38 +43,68 @@ Component({
     // 点击工具按钮,触发对应效果
     handleClick(e) {
       const target = e.currentTarget.dataset.target;
-
-      switch (target) {
-        case 'wenben':
-          this.setData({ visiableEditorText: true });
-          break;
-      }
+      console.log(target);
+      this.setData({ [`visiableEditor_${target}`]: true });
+      // switch (target) {
+      //   case 'wenben':
+      //     this.setData({ visiableEditorText: true });
+      //     break;
+      //   case 'tupian':
+      //     this.setData({ visiableEditorImg: true });
+      //     break;
+      // }
     },
     // 文本输入
-    handleInput({ detail }) {
+    text_handleInput({ detail }) {
       this.data.value = detail.value;
     },
-    // 取消按钮
+    // 文本取消按钮
     cancel(e) {
       const target = e.currentTarget.dataset.target;
 
       this.setData({ [target]: false, ...def_options });
     },
-    // 确认按钮
-    confirm(e) {
+    // 文本确认按钮
+    text_confirm(e) {
       if (!this.data.value) {
         alert._showToast({ title: '请插入文本!' });
         return;
       };
 
-      const parent = this.getRelationNodes(relation_parent_url)[0];
-      parent.updCanvasText({
-        value: this.data.value,
-        color: this.data.color,
-        size: this.data.size
-      });
+      const { value, color, size } = this.data;
 
-      this.setData({ visiableEditorText: false, ...def_options });
+      this.insertOptions('insertCanvasText', { value, color, size })
+          ._initDefault('visiableEditor_wenben');
+    },
+
+    // 选择图片
+    img_chooseImage() {
+      wx.chooseImage({
+        count: 1,
+        success: opt => {
+          console.log(opt)
+        }
+      })
+    },
+
+
+    /**
+     * 向父组件传递参数
+     * @param {Function} fn 父组件执行函数名称
+     * @param {Object} options 配置参数
+     * @return {this} this 链式调用
+     */
+    insertOptions (fn, options) {
+      this.data.parentComponent[fn](options);
+      return this;
+    },
+
+    /**
+     * 恢复默认函数
+     * @param {String} is 需要隐藏的模态框名称
+     */
+    _initDefault(is) {
+      this.setData({ [is]: false, ...def_options });
     }
   }
 })
