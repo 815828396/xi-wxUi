@@ -1,4 +1,4 @@
-<view class="xi-class xi-messageClose {{ visiable ? 'show' : '' }}">
+<view class="xi-class xi-messageClose {{ transition }} {{ visiable ? transition + '-show' : '' }}">
   <view class="inner">
     <view class="container {{ center ? 'center' : '' }}">
       <view class="icon">

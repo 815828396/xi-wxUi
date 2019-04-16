@@ -5,15 +5,27 @@
 }
 .xi-messageClose {
   position: fixed;
-  top: -30rpx;
   width: 100%;
-  transition: top .3s;
-  .xi-visiable();
   &:extend(.px);
-  // start 展示类名
-  &.show {
-    .xi-show();
-    top: 0;
+
+  // 不同的动画效果
+  // 垂直降落效果
+  &.common {
+    top: -100%;
+    transition: all .5s;
+    &-show {
+      top: 0;
+    }
+  }
+  // 回弹效果
+  &.springBack {
+    transform: scale(0);
+    transition: all .5s;
+    transform-origin: 100% 50%;
+    &-show {
+      transform-origin: 0 50%;
+      transform: scale(1);
+    }
   }
   .inner {
     position: relative;

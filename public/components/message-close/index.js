@@ -13,7 +13,11 @@ Component({
     visiable: false,
     content: "",
     center: false,
-    btnText: "确定"
+    btnText: "确定",
+    // 动画效果， 默认普通 降落
+    //          回弹效果: springBack
+    //          做进又出
+    transition: 'common'
   },
 
   methods: {
