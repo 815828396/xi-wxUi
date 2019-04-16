@@ -3,14 +3,14 @@
  * 获取页面中 Toast 和 Message 的组件
  * @param { String } selector 
  */
-function getComponent (selector, tip = '') {
+function getComponent(selector, tip = '') {
   const pages = getCurrentPages();
   const selec = pages[pages.length - 1];
 
   const component = selec.selectComponent(selector)
 
   if (!component) {
-    throw new Error (`未获取到默认 Message 组件, id = ${tip}`);
+    throw new Error(`未获取到默认 Message 组件, id = ${tip}`);
   }
 
   return component
@@ -23,7 +23,7 @@ function getComponent (selector, tip = '') {
  * @param { Object } options 用户自定义配置属性
  * @desc 默认组件 ID #toast
  */
-function Toast (options) {
+function Toast(options) {
   const { selector = "#toast" } = options;
 
   const component = getComponent(selector);
@@ -38,7 +38,7 @@ function Toast (options) {
  * @param_key content  : 文本内容
  * @param_key type     : 弹框类型
  */
-function Message (options) {
+function Message(options) {
   const { selector = '#message' } = options;
 
   const _component = getComponent(selector, '#message');
@@ -51,8 +51,9 @@ function Message (options) {
  * @description 按钮监听事件 onMessageCloseClick , 
  *              需要调用$MessageClose.hide() 方法隐藏
  */
-function MessageClose () {}
+function MessageClose() { };
 /**
+ * 展示弹框组件
  * @param { Object } options 用户自定义配置属性
  * @param_key selector : 元素ID
  * @param_key content  : 文本内容
@@ -65,6 +66,9 @@ MessageClose.prototype.show = function (options) {
   this._component = getComponent(selector, '#message-close');
   this._component.show(options);
 }
+/**
+ * 隐藏弹框
+ */
 MessageClose.prototype.hide = function () {
   this._component.hide();
 }
