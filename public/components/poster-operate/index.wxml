@@ -77,7 +77,7 @@
   </view>
   <view class="btn-group">
     <view class="btn-cancel"
-      data-target="visiableEditor_wenben"
+      data-target="wenben"
       bindtap="cancel">取消</view>
     <view class="btn-confirm"
       bindtap="text_confirm">确定</view>
@@ -86,21 +86,37 @@
 <!-- 插入图片配置 modal框 -->
 <xi-modal
   visiable="{{ visiableEditor_tupian }}"
-  title="配置图片质量"
+  title="配置图片信息"
 >
   <view class="container">
-    <input type="text" 
-      cursor-spacing="100"
-      focus="{{ visiableEditorText }}" 
-      value="{{ visiableEditorText ? textValue : '' }}"
-      placeholder="请输入文本" 
-      bindinput="text_handleInput"/>
+    <view class="slider">
+      <view class="title">选择图片数量</view>
+      <slider 
+        show-value
+        min="{{ sliderMin }}" 
+        max="{{ sliderMax }}" 
+        step="1"
+        bindchange="img_countSliderChange" />
+    </view>
+    <view>
+      <view class="title">请选择图片质量</view>
+      <radio-group class="radio-group" bindchange="img_qualityChange">
+        <label class="radio">
+          <radio value="1" />
+          压缩图
+        </label>
+        <label class="radio">
+          <radio value="0" checked="true" />
+          原图
+        </label>
+      </radio-group>
+    </view>
   </view>
   <view class="btn-group">
     <view class="btn-cancel"
-      data-target="visiableEditorText"
-      bindtap="text_cancel">取消</view>
+      data-target="tupian"
+      bindtap="cancel">取消</view>
     <view class="btn-confirm"
-      bindtap="text_confirm">确定</view>
+      bindtap="img_chooseImage">确定</view>
   </view>
 </xi-modal>

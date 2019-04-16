@@ -39,7 +39,17 @@ Component({
     },
     // 插入图片
     insertCanvasImg(options) {
-      this.data.canvasComponent.initImage(options);
+      
+      const path = options.path;
+      if (typeof path === 'string') {
+        this.data.canvasComponent.initImage(path);
+      }
+      else {
+        let length = path.length;
+        for (let i = 0; i < lenght; i ++) {
+          this.data.canvasComponent.initImage(path[i]);
+        }
+      }
     },
     // 通过数组标识索引值来删除 对应的数据
     deleteCanvasByIndex(index) {

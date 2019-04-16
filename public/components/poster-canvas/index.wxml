@@ -20,7 +20,7 @@
       <!-- 文本 -->
       <text wx:if="{{ option.type === 'text' }}">{{ option.value }}</text>
       <!-- 图片 -->
-      <image wx:else src="{{ option.path }}"></image>
+      <image wx:else src="{{ option.path }}" mode="aspectFill"></image>
     </movable-view>
   </movable-area>
 </view>

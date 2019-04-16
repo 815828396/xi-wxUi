@@ -40,6 +40,7 @@ Component({
     canvasOptions: [],
   },
   methods: {
+    // 插入文字
     initText(options) {
       let { value, size, color } = options;
       let canvasOptions = this.data.canvasOptions;
@@ -48,12 +49,13 @@ Component({
         value, size, color
       })
       this.setData({ canvasOptions });
-      // this.data.
     },
 
-    // 
-    initImage() {
-
+    // 插入图片
+    initImage(path) {
+      let canvasOptions = this.data.canvasOptions;
+      canvasOptions.push({ type: 'image', path });
+      this.setData({ canvasOptions });
     },
 
     /**

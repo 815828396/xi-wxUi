@@ -22,12 +22,16 @@ Component({
 
   },
 
-  properties: {
-
-  },
   data: {
     ...def_options,
-    parentComponent: ""
+    parentComponent: "",
+    // 滑动条设置
+    sliderMin: 1,
+    sliderMax: 5,
+    sliderStep: 1,
+    // 图片数量
+    imgCount: 1,
+    imgQuality: 0
   },
 
   ready() { 
@@ -43,16 +47,7 @@ Component({
     // 点击工具按钮,触发对应效果
     handleClick(e) {
       const target = e.currentTarget.dataset.target;
-      console.log(target);
       this.setData({ [`visiableEditor_${target}`]: true });
-      // switch (target) {
-      //   case 'wenben':
-      //     this.setData({ visiableEditorText: true });
-      //     break;
-      //   case 'tupian':
-      //     this.setData({ visiableEditorImg: true });
-      //     break;
-      // }
     },
     // 文本输入
     text_handleInput({ detail }) {
@@ -62,7 +57,15 @@ Component({
     cancel(e) {
       const target = e.currentTarget.dataset.target;
 
-      this.setData({ [target]: false, ...def_options });
+      this.setData({ [`visiableEditor_${target}`]: false, ...def_options });
+    },
+    // 选择上传图片数量
+    img_countSliderChange({ detail }) {
+      this.data.imgCount = detail.value;
+    },
+    // 选择图片的尺寸 0 ： 原图 , 1 ： 压缩图
+    img_qualityChange({ detail }) {
+      this.data.imgQuality = detail.value;
     },
     // 文本确认按钮
     text_confirm(e) {
@@ -76,13 +79,15 @@ Component({
       this.insertOptions('insertCanvasText', { value, color, size })
           ._initDefault('visiableEditor_wenben');
     },
-
     // 选择图片
     img_chooseImage() {
       wx.chooseImage({
-        count: 1,
+        count: this.data.imgCount,
+        sizeType: [this.data.imgQuality],
         success: opt => {
-          console.log(opt)
+          const path = opt.tempFilePaths[0];
+          this.insertOptions('insertCanvasImg', { path })
+              ._initDefault('visiableEditor_tupian');
         }
       })
     },
