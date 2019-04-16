@@ -1,6 +1,7 @@
-//index.js
-//获取应用实例
-const app = getApp()
+
+import { $MessageClose} from '../../utils/uiBase';
+const app = getApp();
+const MessageClose = new $MessageClose();
 
 Page({
   data: {
@@ -24,6 +25,14 @@ Page({
     ]
   },
   onLoad: function () {
+  },
+  asd() {
+    MessageClose.show({
+      content: 'tishi',
+      btnText: '确定吗?'
+    });
+  },
+  aaa() {
+    MessageClose.hide();
   }
-  
 })

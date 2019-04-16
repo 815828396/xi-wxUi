@@ -1,0 +1,34 @@
+@import '../../../assets/styles/mixinFn.less';
+.px {
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.xi-messageClose {
+  position: fixed;
+  top: -30rpx;
+  width: 100%;
+  transition: top .3s;
+  .xi-visiable();
+  &:extend(.px);
+  // start 展示类名
+  &.show {
+    .xi-show();
+    top: 0;
+  }
+  .inner {
+    background: #fff;
+    box-shadow: 0 0 15px #ccc;
+    min-height: 150rpx;
+    .container {
+      &:extend(.px);
+      font-size: @14;
+      color: @thameAuxColor;
+      &.center {
+        text-align: center;
+      }
+    }
+    .btn {
+      &:extend(.px);
+    }
+  }
+}

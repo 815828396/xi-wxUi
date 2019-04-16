@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/movable-view/movable-view",
     "pages/loading/loading",
     "pages/date/index",
-    "pages/index/index",
     "pages/divider/index",
     "pages/province/index",
     "pages/image/index",
@@ -38,6 +38,7 @@
     "navigationBarTextStyle": "white"
   },
   "usingComponents": {
+    "message-close": "./public/components/message-close/index",
     "message": "./public/components/message/index",
     "cell": "./public/components/cell/index",
     "province-group": "./public/components/province/index",

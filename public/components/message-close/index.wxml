@@ -1,0 +1,13 @@
+<view class="xi-class xi-messageClose {{ visiable ? 'show' : '' }}">
+  <view class="inner">
+    <view class="container {{ center ? center : '' }}">
+      {{ content }}
+    </view>
+    <view class="btn">
+      <xi-button
+        bind:click="btnClick">
+        {{ btnText }}
+      </xi-button>
+    </view>
+  </view>
+</view>

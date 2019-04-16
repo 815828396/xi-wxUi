@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<message-close id="message-close"
+  bind:onMessageCloseClick="aaa"></message-close>
 <view class="compnent-wrap">
   <view class="title">
     <navigator wx:for="{{ navlist }}" wx:key="{{ index }}"
@@ -7,3 +9,4 @@
       hover-class="className">{{ item.title }}</navigator>
   </view>
 </view>
+<xi-button bind:click="asd">tanchu</xi-button>
