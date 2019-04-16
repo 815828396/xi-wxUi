@@ -1,7 +1,12 @@
 <view class="xi-class xi-messageClose {{ visiable ? 'show' : '' }}">
   <view class="inner">
-    <view class="container {{ center ? center : '' }}">
-      {{ content }}
+    <view class="container {{ center ? 'center' : '' }}">
+      <view class="icon">
+        <xi-icon icon="icon-tongzhi1" xi-class="fzMax"></xi-icon>
+      </view>
+      <view class="content">
+        {{ content }}
+      </view>
     </view>
     <view class="btn">
       <xi-button

@@ -29,7 +29,8 @@ Page({
   asd() {
     MessageClose.show({
       content: 'tishi',
-      btnText: '确定吗?'
+      btnText: '确定吗?',
+      center: true
     });
   },
   aaa() {

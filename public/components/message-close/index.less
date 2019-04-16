@@ -16,19 +16,58 @@
     top: 0;
   }
   .inner {
+    position: relative;
     background: #fff;
-    box-shadow: 0 0 15px #ccc;
+    border-radius: 10rpx;
+    box-shadow: 0 3rpx 5px @thameSmColor;
     min-height: 150rpx;
+    &::before,
+    &::after {
+      position: absolute;
+      z-index: -1;
+      bottom: -5rpx;
+      content: "";
+      display: block;
+      width: 50%;
+      height: 50rpx;
+      border-radius: 5px;
+      background: @thameSmColor;
+      box-shadow: 0 4px 15px @thameSmColor;
+      opacity: .7;
+    }
+    &::before {
+      left: 5rpx;
+      transform-origin: 60% 0;
+      transform: rotate(-3deg);
+    }
+    &::after {
+      right: 5rpx;
+      transform-origin: 40% 0;
+      transform: rotate(3deg);
+    }
     .container {
       &:extend(.px);
+      display: flex;
+      align-items: center;
       font-size: @14;
       color: @thameAuxColor;
       &.center {
-        text-align: center;
+        justify-content: center;
+      }
+      // iconfont 放大化
+      .fzMax {
+        font-size: 50rpx !important;
+      }
+      .content {
+        margin-left: 30rpx;
       }
     }
     .btn {
       &:extend(.px);
+      font-size: 28rpx;
+      color: @thameColor;
+      text-align: right;
+      text-decoration: underline;
     }
   }
 }
