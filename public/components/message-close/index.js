@@ -14,10 +14,10 @@ Component({
     content: "",
     center: false,
     btnText: "确定",
-    // 动画效果， 默认普通 降落
+    // 动画效果， 默认 垂直降落： common 
     //          回弹效果: springBack
     //          做进又出
-    transition: 'common'
+    transition: 'springBack'
   },
 
   methods: {
