@@ -4,8 +4,11 @@
   <view class="dialog_wrap {{ visiable ? 'dialog_wrap--show' : '' }}">
     <!-- 关闭按钮 -->
     <view class="dialog-title" wx:if="{{ title }}">
-      <view class="title {{ center ? 'center' : '' }}">{{ title }}</view>
-      <xi-icon icon="icon-loading"></xi-icon>
+      <view class="title {{ center ? 'center' : '' }}">
+        <xi-icon icon="icon-cuowu1"></xi-icon>
+        {{ title }}
+      </view>
+      <xi-icon icon="icon-cuowu2"></xi-icon>
     </view>
 
     <!-- 状态图片 -->
@@ -17,11 +20,20 @@
     </view>
 
     <view class="dialog_btn">
-      <view class="btn" wx:if="{{ !showCancel }}">
-        <xi-button type="default" target="cancel" bind:click="btnClick">{{ cancel }}</xi-button>
+      <view class="btn cancel"
+        hover-class="btnHover"
+        hover-stay-time="100"
+        wx:if="{{ !showCancel }}"
+        data-target="cancel"
+        bindtap="btnClick">
+        {{cancel}}
       </view>
-      <view class="btn">
-        <xi-button target="confirm" bind:click="btnClick">{{ confirm }}</xi-button>
+      <view class="btn confirm"
+        hover-class="btnHover"
+        hover-stay-time="100"
+        data-target="confirm"
+        bindtap="btnClick">
+        {{confirm}}
       </view>
     </view>
   </view>

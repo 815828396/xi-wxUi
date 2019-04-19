@@ -1,4 +1,4 @@
-
+@import '../../../assets/styles/mixinFn.less';
 .dialog-filter {
   position: fixed;
   top: 0;
@@ -8,7 +8,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, .1);
+  background: rgba(0, 0, 0, .3);
   opacity: 0;
   z-index: -100;
   transition: all .3s ease-in-out;
@@ -20,9 +20,9 @@
     position: relative;
     width: 600rpx;
     background:rgba(255,255,255,1);
-    border-radius:12rpx;
     overflow: hidden;
     opacity: 0;
+    border-radius: 5rpx;
     transform: translateY(-20rpx);
     transition: all .3s ease-in-out;
     &--show {
@@ -34,6 +34,10 @@
       padding: 30rpx 30rpx 0;
       .title {
         flex-grow: 1;
+        .border-init();
+        &::after {
+          .border-left();
+        }
         &.center {
           text-align: center;
         }
@@ -50,16 +54,35 @@
     } // e .dialog-img
 
     .dialog_content {
-      color: #1EA0FF;
-      font-size: 36rpx;
+      color: @thameAuxColor;
+      font-size: 30rpx;
       padding: 30rpx;
     } // e .dialog_content
     
     .dialog_btn {
       display: flex;
+      text-align: center;
+      font-size: 26rpx;
+      .border-init();
+      &::after {
+        .border-top();
+      }
       .btn {
         flex-grow: 1;
-        margin: 30rpx;
+        padding: 35rpx 0;
+        &.cancel {
+          color: @thameAuxColor;
+          .border-init();
+          &::after {
+            .border-right();
+          }
+        }
+        &.confirm {
+          color: @thameColor;
+        }
+        &.btnHover {
+          .xi-click-hover(1, @thameSmColor);
+        }
       }
     } // e .dialog_btn
   }

@@ -32,8 +32,8 @@ Component({
   },
 
   methods: {
-    btnClick ({ detail }) {
-      const { target } = detail;
+    btnClick (e) {
+      const { target } = e.currentTarget.dataset;
 
       this.triggerEvent('click', {
         confirm: target === 'confirm',

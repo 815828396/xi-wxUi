@@ -21,7 +21,7 @@ Component({
   methods: {
     handleBtn ({ detail }) {
       const { target } = detail;
-
+      this.setData({ visiable: false })
       this.trigger('click', {
         confirm: target === 'confirm',
         cancel: target === 'cancel'

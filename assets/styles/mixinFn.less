@@ -80,7 +80,7 @@
 .border-init () {
   position: relative;
 }
-.border-after () {
+.border-after_h () {
   position: absolute;
   content: '';
   background-color: #E6E6EB;
@@ -89,29 +89,38 @@
   -webkit-transform-origin: center bottom;
   transform-origin: center bottom;
 }
+.border-after_v () {
+  position: absolute;
+  content: '';
+  background-color: #E6E6EB;
+  -webkit-transform: scale(0.5, 1);
+  transform: scale(0.5, 1);
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
 .border-top () {
-  .border-after();
+  .border-after_h();
   width: 100%;
   height: 1rpx;
   left: 0;
   top: 0;
 }
 .border-bottom () {
-  .border-after();
+  .border-after_h();
   width: 100%;
   height: 1rpx;
   left: 0;
   bottom: 0;
 }
 .border-right () {
-  .border-after();
+  .border-after_v();
   width: 1px;
   right: 0;
   top: 0; 
   height: 100%;
 }
 .border-left () {
-  .border-after();
+  .border-after_v();
   width: 1px;
   left: 0;
   top: 0;
