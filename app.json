@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/papaw/index",
     "pages/index/index",
+    "pages/papaw/index",
     "pages/movable-view/movable-view",
     "pages/loading/loading",
     "pages/date/index",

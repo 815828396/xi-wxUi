@@ -1,1 +1,1 @@
-.msg { font-size: 28rpx; color: #73737D }
+.msg { font-size: 28rpx; color: #73737D }.msg .loading { background: transparent; line-height: 0; }.msg .loading::after { border: none; }

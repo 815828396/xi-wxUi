@@ -7,6 +7,7 @@
       </view>
       <view class="kefu-image">
         <image src="../../../assets/images/artboard.png"></image>
+        <text wx:if="{{ isWriting }}" class="write">正在输入...</text>
       </view>
     </view>
     <!-- container -->
@@ -36,7 +37,6 @@
             <view 
               class="item"
               wx:if="{{ item.pos === 'left' }}">
-
               <view>
                 <view class="desc">{{ item.val }}</view>
                 <view class="question"

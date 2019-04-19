@@ -33,10 +33,8 @@ Component({
     
     // headimg
     headImg: String,
-    // scrollHeight: {
-    //   type: String,
-    //   value: 1000
-    // }
+    // Writing nowing...
+    isWriting: Boolean
   },
 
   data: {

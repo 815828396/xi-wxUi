@@ -25,6 +25,7 @@ Component({
   },
 
   data: {
+    isLoading: true,
     // 优先展示默认传入值
     isDefault: false,
 
@@ -84,6 +85,8 @@ Component({
 
         this._initArea();
       });
+      
+      this.setData({ isLoading: false });
     },
     // 根据市区ID获取地区数据
     _initArea () {

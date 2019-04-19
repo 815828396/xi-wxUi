@@ -5,10 +5,16 @@
     title="地区"
     bind:click="handlePickerView">
     <view slot="msg" class="msg">
-      <text>{{ province[index[0]].name }} </text>
-      <text wx:if="{{ zIndex > 1 }}">{{ city[index[1]].name}} </text>
-      <text wx:if="{{ zIndex > 2 }}">{{ area[index[2]].name }}</text>
-      <xi-icon icon="icon-jiantou1"></xi-icon>
+      <button 
+        class="loading" 
+        loading="true" 
+        wx:if="{{ isLoading }}"></button>
+      <view wx:else>
+        <text>{{ province[index[0]].name }} </text>
+        <text wx:if="{{ zIndex > 1 }}">{{ city[index[1]].name}} </text>
+        <text wx:if="{{ zIndex > 2 }}">{{ area[index[2]].name }}</text>
+        <xi-icon icon="icon-jiantou1"></xi-icon>
+      </view>
     </view>
   </cell>
 
