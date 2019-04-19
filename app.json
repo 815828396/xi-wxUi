@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/papaw/index",
     "pages/index/index",
     "pages/movable-view/movable-view",
     "pages/loading/loading",
@@ -8,8 +9,7 @@
     "pages/province/index",
     "pages/image/index",
     "pages/picker/index",
-    "pages/papaw/index",
-    "pages/timeAxis/timeAxis",
+    "pages/timeAxis/index",
     "pages/logs/logs"
   ],
   "subpackages": [

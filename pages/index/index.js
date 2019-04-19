@@ -5,6 +5,11 @@ const MessageClose = new $MessageClose();
 
 Page({
   data: {
+    pagesList: [
+      { url: 'papaw', title: '对话内容' },
+      { url: 'timeAxis', title: '步骤条' },
+      { url: 'province', title: '省份选择器' }
+    ],
     navlist: [
       {
         url: 'dialog',

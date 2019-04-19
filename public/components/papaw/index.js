@@ -1,7 +1,7 @@
 import behavior from '../../../utils/behaviors/behaviors'
 const _default = {
   value: "",
-  top: 1000
+  top: 10000
 }
 Component({
   options: {
@@ -33,10 +33,10 @@ Component({
     
     // headimg
     headImg: String,
-    scrollHeight: {
-      type: String,
-      value: 1000
-    }
+    // scrollHeight: {
+    //   type: String,
+    //   value: 1000
+    // }
   },
 
   data: {

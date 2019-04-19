@@ -1,5 +1,6 @@
 @import '../../../assets/styles/mixinFn.less';
-
+page { width: 100%; height: 100%;
+  background: #eefaff; }
 .img {
   width: 60rpx;
   height: 60rpx;
@@ -8,31 +9,44 @@
   flex-shrink: 0;
 }
 .xi-papaw-wrap {
-  padding: 50rpx 0;
+  height: 100%;
   .inner {
     position: relative;
-    border: 1rpx solid @thameSmColor;
+    height: 100%;
+    // border: 1rpx solid @thameSmColor;
   }
   // header
   .xi-papaw--header{
-    // position: absolute;
-    // top: -45rpx;
-    // left: 30rpx;
-    // z-index: 10;
-    background: #fff;
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 20rpx;
-      margin: -50rpx 0 50rpx;
-      font-size: @14;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 60rpx 0 0;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    background: @thameColor;
+    .back-btn {
+      margin: 0 20rpx;
+      .icon-size {
+        font-size: 50rpx;
+        color: #fff;
+      }
+    }
+    .kefu-image {
+      flex-grow: 1;
+      text-align: center;
+      image {
+        width: 120rpx;
+        height: 120rpx;
+        margin-left: -70rpx;
+      }
     }
   }
   // 主体文字
   .xi-papaw--container {
     position: relative;
-    height: 1000rpx;
+    // height: 1000rpx;
+    height: 100%;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
     // 主动推出问题样式
@@ -47,7 +61,7 @@
       color: #0088cc;
       .question {
         .overflow();
-        margin-bottom: 30rpx;
+        margin-bottom: 35rpx;
         text-decoration: underline;
       }
       .click {
@@ -58,46 +72,54 @@
     .papaw-list {
       position: absolute;
       width: 100%;
-      top: 0;
+      top: 200rpx;
       bottom: 0;
-      // margin: 70rpx 30rpx 120rpx;
-      font-size: @12;
+      font-size: @14;
       .papaw-item {
         margin-bottom: 30rpx;
         overflow: hidden;
         display: flex;
         transition: all .3s;
+        padding: 0 30rpx;
         &:last-child {
           margin-bottom: 100rpx;
         }
+        // 右侧对话条样式
         &.right {          
           justify-content: flex-end;
           .item {
-            image {
-              margin-left: 20rpx;
-            }
+            align-items: center;
+            background: @thameColor;
+            color: #fff;
+          }
+          .maxW {
+            border-bottom-right-radius: 15rpx;
           }
         }
+        // 左侧对话条样式
         &.left {
           .item {
-            background: @backgroundColor;
-            padding: 5rpx 10rpx;
+            background: #fff;
+          }
+          .maxW {
+            border-bottom-left-radius: 15rpx;
           }
         }
         .maxW {
           max-width: 80%;
+          border-radius: 50rpx;
+          overflow: hidden;
         }
         .item {
           display: flex;
-          // align-items: center;
-          .desc { 
-            padding-top: 15rpx;
+          padding: 25rpx;
+          .desc {
             box-sizing: border-box;
           }
           .question {
             color: #0088cc;
             margin: 20rpx 0;
-            text-decoration: underline;
+            // text-decoration: underline;
           }
         }
       }
@@ -112,15 +134,14 @@
     width: 100%;
     .footer {
       display: flex;
-      padding: 5rpx 20rpx;
-      background: @backgroundColor;
+      padding: 0 20rpx;
+      background: #fff;
       .input {
         flex-grow: 1;
         font-size: @12;
         height: 64rpx;
-        padding: 0 10rpx;
+        padding: 15rpx 10rpx;
         border-radius: 5rpx;
-        background: #fff;
       }
       .btn {
         margin-left: 10rpx;

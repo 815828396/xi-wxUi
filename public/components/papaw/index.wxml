@@ -2,17 +2,19 @@
   <view class="inner">
     <!-- header -->
     <view class="xi-papaw--header">
-      <view wx:if="{{ header }}" class="header">
-        <!--<image src="{{ headImg }}" class="img"></image>-->
-        <text>{{ '小达' }}</text>
+      <view class="back-btn">
+        <xi-icon icon="icon-cuowu2" xi-class="icon-size"></xi-icon>
       </view>
-      <view wx:else class="header">
-        <slot name="header"></slot>
+      <view class="kefu-image">
+        <image src="../../../assets/images/artboard.png"></image>
       </view>
     </view>
     <!-- container -->
-    <view class="xi-papaw--container" style="height: {{scrollHeight}}rpx">
-      <scroll-view class="papaw-list" scroll-y="true" style="height: 100%" scroll-top="{{ top }}">
+    <view class="xi-papaw--container">
+      <scroll-view class="papaw-list" scroll-y="true" scroll-top="{{ top }}">
+        <!-- 自定义内容问题样式 -->
+        <slot></slot>
+
         <!-- 初次渲染的 问题列表 -->
         <view class="question-wrap">
           <view class="question"
@@ -35,8 +37,6 @@
               class="item"
               wx:if="{{ item.pos === 'left' }}">
 
-              <image src="{{ headImg }}" class="img {{ item.pos }}"></image>
-
               <view>
                 <view class="desc">{{ item.val }}</view>
                 <view class="question"
@@ -54,7 +54,6 @@
             <!-- 右侧对话框 -->
             <view wx:if="{{ item.pos === 'right' }}" class="item">
               {{ item.val }}
-              <image src="{{ headImg }}" class="img {{ item.pos }}"></image>
             </view>
           </view>
         </view>
@@ -65,10 +64,13 @@
     <view class="xi-papaw--footer">
       <view wx:if="{{ footer }}" class="footer">
         <input class="input" 
-        type="text" 
-        value="{{ value }}"
-        placeholder="请输入问题"
-        bindinput="handleInput" />
+          type="text" 
+          value="{{ value }}"
+          placeholder="请输入问题"
+          confirm-type="send"
+          confirm-hold="true"
+          bindinput="handleInput"
+          bindconfirm="handleClick" />
         <xi-button xi-class="btn" 
           small
           bind:click="handleClick">send</xi-button>

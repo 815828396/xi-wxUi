@@ -1,6 +1,7 @@
 <!--index.wxml-->
 <message-close id="message-close"
   bind:onMessageCloseClick="aaa"></message-close>
+<view>分包页面</view>
 <view class="compnent-wrap">
   <view class="title">
     <navigator wx:for="{{ navlist }}" wx:key="{{ index }}"
@@ -8,5 +9,14 @@
       url="../../package_component/pages/{{ item.url }}/index" 
       hover-class="className">{{ item.title }}</navigator>
   </view>
+</view>
+<view>主包页面</view>
+<view class="pages">
+  <navigator 
+    class="item"
+    url="../{{ item.url }}/index"
+    wx:for="{{ pagesList }}"
+    wx:key="{{ index }}"
+    >{{ item.title }}</navigator>
 </view>
 <xi-button bind:click="asd">tanchu</xi-button>
