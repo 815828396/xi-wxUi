@@ -71,9 +71,11 @@
           confirm-hold="true"
           bindinput="handleInput"
           bindconfirm="handleClick" />
-        <xi-button xi-class="btn" 
-          small
-          bind:click="handleClick">send</xi-button>
+        <view
+          class="btnSend"
+          bindtap="handleClick">
+          <xi-icon icon="icon-fasong" xi-class="size"></xi-icon>
+        </view>
       </view>
       <view wx:else class="footer">
         <slot name="footer"></slot>

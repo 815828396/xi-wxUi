@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/swiper/index",
     "pages/index/index",
     "pages/papaw/index",
     "pages/movable-view/movable-view",
@@ -56,6 +57,8 @@
     "xi-button": "./public/components/button/index",
     "xi-dialog": "./public/components/dialog/index",
     "xi-modal": "./public/components/modal/index",
+    "xi-swiper-group": "./public/components/swiper/index",
+    "xi-swiper-dots": "./public/components/swiper-dots/index",
     "xi-image": "./public/components/image/index"
   },
   "sitemapLocation": "sitemap.json"

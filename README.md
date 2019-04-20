@@ -1,6 +1,14 @@
 # xi-wxUi
 原生小程序Ui组件
 ### 修订信息
+#### 2019.04.20
+  1. `A` 新增 组件 ```<xi-swiper-group></xi-swiper-group>```
+    ```html
+      <xi-swiper-group>
+        <!-- 可以通过，来添加轮播指针 -->
+        <xi-swiper-dots></xi-swiper-dots>
+      </xi-swiper-group>
+    ```
 #### 2019.04.19
   1. `U` 修改 组件 ```<xi-dialog></xi-dialog>``` 弹框按钮样式
   2. `U` 修改 组件 ```<xi-modal></xi-modal>``` 弹框样式动画效果

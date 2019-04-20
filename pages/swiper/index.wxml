@@ -1,0 +1,15 @@
+<!--pages/swiper/index.wxml-->
+<xi-swiper-group
+  swiper-url="{{ swiperUrl }}"
+>
+
+  <!-- 轮播指针 -->
+  <xi-swiper-dots dots-type="circle"></xi-swiper-dots>
+</xi-swiper-group><!--pages/swiper/index.wxml-->
+<xi-swiper-group
+  swiper-url="{{ swiperUrl }}"
+>
+
+  <!-- 轮播指针 -->
+  <xi-swiper-dots dots-type="square"></xi-swiper-dots>
+</xi-swiper-group>

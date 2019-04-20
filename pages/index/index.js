@@ -8,7 +8,8 @@ Page({
     pagesList: [
       { url: 'papaw', title: '对话内容' },
       { url: 'timeAxis', title: '步骤条' },
-      { url: 'province', title: '省份选择器' }
+      { url: 'province', title: '省份选择器' },
+      { url: 'swiper', title: '轮播图' }
     ],
     navlist: [
       {

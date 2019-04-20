@@ -138,7 +138,7 @@
     width: 100%;
     .footer {
       display: flex;
-      padding: 0 20rpx;
+      padding: 0 0 0 20rpx;
       background: #fff;
       .input {
         flex-grow: 1;
@@ -147,9 +147,13 @@
         padding: 15rpx 10rpx;
         border-radius: 5rpx;
       }
-      .btn {
-        margin-left: 10rpx;
-        height: 30rpx;
+      .btnSend {
+        line-height: 90rpx;
+        padding: 0 20rpx;
+        .size {
+          font-size: 40rpx;
+          color: @thameColor;
+        }
       }
     }
   }

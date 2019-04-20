@@ -86,7 +86,10 @@ Component({
         this._initArea();
       });
       
-      this.setData({ isLoading: false });
+      // 延迟500ms消失防止,页面文字弹蹦
+      setTimeout(() => {
+        this.setData({ isLoading: false });
+      }, 1000)
     },
     // 根据市区ID获取地区数据
     _initArea () {

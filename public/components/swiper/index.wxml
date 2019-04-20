@@ -1,0 +1,22 @@
+<view class="xi-class xi-swiper-wrap">
+  <swiper
+    autoplay="{{ autoPlay }}"
+    circular="{{ circular }}"
+    previous-margin="{{ previousMargin }}}"
+    next-margin="{{ nextMargin }}"
+    bindchange="swiperChange"
+    >
+    <!-- 图片轮播 -->
+    <swiper-item
+      class="xi-swiper-item"
+      wx:if="{{ swiperType === 'image' }}"
+      wx:for="{{ swiperUrl }}"
+      wx:key="{{ index }}">
+      <image class="image" src="{{ item }}"></image>
+    </swiper-item>
+
+  </swiper>
+
+  <!-- dots -->
+  <slot></slot>
+</view>

@@ -1,0 +1,6 @@
+<view class="xi-class xi-swiper-dots">
+  <view class="dots {{ dotsType }} {{ currentIndex === index ? 'active' : '' }}"
+
+    wx:for="{{ dots }}"
+    wx:key="{{ index }}"></view>
+</view>
