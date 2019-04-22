@@ -1,0 +1,98 @@
+@import '../../../assets/styles/mixinFn.less';
+
+.circle-size (@width; @height;) {
+  width: @width;
+  height: @height;
+}
+.xi-progress--circle {
+  position: relative;
+  
+  // 外层左右分割矩形
+  .circle-progress-wrapper {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    .circle-size(25px; 50px);
+    &.left {
+      left: 0;
+    }
+    &.right {
+      right: 0;
+    }
+
+    // 每个矩形内层中环形
+    .circle {
+      position: absolute;
+      top: 0;
+      border-radius: 50%;
+      transform: rotate(45deg);
+
+      &.left_circle {
+        left: 0;
+        &.active {
+          animation-name: circleProgressLoad_left;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+      }
+      &.right_circle {
+        right: 0;
+        &.active {
+          animation-name: circleProgressLoad_right;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          // animation: circleProgressLoad_right 5s linear infinite;
+        }
+      }
+    }
+  }
+}
+// 较大
+.xi-circle_max {
+  .circle-size(50px; 50px);
+  .circle-progress-wrapper {
+    .circle-size(25px; 50px);
+    .circle {
+      .circle-size(44px; 44px);
+    }
+  }
+}
+// 适用于轮播
+.xi-circle_min {
+  .circle-size(12px; 12px);
+  .circle-progress-wrapper {
+    .circle-size(6px; 16px);
+
+    // 尺寸的计算公式
+    // xi-circle_min 的宽度 - (边框 * 2)
+    .circle {
+      .circle-size(8px; 8px);
+      border: 2px solid #1EA0FF;
+      &.left_circle {
+        border-bottom: 2px solid @thameSmColor;
+        border-left: 2px solid @thameSmColor;
+      }
+      &.right_circle {
+        border-top: 2px solid @thameSmColor;
+        border-right: 2px solid @thameSmColor;
+      }
+    }
+  }
+}
+
+@keyframes circleProgressLoad_right{
+  0%{
+      transform: rotate(45deg);
+  }
+  50%,100%{
+      transform: rotate(225deg);
+  }
+}
+@keyframes circleProgressLoad_left{
+  0%,50%{
+      transform: rotate(45deg);
+  }
+  100%{
+      transform: rotate(225deg);
+  }
+}

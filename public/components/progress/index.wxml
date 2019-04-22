@@ -1,0 +1,17 @@
+
+
+ <view class="xi-class xi-progress">
+
+  <!-- 环形进度条 -->
+  <view class="xi-progress--circle xi-circle_{{pieSize}}">
+    <view class="circle-progress-wrapper left">
+      <view class="circle left_circle {{ animation ? 'active' : '' }}"
+        style="animation-duration: {{ pieDuration }}s"></view>
+    </view>
+    <view class="circle-progress-wrapper right">
+      <view class="circle right_circle {{ animation ? 'active' : '' }}"
+        style="animation-duration: {{ pieDuration }}s"></view>
+    </view>
+  </view>
+   
+ </view>

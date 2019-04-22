@@ -2,6 +2,9 @@
   <swiper
     autoplay="{{ autoPlay }}"
     circular="{{ circular }}"
+    interval="{{ interval }}"
+    duration="{{ duration }}"
+    current="{{ current }}"
     previous-margin="{{ previousMargin }}}"
     next-margin="{{ nextMargin }}"
     bindchange="swiperChange"

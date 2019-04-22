@@ -9,10 +9,7 @@ Component({
   },
   relations: {
     "../steps/index": {
-      type: 'parent',
-      lined (target) {
-        console.log(target)
-      }
+      type: 'parent'
     }
   },
   externalClasses: ["xi-class"],

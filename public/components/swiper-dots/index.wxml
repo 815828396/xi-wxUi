@@ -1,6 +1,16 @@
 <view class="xi-class xi-swiper-dots">
-  <view class="dots {{ dotsType }} {{ currentIndex === index ? 'active' : '' }}"
-
+  <view class="dots square {{ currentIndex === index ? 'active' : '' }}"
+    wx:if="{{ dotsType === 'square' }}"
     wx:for="{{ dots }}"
     wx:key="{{ index }}"></view>
+
+    <xi-progress
+      xi-class="xi-circle"
+      animation="{{ currentIndex === index }}"
+      wx:if="{{ dotsType === 'circle'  }}"
+      pie-duration="{{ duration }}"
+      progress-style="pie"
+      wx:for="{{ dots }}"
+      wx:key="{{ index }}"
+    ></xi-progress>
 </view>

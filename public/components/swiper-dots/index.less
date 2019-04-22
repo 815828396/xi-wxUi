@@ -12,23 +12,18 @@
   transform: skew(-20deg);
 }
 .xi-swiper-dots {
-  position: absolute;
+  // position: absolute;
   bottom: 20rpx;
+  padding:10rpx 0;
   width: 100%;
   display: flex;
   justify-content: center;
+  .xi-circle {
+    margin: 0 5rpx;
+  }
   .dots {
     margin: 0 10rpx;
-    background: #fff;
-    &.circle {
-      .init-dot-circle();
-      transition: transform .3s;
-      box-shadow: 0 0 10rpx #ccc;
-      &.active {
-        transform: scale(1.3);
-        background: @thameColor;
-      }
-    }
+    background: @thameSmColor;
     &.square {
       .init-dot-square();
       transition: width .3s;

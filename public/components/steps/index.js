@@ -8,7 +8,7 @@ Component({
     [relations_child_url]: {
       type: 'child',
       linked (target) {
-        this._updateCurrent();
+        this._updateCurrent(target);
       },
       linkChanged () {
         this._updateCurrent();
@@ -37,11 +37,11 @@ Component({
     }
   },
   data: {
-    component_name: 'step'
+    relation_child: 'step'
   },
   methods: {
     _updateCurrent () {
-      const childs = this.getChildNodes(this.data.component_name);
+      const childs = this.getRelation(this.data.relation_child);
       const length = childs.length;
       if (
         this.data.direction === 'horizontal' && 
