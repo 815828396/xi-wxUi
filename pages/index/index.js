@@ -1,5 +1,6 @@
 
 import { $MessageClose} from '../../utils/uiBase';
+import fetch from '../../assets/js/fetch/fetch'
 const app = getApp();
 const MessageClose = new $MessageClose();
 
@@ -31,6 +32,31 @@ Page({
     ]
   },
   onLoad: function () {
+    // 拦截器调用示例
+    fetch.interceptors.request(
+      config => {
+        console.log(config)
+        config.data.as = 123;
+        if (config.data.id) {
+          config.data.id = 3
+        }
+        return config;
+      },
+      error => {
+        console.log(error)
+      }
+    )
+    fetch.$get('Login/getProvince', {
+      a: 1,
+      b: 2
+    }).then(res => {
+      console.log(res);
+    })
+    fetch.$get('Login/getCity', {
+      id: 2
+    }).then(res => {
+      console.log(res);
+    })
   },
   asd() {
     MessageClose.show({

@@ -1,6 +1,8 @@
 # xi-wxUi
 原生小程序Ui组件
 ### 修订信息
+#### 2019.04.23
+  1. `F` __修复__ API `fetch.interceptors.request` 请求拦截器未处理 `return config`报错信息，导致的无法使用情况
 #### 2019.04.22
   1. `A` __新增__ 组件 ```<xi-progress>``` 环形进度条功能
   2. `U` __修改__ 组件 ```<xi-swiper-group>```环形指针进度条功能

@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/swiper/index",
     "pages/index/index",
+    "pages/swiper/index",
     "pages/papaw/index",
     "pages/movable-view/movable-view",
     "pages/loading/loading",
