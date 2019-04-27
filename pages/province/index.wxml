@@ -1,3 +1,7 @@
 <province-group
   z-index="2"
+  bind:province="province"
+></province-group>
+<province-group
+  bind:province="province1"
 ></province-group>

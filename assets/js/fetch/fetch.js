@@ -75,9 +75,9 @@ class Fetch extends Base_config {
    * 不提供外部调用, 外部调用需要调用, $get 和 $post 方法
    */
   _fetch() {
-    if (this.isNull(this.user_config)) 
+    if (this.isInterceptors && this.isNull(this.user_config)) 
       throw new Error('fetch.interceptors.request 拦截器中可能未返回配置信息');
-
+    
     const {
       base_url = this.base_url,
       data = this.data,

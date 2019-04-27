@@ -3,6 +3,7 @@
 ### 修订信息
 #### 2019.04.27
   1. `F` _修复_ 组件 `province-group`，父组件无法获取子组件提交的数据 
+  2. `A` _新增_ 组件 `xi-skeleton`，骨架屏加载动画 
 #### 2019.04.23
   1. `F` _修复_ API `fetch.interceptors.request` 请求拦截器未处理 `return config`报错信息，导致的无法使用情况
 #### 2019.04.22

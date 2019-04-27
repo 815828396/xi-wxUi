@@ -1,0 +1,22 @@
+<view class="xi-class xi-skeleton">
+  <view class="xi-skeleton-inner {{ animation ? 'animation' : '' }}">
+    <!-- 头像 -->
+    <view class="image" wx:if="{{ image }}"></view>
+    <!-- 内容 -->
+    <view class="table">
+      <view class="table-title"
+        wx:if="{{ header }}"></view>
+      <view class="table-content">
+        <view
+          class="tr content"
+          wx:for="{{ columns }}"
+          wx:key="{{ index }}"></view>        
+      </view>
+      <view class="table-footer"
+        wx:if="{{ footer }}">
+        <view class="table-footer-left"></view>
+        <view class="table-footer-right"></view>
+      </view>
+    </view>
+  </view>
+</view>

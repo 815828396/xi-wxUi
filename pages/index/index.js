@@ -10,7 +10,8 @@ Page({
       { url: 'papaw', title: '对话内容' },
       { url: 'timeAxis', title: '步骤条' },
       { url: 'province', title: '省份选择器' },
-      { url: 'swiper', title: '轮播图' }
+      { url: 'swiper', title: '轮播图' },
+      { url: 'skeleton', title: '骨架屏' },
     ],
     navlist: [
       {
@@ -35,9 +36,9 @@ Page({
     // 拦截器调用示例
     fetch.interceptors.request(
       config => {
-        console.log(config)
-        config.data.as = 123;
-        if (config.data.id) {
+        // console.log(config)
+        // config.data.as = 123;
+        if (config.data.token) {
           config.data.id = 3
         }
         return config;
@@ -53,7 +54,7 @@ Page({
       console.log(res);
     })
     fetch.$get('Login/getCity', {
-      id: 2
+      token: 12
     }).then(res => {
       console.log(res);
     })

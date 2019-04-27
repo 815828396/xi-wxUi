@@ -55,20 +55,12 @@ Component({
     pickerChange ({ detail }) {
       const _index = detail.value[0];
 
-      // 用于：获取城市时的赋值
-      this.data.index = [_index, 0, 0];
+      // FIXME： 优化接口重复调用
+      // 修改省市区当前索引值
+      this.setData({ index: detail.value });
       this._initCity();
 
       // 用于：修改picker-view时的赋值
-      this.setData({ index: detail.value });
-      // 提交事件
-      this.trigger('province', {
-        ...this.returnPro(),
-        province: this.data.province[this.data.index[0]],
-        city: this.data.city[this.data.index[1]],
-        area: this.data.area[this.data.index[2]],
-        list: this.data[this.data.listName] || []
-      })
     },
     // 获取省份数据
     _initProvince () {
@@ -86,6 +78,7 @@ Component({
               && this.data.provinceText
               && this.updPickerData('province', 'name', 0)
               || pro_id;
+
       const data = { id };
       
       fetch.$get(env_city, data).then(res => {

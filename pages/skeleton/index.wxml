@@ -1,0 +1,17 @@
+<xi-skeleton animation></xi-skeleton>
+<xi-skeleton
+  image
+  header
+  columns="2"></xi-skeleton>
+<xi-skeleton
+  image
+  header
+  footer></xi-skeleton>
+<xi-skeleton
+  animation
+  image
+  header
+  footer></xi-skeleton>
+<xi-skeleton
+  image
+  columns="5"></xi-skeleton>

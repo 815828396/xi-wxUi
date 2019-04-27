@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/swiper/index",
     "pages/index/index",
+    "pages/skeleton/index",
+    "pages/swiper/index",
     "pages/papaw/index",
     "pages/movable-view/movable-view",
     "pages/loading/loading",
@@ -59,6 +60,7 @@
     "xi-modal": "./public/components/modal/index",
     "xi-swiper-group": "./public/components/swiper/index",
     "xi-swiper-dots": "./public/components/swiper-dots/index",
+    "xi-skeleton": "./public/components/skeleton/index",
     "xi-progress": "./public/components/progress/index",
     "xi-image": "./public/components/image/index"
   },

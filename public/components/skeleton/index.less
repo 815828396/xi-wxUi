@@ -1,0 +1,71 @@
+@import '../../../assets/styles/mixinFn.less';
+.bgw {
+  width: 100%;
+  height: 30rpx;
+  background: @thameSkeletonColor;
+}
+.xi-skeleton {
+  background: #fff;
+  .xi-skeleton-inner {
+    padding: 30rpx;
+    display: flex;
+    &.animation {
+      .tr,
+      .image {
+        background: linear-gradient(90deg, #f2f2f2 25%, #e6e6e6 37%, #f2f2f2 63%);
+        animation: animate-loading 1.4s linear infinite;
+        background-size: 400% 100%;
+      }
+    }
+  }
+}
+.image {
+  width: 100rpx;
+  height: 100rpx;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: @thameSkeletonColor;
+}
+.table {
+  width: 100%;
+  margin-left: 20rpx;
+  .table-title {
+    &:extend(.bgw);
+    width: 50%;
+    margin-bottom: 25rpx;
+  }
+  .table-footer {
+    margin-top: 20rpx;
+    view {
+      &:extend(.bgw);
+      &.table-footer-left {
+        width: 50%
+      }
+      &.table-footer-right {
+        width: 30%
+      }
+    }
+    display: flex;
+    justify-content: space-between;
+  }
+  .tr {
+    &:extend(.bgw);
+    margin-top: 10rpx;
+  }
+  .content {
+    &:first-child:not(:nth-child(1)) {
+      width: 60%;
+    }
+    &:last-child:not(:nth-child(1)) {
+      width: 61%;
+    }
+  }
+}
+@keyframes animate-loading {
+  0% {
+    background-position:100% 50%
+  }
+  100%{
+    background-position:0 50%
+  }
+}
