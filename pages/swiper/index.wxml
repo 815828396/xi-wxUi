@@ -25,3 +25,13 @@
     pie-duration="3"
     progress-style="pie"></xi-progress>
 </view>
+
+<view class="news-wrapper {{ hide ? 'hide' : '' }}">
+  <view class="news_icon {{ hide ? 'hide' : 'show' }}"
+    bindtap='hide'>
+    <text class="news_icon_circle left {{ hide ? 'hide' : 'show' }}"></text>
+    <text class="news_icon_circle max"></text>
+    <text class="news_icon_circle right {{ hide ? 'hide' : 'show' }}"></text>
+  </view>
+  <view class="news_span">您有未读消息</view>
+</view>

@@ -61,6 +61,14 @@ Component({
 
       // 用于：修改picker-view时的赋值
       this.setData({ index: detail.value });
+      // 提交事件
+      this.trigger('province', {
+        ...this.returnPro(),
+        province: this.data.province[this.data.index[0]],
+        city: this.data.city[this.data.index[1]],
+        area: this.data.area[this.data.index[2]],
+        list: this.data[this.data.listName] || []
+      })
     },
     // 获取省份数据
     _initProvince () {
@@ -106,6 +114,14 @@ Component({
       fetch.$get(env_area, data).then(res => {
         this.setData({ area: res.data });
 
+        // 提交事件
+        this.trigger('province', {
+          ...this.returnPro(),
+          province: this.data.province[this.data.index[0]],
+          city: this.data.city[this.data.index[1]],
+          area: this.data.area[this.data.index[2]],
+          list: this.data[this.data.listName] || []
+        })
         this.data.isDefault && this.updPickerData('area', 'name', 2);
       })
     },
