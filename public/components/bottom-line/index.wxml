@@ -1,0 +1,4 @@
+
+<view class="xi-bottom-line" >
+  <text class="desc {{ size }}">{{ msg }}</text>
+</view>

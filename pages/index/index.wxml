@@ -20,3 +20,6 @@
     >{{ item.title }}</navigator>
 </view>
 <xi-button bind:click="asd">tanchu</xi-button>
+<xi-bottom-line size="normal" msg="我是有底线的"></xi-bottom-line>
+<xi-bottom-line size="max" msg="我是有底线的"></xi-bottom-line>
+<xi-bottom-line size="min" msg="我是有底线的"></xi-bottom-line>

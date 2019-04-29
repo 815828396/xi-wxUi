@@ -74,6 +74,19 @@
   color: #fff;
   transition: all .2s .5s linear;
 }
+.news-wrapper.jump {
+  top: 300rpx;
+}
+.news-wrapper.shake {
+  top: 100rpx;
+}
+.news-wrapper.jump .news_icon {
+  transform-origin: 50% 100%;
+  animation: jump 2s linear infinite;
+}
+.news-wrapper.shake .news_icon {
+  animation: shake 1s linear infinite;
+}
 .news-wrapper.hide {
   right: -160rpx;
 }
@@ -151,5 +164,25 @@
   }
   100% {
     transform: scale3d(1, 1, 1 );
+  }
+}
+
+@keyframes shake {
+  25%, 45%, 65% {
+    transform: translateX(-5rpx);
+  }
+  30%, 50%, 70% {
+    transform: translateX(5rpx);
+  }
+}
+@keyframes jump {
+  50% {
+    transform: scale3d(1, .6, 1) translateY(5rpx);
+  }
+  60% {
+    transform: scale3d(.8, 1.1, 1) translateY(-15rpx);
+  }
+  90% {
+    transform: scale3d(1, 1, 1) translateY(10rpx);
   }
 }

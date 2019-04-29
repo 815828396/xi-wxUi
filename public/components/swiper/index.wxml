@@ -9,15 +9,23 @@
     next-margin="{{ nextMargin }}"
     bindchange="swiperChange"
     >
-    <!-- 图片轮播 -->
     <swiper-item
       class="xi-swiper-item"
-      wx:if="{{ swiperType === 'image' }}"
-      wx:for="{{ swiperUrl }}"
+      wx:for="{{ swiperType === 'image' ? swiperUrl : swiperCustom }}"
       wx:key="{{ index }}">
-      <image class="image" src="{{ item }}"></image>
-    </swiper-item>
+      <!-- 图片轮播 -->
+      <image class="image" 
+        wx:if="{{ swiperType === 'image' }}"
+        src="{{ item }}"></image>
+        
+      <!-- 自定义内容 -->
+      <view class="xi-swiper-custom"
+        wx:if="{{ swiperType === 'custom' }}">
+        <slot name="asd"></slot>
 
+      </view>
+
+    </swiper-item>
   </swiper>
 
   <!-- dots -->

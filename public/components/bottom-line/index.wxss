@@ -1,0 +1,31 @@
+
+/* 分割线 */
+.xi-bottom-line { position: relative; height: 100rpx; text-align: center; line-height: 100rpx; color: #73737D; 
+  font-size: 18rpx;}
+.xi-bottom-line .desc { position: relative; }
+.xi-bottom-line .desc.max { font-size: 28rpx; }
+.xi-bottom-line .desc.noraml { font-size: 24rpx; }
+.xi-bottom-line .desc.min { font-size: 22rpx; }
+.xi-bottom-line .desc::before,
+.xi-bottom-line .desc::after {
+  position: absolute;
+  content: "";
+  width: 180rpx;
+  height: 1px;
+  background: #E6E6EB;
+}
+.xi-bottom-line .desc::before { left: -230rpx }
+.xi-bottom-line .desc::after { right: -230rpx }
+
+.xi-bottom-line .max.desc::after,
+.xi-bottom-line .max.desc::before {
+  top: 20rpx;
+}
+.xi-bottom-line .normal.desc::after,
+.xi-bottom-line .normal.desc::before {
+  top: 17rpx;
+}
+.xi-bottom-line .min.desc::after,
+.xi-bottom-line .min.desc::before {
+  top: 13rpx;
+}

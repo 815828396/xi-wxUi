@@ -40,15 +40,16 @@ Component({
     },
 
     // swiper 轮播类型,
-    // 图片形式为简单轮播类型
-    swiperUrl: null,
+    // image  : 图片形式为简单轮播类型
+    // custom : 自定义内容
     swiperType: {
       type: String,
       value: 'image'
     },
+    swiperUrl: null,
 
     // 自定义布局插槽数量
-    customSlot: Number,
+    swiperCustom: Number,
   },
 
   data: {
@@ -65,6 +66,7 @@ Component({
 
     // 轮播图切换事件
     swiperChange({ detail }) {
+      if (this.data.childs.length === 0) return;
       const { current } = detail;
       this.data.childs[0].updCurrent(current, this.data.interval / 1000);
     }

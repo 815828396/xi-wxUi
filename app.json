@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/skeleton/index",
     "pages/swiper/index",
+    "pages/skeleton/index",
     "pages/papaw/index",
     "pages/movable-view/movable-view",
     "pages/loading/loading",
@@ -56,6 +56,7 @@
     "xi-action": "./public/components/action-sheet/index",
     "xi-papaw": "./public/components/papaw/index",
     "xi-button": "./public/components/button/index",
+    "xi-bottom-line": "./public/components/bottom-line/index",
     "xi-dialog": "./public/components/dialog/index",
     "xi-modal": "./public/components/modal/index",
     "xi-swiper-group": "./public/components/swiper/index",
