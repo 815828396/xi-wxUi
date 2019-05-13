@@ -1,4 +1,5 @@
 // package_component/pages/cell/index.js
+
 Page({
   data: {
 
@@ -6,7 +7,7 @@ Page({
   click ({ detail }) {
     console.log(detail)
   },
-  switch ({ detail }) {
+  handleSwitch ({ detail }) {
     console.log(detail)
   }
 })

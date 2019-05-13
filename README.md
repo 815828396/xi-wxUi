@@ -1,5 +1,7 @@
 # xi-wxUi
 原生小程序Ui组件
+#### 2019.05.13
+  1. `A` _新增_ 组件 `xi-checkbox`，checkbox 
 ### 修订信息
 #### 2019.04.29
   1. `A` _新增_ 组件 `xi-bottom-line`，分割线 

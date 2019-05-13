@@ -31,9 +31,23 @@
   input-placeholder="请输入">
   <text slot="msg">描述</text>
 </cell>
+
+<cell
+  title="选项"
+  cell-type="input"
+  input-placeholder="请输入">
+  <text slot="msg">描述</text>
+</cell>
+
+<cell
+  title="选项"
+  cell-type="input"
+  input-placeholder="请输入">
+  <text slot="msg">描述</text>
+</cell>
 <cell
   title="选项"
   cell-type="switch"
-  bind:switch="switch">
+  bind:switch="handleSwitch">
   <text slot="msg">描述</text>
 </cell>

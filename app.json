@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/checkbox/checkbox",
     "pages/index/index",
     "pages/swiper/index",
     "pages/skeleton/index",
@@ -47,6 +48,8 @@
     "xi-poster": "./public/components/poster/index",
     "xi-poster-canvas": "./public/components/poster-canvas/index",
     "xi-poster-operate": "./public/components/poster-operate/index",
+    "xi-checkbox-group": "./public/components/checkbox-group/index",
+    "xi-checkbox": "./public/components/checkbox/index",
     "xi-steps": "./public/components/steps/index",
     "xi-step": "./public/components/step/index",
     "xi-date": "./public/components/date/index",

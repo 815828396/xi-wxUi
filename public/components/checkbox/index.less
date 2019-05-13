@@ -1,0 +1,67 @@
+@import '../../../assets/styles/mixinFn.less';
+.xi-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 10rpx 0;
+  font-size: 28rpx;
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30rpx;
+    height: 30rpx;
+    border: 1rpx solid @thameSmColor;
+    transition: all .3s;
+    margin-right: 10rpx;
+    &.circle {
+      line-height: 35rpx;
+      border-radius: 50%;
+    }
+    &.square {
+      border-radius: 5rpx;
+      .square-inner {
+        display: inline-block;
+        width: 15rpx;
+        height: 15rpx;
+        background: @thameColor;
+        transform: scale(0);
+        transition: all .3s;
+      }
+    }
+  }
+  // 限制选中个数
+  &.xi-checkbox--limit {
+    color: @thameAuxColor;
+    text-decoration: none;
+  }
+  // 禁止选中
+  &.xi-checkbox--disabled {
+    color: @thameAuxColor;
+    text-decoration: line-through;
+    .circle,
+    .square {
+      background: @backgroundColor;
+    }
+  }
+  // 选中状态
+  &.xi-checkbox--checked {
+    .circle {
+      border: 1rpx solid transparent;
+      background: @thameColor;
+      color: #fff;
+    }
+    .square {
+      border: 1rpx solid @thameColor;
+      .square-inner {
+        transform: scale(1);
+      }
+    }
+    .fzw {
+      opacity: 1;
+    }
+  }
+}
+.fzw {
+  font-weight: bold;
+  opacity: 0;
+}

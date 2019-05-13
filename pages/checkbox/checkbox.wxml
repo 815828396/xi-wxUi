@@ -1,0 +1,40 @@
+<view style="padding: 30rpx">
+  最多选择两个
+  <xi-checkbox-group
+    checkboxType="circle"
+    bind:change="change">
+    <xi-checkbox label="西瓜" disabled="{{ true }}"></xi-checkbox>
+    <xi-checkbox label="苹果"></xi-checkbox>
+    <xi-checkbox label="荔枝"></xi-checkbox>
+    <xi-checkbox label="香蕉"></xi-checkbox>
+    <xi-checkbox label="蜜桃"></xi-checkbox>
+    <xi-checkbox label="梨"></xi-checkbox>
+  </xi-checkbox-group>
+  水果： {{ friut }}
+</view>
+
+<view style="padding: 30rpx">
+  <xi-checkbox-group
+    isLimit
+    limit="2"
+    checkboxType="square"
+    bind:change="change">
+    <xi-checkbox label="苹果" xi-class="inline-block"></xi-checkbox>
+    <xi-checkbox label="西瓜" xi-class="inline-block"></xi-checkbox>
+    <xi-checkbox label="荔枝" xi-class="inline-block"></xi-checkbox>
+    <xi-checkbox label="香蕉" xi-class="inline-block"></xi-checkbox>
+  </xi-checkbox-group>
+  水果： {{ friut }}
+</view>
+
+<view style="padding: 30rpx">
+  <xi-checkbox-group
+    checkboxType="square"
+    bind:change="change">
+    <xi-checkbox label="苹果" disabled="{{ true }}"></xi-checkbox>
+    <xi-checkbox label="西瓜" checked="{{ true }}"></xi-checkbox>
+    <xi-checkbox label="荔枝"></xi-checkbox>
+    <xi-checkbox label="香蕉"></xi-checkbox>
+  </xi-checkbox-group>
+  水果： {{ friut }}
+</view>

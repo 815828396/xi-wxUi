@@ -1,0 +1,3 @@
+<view class="xi-checkbox xi-class">
+  <slot></slot>
+</view>

@@ -1,0 +1,4 @@
+/* pages/checkbox/checkbox.wxss */
+.inline-block {
+  display: inline-block
+}

@@ -1,0 +1,18 @@
+<view class="xi-class">
+  <view 
+    class="xi-checkbox {{ isLimit ? 'xi-checkbox--limit' : '' }} {{ disabled ? 'xi-checkbox--disabled' : '' }} {{ checked ? 'xi-checkbox--checked' : '' }}"
+    data-value="{{ value || label }}"
+    bindtap="handleClick">
+    <!-- 圆形 -->
+    <view class="xi-checkbox__item circle"
+      wx:if="{{ type === 'circle' }}">
+      <xi-icon icon="icon-duigou2" xi-class="fzw"></xi-icon>
+    </view>
+    <!-- 方形 -->
+    <view class="xi-checkbox__item square"
+      wx:if="{{ type === 'square' }}">
+      <view class="square-inner"></view>
+    </view>
+    <view>{{ label }}</view>
+  </view>
+</view>

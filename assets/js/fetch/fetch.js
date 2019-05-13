@@ -26,6 +26,7 @@ class Fetch extends Base_config {
     if (!this.isFn(config) || !this.isFn(error)) {
       throw new Error('请传入函数');
     }
+    
     // Start interceptors
     if (config || error) this.isInterceptors = true;
 
@@ -34,6 +35,8 @@ class Fetch extends Base_config {
     this.requestFn = config && config;
     this.requestErrorFn = error && error;
   }
+
+  // FIXME: 响应拦截器
   response() { }
 
   $get(url, data = {}) {
