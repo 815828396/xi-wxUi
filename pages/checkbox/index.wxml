@@ -1,6 +1,8 @@
 <view style="padding: 30rpx">
   最多选择两个
   <xi-checkbox-group
+    isLimit
+    limit="2"
     checkboxType="circle"
     bind:change="change">
     <xi-checkbox label="西瓜" disabled="{{ true }}"></xi-checkbox>
@@ -15,8 +17,6 @@
 
 <view style="padding: 30rpx">
   <xi-checkbox-group
-    isLimit
-    limit="2"
     checkboxType="square"
     bind:change="change">
     <xi-checkbox label="苹果" xi-class="inline-block"></xi-checkbox>

@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/checkbox/checkbox",
     "pages/index/index",
+    "pages/checkbox/index",
     "pages/swiper/index",
     "pages/skeleton/index",
     "pages/papaw/index",
