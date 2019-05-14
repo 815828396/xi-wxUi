@@ -1,4 +1,7 @@
-// 主题描述颜色
+/**
+  * @file less 配置变量
+  * @desc 单位可手动全局改变 rpx <==> px <==> em <==> rem
+  */
 @thameColor: #1EA0FF;
 @thameBlackColor: #1E2328;
 @thameAuxColor: #73737D;
@@ -14,17 +17,33 @@
 @defaultColor: #2db7f5;
 
 // 背景及边框颜色
+@backgroundGhostWhite: #f1f1f1;
 @backgroundColor: #F5F5FA;
 @backgroundColorLight: rgba(255, 255, 255, .5);
 @backgroundColorBlack: rgba(0, 0, 0, .5);
 @borderColor: #E6E6EB;
 
-// 字体大小 @2x
+// @2x 小程序 rpx = 2px
+@5: 10rpx;
+@9: 18rpx;
 @10: 20rpx;
+@11: 22rpx;
 @12: 24rpx;
+@13: 26rpx;
 @14: 28rpx;
+@15: 30rpx;
 @16: 32rpx;
 @18: 36rpx;
+
+/* start calc 100% 计算 */
+.calcWidth (@calc) {
+  width: 100% / @calc;
+}
+.calcHeight (@calc) {
+  height: 100% / @calc;
+}
+/* end calc 100% 计算 */
+
 // modal 背景层
 .filter-background () {
   position: fixed;

@@ -1,0 +1,35 @@
+
+<view class="xi-header-title xi-fz fz--red ">nihao</view>
+<view style="text-align: center">
+  <image src="../../assets/images/artboard.png" class="loading" style="width: 200rpx; height: 200rpx;" />
+</view>
+
+<view class="wrapper margin-top--l">
+  <view class="xi-fz xi-fz--normal fz--thame padding-tb--l">grid布局样式</view>
+  <view class="xi-grid col-{{ 24 / (item + 1) }} margin-top--m"
+    wx:for="{{ 4 }}"
+    wx:key="{{ index }}">
+    <view class="bg-thame {{ inner % 2 == 0 ? 'bg-yellow' : '' }}"
+      wx:for="{{ (index + 1) * 2 }}"
+      wx:for-item="inner">{{ inner + 1 }}</view>
+  </view>
+
+
+  <view class="xi-fz xi-fz--normal fz--thame padding-tb--l">flex布局</view>
+  <view class="xi-fz--l">
+    <!-- 单行 -->
+    <view class="xi-flex margin-tb--s">
+      <view class="bg-gray padding-tb--l col-1 margin-lr--s" >1</view>  
+    </view>
+    <view class="xi-flex margin-tb--s">
+      <view class="bg-gray padding-tb--l col-1 margin-lr--s" >1</view>  
+      <view class="bg-gray padding-tb--l col-2 margin-lr--s" >2</view>  
+    </view>
+    <view class="xi-flex margin-tb--s">
+      <view class="bg-gray padding-tb--l col-1 margin-lr--s" >1</view>  
+      <view class="bg-gray padding-tb--l col-2 margin-lr--s" >2</view>  
+      <view class="bg-gray padding-tb--l col-3 margin-lr--s" >3</view>  
+    </view>
+  </view>
+</view>
+
