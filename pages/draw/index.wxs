@@ -1,0 +1,184 @@
+
+var trsY = -200,
+    originY = 0,
+    startY = 0,
+
+    maxPosY = 100,
+
+    ins_drawer,
+    ins_content,
+    ins_wrap,
+    
+    // 用来判断页面是否在最顶部
+    screenTop = 0,
+    screenTransTop = 0,
+    isTop = true,
+    canTouch = true,
+    isScroll = true,
+    
+    isMove = true,
+    isOpen = false;
+
+var timeFunc = 'transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1)';
+var durationFunc = ';transition-duration: 500ms';
+
+function start(ev, instance) {
+  var touches = ev.changedTouches[0];
+
+  // 获取 抽屉 和 滑动元素的 组件实例
+  ins_drawer = instance.selectAllComponents('.drawer')[0];
+  ins_content = instance.selectAllComponents('.content')[0];
+  // ins_wrap = instance.selectAllComponents('.wrap')[0];
+
+  // console.log(isMove)
+
+  // 设置起始值
+  startY = touches.pageY;
+}
+
+
+function move(ev) {
+  var touches = ev.changedTouches[0];
+  var diffY = touches.pageY - startY;
+
+  screenTransTop = diffY + screenTop;
+
+  if (!isMove) return;
+
+  // 下拉
+  if (diffY > 0) {
+    if (isTop) {
+      ins_drawer.setStyle({
+        transform: 'translateY(' + (trsY + diffY + originY) + 'rpx);' + timeFunc,
+        opacity: isOpen ? 1 : Math.abs(diffY / 100)
+      });
+      ins_content.setStyle({
+        transform: 'translateY(' + (trsY + diffY + originY) + 'rpx);' + timeFunc
+      });
+    }
+  } 
+  // 上拉
+  else {
+    ins_drawer.setStyle({
+      transform: 'translateY(' + (trsY + diffY + originY) + 'rpx);' + timeFunc,
+      opacity: 1 - Math.abs(diffY / 250)
+    });
+    ins_content.setStyle({
+      transform: 'translateY(' + (trsY + diffY + originY) + 'rpx);' + timeFunc
+    });
+
+  }
+}
+
+function end(ev) {
+  var touches = ev.changedTouches[0];
+  var endY = touches.pageY;
+
+
+  // 判断拉取方向   true: 下拉  false: 上拉
+  var delta = endY - startY > 0 ? true : false
+
+
+  if (!isMove) return;
+
+  // 下拉监听
+  if (delta) {
+    if (endY - startY > maxPosY / 2) {
+      ins_drawer.setStyle({
+        transform: 'translateY(' + 0 + 'rpx);' + timeFunc + durationFunc,
+        opacity: 1
+      });
+      ins_content.setStyle({
+        transform: 'translateY(' + 0 + 'rpx);' + timeFunc + durationFunc
+      });
+      isOpen = true;
+      originY = 200;
+
+      ins_drawer.callMethod('onOpenObserver', { open: isOpen });
+    } else {
+      // FIXME： 当开启状态时, 下拉一点距离 也会收缩
+      // if (isOpen) return;
+      ins_drawer.setStyle({
+        transform: 'translateY(' + trsY + 'rpx);' + timeFunc + durationFunc,
+        opacity: 0
+      });
+      ins_content.setStyle({
+        transform: 'translateY(' + trsY + 'rpx);' + timeFunc + durationFunc
+      });
+      isOpen = false;
+      ins_drawer.callMethod('onOpenObserver', { open: isOpen });
+    }
+  }
+  // 上拉
+  else {
+    if (startY - endY > maxPosY / 2 && isOpen) {
+      ins_drawer.setStyle({
+        transform: 'translateY(' + trsY + 'rpx);' + timeFunc + durationFunc,
+        opacity: 0
+      });
+      ins_content.setStyle({
+        transform: 'translateY(' + trsY + 'rpx);' + timeFunc + durationFunc
+      });
+      isOpen = false;
+      originY = 0;
+      ins_drawer.callMethod('onOpenObserver', { open: isOpen });
+    } else if (startY - endY <= maxPosY / 2 && isOpen) {
+      ins_drawer.setStyle({
+        transform: 'translateY(' + 0 + 'rpx);' + timeFunc + durationFunc,
+        opacity: 1
+      });
+      ins_content.setStyle({
+        transform: 'translateY(' + 0 + 'rpx);' + timeFunc + durationFunc
+      });
+      isOpen = true;
+      originY = 200;
+      ins_drawer.callMethod('onOpenObserver', { open: isOpen });
+    }
+  }
+
+
+}
+
+function reset() {
+  ins_drawer.setStyle({
+    transform: 'translateY(' + trsY + 'rpx);' + timeFunc + durationFunc,
+    opacity: 0
+  });
+  ins_content.setStyle({
+    transform: 'translateY(' + trsY + 'rpx);' + timeFunc
+  });
+
+  originY = 0;
+  isOpen = false;
+}
+
+function scrollHeight(height) {
+  console.log(height)
+  return isScroll ? height + 'rpx' : 'auto';
+}
+
+function outIsOpen() {
+  // console.log('open', open);
+  return !isOpen
+}
+
+function canMove() {
+  return isMove
+}
+
+function scrollObserver(nval, oval) {
+  console.log('下拉', nval)
+  isMove = nval;
+}
+
+
+
+module.exports = {
+  start: start,
+  move: move,
+  end: end,
+  scrollHeight: scrollHeight,
+  scrollObserver: scrollObserver,
+  outIsOpen: outIsOpen,
+  canMove: canMove
+}

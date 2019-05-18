@@ -1,5 +1,9 @@
 # xi-wxUi
 原生小程序Ui组件
+#### 2019.05.18
+  1. `A` _新增_ `API` 抽屉动画， XScroll.wxs 
+#### 2019.05.15
+  1. `U` _修改_ `API` WxUtil.js `getScrollViewFixedTop`方法采用 top 属性进行计算干扰值
 #### 2019.05.14
   1. `A` _新增_ 样式 `base.less`，全局初始化样式 
 #### 2019.05.13

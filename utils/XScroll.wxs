@@ -1,0 +1,260 @@
+/**
+ * WXS + scroll-view 组件 模拟 Better-Scroll
+ * wxs 可以 防止 小程序的频繁 setData() 从而优化拖拽
+ * @author xing
+ */
+
+var instance = [],
+  instanceLen = 0,
+  len = 0,
+
+  /**
+   * 可自定义变量
+   */
+  drawer,
+  content,
+  duration,
+  scrollY,
+  timeFunc,
+  vibrate,
+
+
+  startY = 0,
+  originY = 0,
+
+  _transFuncName = 'transition-time-function:',
+  _transDuraName = 'transition-duration:',
+
+  insDrawer = null,
+  insContent = null,
+
+  isPassCheck = false;
+
+  canPullDown = true,
+  isOpen = false;
+
+// 函数对象
+var XScroll = {};
+
+/**
+ * 初始化：配置变量函数
+ * 将自定义变量与默认变量 合并
+ */
+XScroll.initObserver = function (conf, oldConf) {
+  
+  var defaultOptions = {
+    // 抽屉 scroll 类名, 默认获取 XSdraw, XScontent ID名称
+    drawer: "XSdrawer",
+    content: "XScontent",
+
+    /**
+     * autoScale: 自动收缩, 暂时没有控制
+     * vibrate 开启震动特效,页面需要添加iBrate方法调用wx.vibrateShort 震动
+     */
+    autoScale: true,
+    vibrate: true,
+
+    // FIXME: 暂时不考虑
+    // 额外的 scroll 块类名称
+    argInstance: [],
+
+
+    // 偏移距离配置
+    maxPosY: 0,
+    scrollStartY: 0,
+    scrollY: 200,
+
+
+    // 动画函数配置
+    timeFunc: 'cubic-bezier(0.165, 0.84, 0.44, 1)',
+    // 延迟时间 也是 手指松开时的动画时间 (ms)
+    duration: 800
+  }
+
+  // FIXME：对象的合并
+  // wxs暂时不支持 Object 等操作
+  // 等待后期wxs的更新情况
+  drawer = conf.drawer || defaultOptions.drawer;
+  content = conf.content || defaultOptions.content;
+  timeFunc = conf.timeFunc || defaultOptions.timeFunc;
+  duration = conf.duration || defaultOptions.duration;
+  scrollY = conf.scrollY || defaultOptions.scrollY;
+  vibrate = conf.vibrate || defaultOptions.vibrate;
+  maxPosY = conf.maxPosY || ~~(defaultOptions.scrollY / 3);
+}
+/**
+ * 修改是否可下拉状态
+ * @desc 搭配Wxs属性 change:prop 监听修改 canPullDown 的下拉状态
+ * @params 
+ */
+XScroll.scrollObserver = function(scroll) {
+  canPullDown = scroll;
+}
+
+
+// 手指按下
+XScroll.start = function(ev, instance) {
+  // 获取 组件/标签 实例
+  insDrawer = instance.selectAllComponents('#' + drawer)[0];
+  insContent = instance.selectAllComponents('#' + content)[0];
+
+  var pass = !isPassCheck && noScrollEl(insDrawer, insContent) || true;
+
+  if (!pass) return;
+
+  startY = ev.changedTouches[0].pageY;
+}
+// 手指移动
+XScroll.move = function(ev) {
+  if (!canPullDown) return;
+
+  var touches = ev.changedTouches[0];
+  var diffY = touches.pageY - startY;
+  // 设置 Y 坐标 = 起始偏移量 + 移动距离 + 原始的Y
+  // 此处 加原始的Y， 是为了在已经展开的情况下,可以再次当前位置拉伸，提高触觉体验
+  var transY = ~scrollY + diffY + originY;
+
+  // 下拉
+  if (diffY > 0) {
+
+    vIBrate(diffY);
+
+    insDrawer.setStyle({
+      transform: domStyle.transform(transY),
+      opacity: isOpen ? 1 : domStyle.opacity(Math.abs(diffY / scrollY))
+    })
+    insContent.setStyle({
+      transform: domStyle.transform(transY)
+    })
+  } 
+  else {
+    insDrawer.setStyle({
+      transform: domStyle.transform(transY),
+      opacity: domStyle.opacity(1 - Math.abs(diffY / scrollY))
+    })
+    insContent.setStyle({
+      transform: domStyle.transform(transY)
+    })
+  }
+}
+XScroll.end = function(ev) {
+  if (!canPullDown) return;
+
+  var touches = ev.changedTouches[0];
+  var dropY = touches.pageY - startY;
+  var direction = dropY > 0 ? true : false;
+
+  // 下拉操作
+  if (direction) {
+    if (dropY > maxPosY) {
+      ok(insDrawer, insContent);
+      // 改变开启状态
+      isOpen = true;
+      originY = scrollY;
+      insDrawer.callMethod('onOpenObserver', { open: isOpen });
+    } else {
+      if (isOpen) {
+        ok(insDrawer, insContent);
+        return;
+      };
+      reset(insDrawer, insContent);
+    }
+  }
+  // 上拉操作
+  else {
+    // 在开启状态下,并且滑动距离足够时,收起抽屉
+    if (~dropY > maxPosY && isOpen) {
+      reset(insDrawer, insContent);
+      isOpen = false;
+      originY = 0;
+      insDrawer.callMethod('onOpenObserver', { open: isOpen });
+    } else if (~dropY <= maxPosY && isOpen) {
+      ok(insDrawer, insContent);
+    }
+  }
+
+  // FIXME: 如果自定义取消震动模式,这样会强制开启震动状态
+  //        导致自定义无效,后期优化-问题不大
+  // 再次开启震动状态
+  vibrate = true;
+
+}
+
+/**
+ * 设备震动
+ * @param {Number} diffY 偏移距离
+ */
+function vIBrate(diffY) {
+  // 开启震动状态
+  if (vibrate && diffY > maxPosY && !isOpen) {
+    insDrawer.callMethod('vIBrate');
+    vibrate = false;
+  };
+}
+
+/**
+ * 动画完成状态,开启抽屉
+ */
+function ok(drawer, content) {
+  drawer.setStyle({
+    transform: domStyle.transform(0) + ';' + domStyle.duration(),
+    opacity: 1
+  })
+  content.setStyle({
+    transform: domStyle.transform(0) + ';' + domStyle.duration()
+  })
+}
+
+/**
+ * 恢复隐藏状态,隐藏抽屉
+ */
+function reset(drawer, content) {
+  drawer.setStyle({
+    transform: domStyle.transform(~scrollY) + ';' + domStyle.duration(),
+    opacity: 0
+  })
+  content.setStyle({
+    transform: domStyle.transform(~scrollY) + ';' + domStyle.duration()
+  })
+}
+
+/**
+ * 检测页面是否传入必须标签,并设置检测结果(isPassCheck)是否通过
+ */
+function noScrollEl(d, c) {
+  // console.log(d, c)
+  var err = {
+    insDrawer: !d ? drawer : '',
+    insContent: !c ? content : '',
+  }
+  // 抛出异常
+  if (!d || !c) {
+    console.log(
+      '******* Warning: * *******\n\n' +
+      '在页面中未检测到 ID = ' + err.insDrawer + '' + err.insContent + ' 的容器,请检查页面\n' +
+      '可能导致无法下拉\n\n' +
+      '***************************'
+    )
+    return false;
+  }
+  // 通过检测
+  isPassCheck = true
+  return true;
+}
+
+/**
+ * 操作 style 样式
+ */
+var domStyle = {
+  transform: function(y) {
+    return 'translateY(' + y + 'rpx);' + _transFuncName + timeFunc;
+  },
+  opacity: function(op) {
+    return op;
+  },
+  duration: function() {
+    return 'transition-duration:' + duration + 'ms';
+  }
+}
+
+module.exports.scroll = XScroll;

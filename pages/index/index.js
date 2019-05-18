@@ -11,6 +11,7 @@ Page({
       { url: 'timeAxis', title: '步骤条' },
       { url: 'province', title: '省份选择器' },
       { url: 'swiper', title: '轮播图' },
+      { url: 'draw', title: '抽屉' },
       { url: 'skeleton', title: '骨架屏' },
       { url: 'image', title: '图片组件' },
       { url: 'checkbox', title: 'checkbox' },

@@ -1,0 +1,282 @@
+<!-- <wxs src="./index.wxs" module="touches"></wxs> -->
+<wxs src="./scroll.wxs" module="options"></wxs>
+<wxs src="../../utils/XScroll.wxs" module="touches"></wxs>
+
+
+<!-- <view class="wrap"
+  style="overflow: auto">
+  <view class="header" id="header">{{ drawerAnimate }}</view>
+
+   <button bindtap="top">asd{{ touches.isScroll()  }}</button>
+ -->
+
+  <!--
+    通过对 scroll-view  的高度来是否可进行 页面滚动
+  -->
+  <scroll-view
+    class="scroll"
+    style="height: 100%"
+    change:options="{{ touches.scroll.initObserver }}"
+    options="{{ options.userOptions }}"
+
+    change:canMove="{{ touches.scroll.scrollObserver }}"
+    canMove="{{ canMove }}"
+
+    data-scroll="{{ touches.outIsOpen(isScroll) }}"
+    scroll-y="{{ isScroll }}"
+    upper-threshold="10"
+    scroll-top="{{ toScrollTop }}"
+    scroll-with-animation="true"
+    
+    bindtouchstart="{{ touches.scroll.start }}"
+    catchtouchmove="{{ touches.scroll.move }}"
+    bindtouchend="{{ touches.scroll.end }}"
+
+    bindscrolltoupper="handleUpper"
+    bindscroll="scrollListener">
+
+    <!-- staart header -->
+    <view class="header">
+      <!-- 项目统计 -->
+      <view class="header-statisis">
+        <view class="header-statisis_top">
+          <navigator url="../index/index" class="block"
+            data-url="serviceList">
+            <!-- 总计 = 关注人数 + 购卡人数 -->
+            <view class="num">{{ statis.year_num || 0 }}</view>  
+            <view class="desc">邦保养参与{{ touches.scroll.a }}</view>  
+          </navigator>
+          <view class="block"
+            data-url="service"
+            bindtap='skipUrl'>
+            <!-- 总计 = 2643 + 购卡人数 + 店面数量 -->
+            <view class="num">{{ statis.shop_num || 0 }}</view>  
+            <view class="desc">就近服务</view>  
+          </view>
+          <view class="block" style="padding: 20rpx 0"
+            wx:if="{{ !true }}" 
+            bindtap="resetLocation">
+            <button wx:if="{{ true }}" class="zd-loading min" loading></button>
+            <view wx:if="{{ !false }}" class="desc">重新获取网点</view>
+          </view>
+        </view>
+      </view>
+      <!-- 主栏目 -->
+      <view class="header-columns">
+        <view class="header-columns_item border-right-1px"
+          data-url="enquiry"
+          bindtap='skipUrl'
+          hover-class='zd-click-hover'
+          hover-stay-time='100'>
+          <image class="column-image" src="../../images/indexIcon/index_t_bucard.png"></image>
+          <view class="zd-fz-title title">超值套餐</view>
+          <view class="zd-fz-desc">邦保养套餐</view>
+        </view>
+        <view class="header-columns_item border-right-1px"
+          data-url="Once"
+          bindtap='skipUrl'
+          hover-class='zd-click-hover'
+          hover-stay-time='100'>
+          <image class="column-image" src="../../images/indexIcon/index_t_once.png"></image>
+          <!-- 1. 单次限制，
+                2. 钱数捐献老兵公益 -->
+          <view class="zd-fz-title title">5折体验</view>
+          <view class="zd-fz-desc">体验邦保养</view>
+        </view>
+        <view class="header-columns_item"
+          data-url="bag"
+          bindtap='skipUrl'
+          hover-class='zd-click-hover'
+          hover-stay-time='100'>
+          <view class="zd-float-red">
+            <image class="column-image" src="../../images/indexIcon/index_t_card.png"></image>
+          </view>
+          <view class="zd-fz-title title">我的卡包</view>
+          <view class="zd-fz-desc">您的保养服务卡</view>
+        </view>
+      </view>
+    </view>
+
+   
+    
+
+    <view class="main-content">
+      <view class="drawer" id="XSdrawer">
+          <!-- start OBD status -->
+        <view class="obd">
+          <!-- 未绑定 邦报盒子 -->
+          <view>
+            <view class="obd-btn" bindtap="skipBind">点击绑定邦保盒子</view>
+            <view class="zd-fz-min">绑定邦保盒子享受智慧出行服务</view>
+          </view>
+        </view>
+      </view>
+      <view class="content" id="XScontent">
+
+        <!-- start Activitys -->
+        <view class="activity">
+          <swiper class="activity-inner"
+            duration="200"
+            bindchange='swiperChange'>
+            <swiper-item class="activity-item">
+              <!-- <view class="activity-item_content">
+                <view class="activity-title">致敬老兵</view>
+                <view class="activity-desc">最高可享受5折优惠</view>
+              </view>
+              <image class="activity-item_image" src="../../images/indexIcon/{{ item }}.png"></image> -->
+            </swiper-item>
+          </swiper>
+          <!-- dots -->
+          <view class="activity-dots">
+            <view class="activity-dots-item {{ currentIndex === index ? 'active' : '' }}"></view>
+          </view>
+        </view>
+
+        <!-- start internet -->
+        <view class="container">
+          <view class="container-inner bby">
+            <!-- start 邦保养服务 -->
+            <view class="container-box">
+              <view class="zd-fz-column title">邦保养服务</view>
+              <view class="columns-wrap">
+                <view class="columns-tr">
+                  <view class="columns-item"
+                    data-subpackage="solider_pages"
+                    data-url="buy-history"
+                    bindtap='skipUrl'>
+                    <image src="../../images/indexIcon/index_c_xin.png"></image>
+                    <view class="columns-bg">
+                      <view class="label">老兵公益</view>
+                      <view class="desc xin">向老兵致敬</view>
+                    </view>
+                  </view>
+                  <view class="columns-item"
+                    data-url="detail"
+                    bindtap='skipWeizhang'>
+                    <image src="../../images/indexIcon/index_c_chaxun.png"></image>
+                    <view class="columns-bg">
+                      <view class="label">违章查询</view>
+                      <view class="desc chaxun">查询交通违章</view>
+                    </view>
+                  </view>
+                  <view class="columns-item"
+                    data-url="youzhanList"
+                    bindtap='skipUrl'>
+                    <image src="../../images/indexIcon/index_c_oil.png"></image>
+                    <view class="columns-bg">
+                      <view class="label">U惠多</view>
+                      <view class="desc oil">您的平价加油站</view>
+                    </view>
+                  </view>
+                </view>
+                <view class="columns-tr">
+                  <view class="columns-item"
+                    data-url="freeAid"
+                    bindtap='skipUrl'>
+                    <image src="../../images/indexIcon/index_c_free.png"></image>
+                    <view class="columns-bg">
+                      <view class="label">免费救援</view>
+                      <view class="desc free">一键救援服务</view>
+                    </view>
+                  </view>
+                  <view class="columns-item">
+                    <image src="../../images/indexIcon/index_c_service.png"></image>
+                    <view class="columns-bg">
+                      <view class="label">主题服务店</view>
+                      <view class="desc service">产品服务</view>
+                    </view>
+                  </view>
+                  <view class="columns-item"
+                    bindtap='skipNewWx'>
+                    <image src="../../images/indexIcon/index_c_car.png"></image>
+                    <view class="columns-bg">
+                      <view class="label">约驾出行</view>
+                      <view class="desc car">自驾游</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <!-- start 智慧出行 -->
+            <view class="container-box internet">
+              <view class="zd-fz-column title">智慧出行</view>
+              <view class="columns-wrap">
+                <view class="columns-tr">
+                  <view class="internet-item"
+                    data-url="saveFuel"
+                    bindtap='skipUrl'>
+                    <image src="../../images/indexIcon/trip_ubi.png"></image>
+                    <view class="label">节油宝</view>
+                    <view class="desc">油耗记录</view>
+                  </view>
+                  <view class="internet-item"
+                    data-url="return"
+                    bindtap='skipUrl'>
+                    <image src="../../images/indexIcon/trip_price.png"></image>
+                    <view class="label">停驶奖励</view>
+                    <view class="desc">每日最高10元</view>
+                  </view>
+                  <view class="internet-item">
+                    <image src="../../images/indexIcon/trip_vip.png"></image>
+                    <view class="label">会员专属</view>
+                    <view class="desc">10项免费特权</view>
+                  </view>
+                </view>
+                <view class="columns-tr">
+                  <view class="internet-item"
+                    data-url="mapPage"
+                    bindtap='skipUrl'>
+                    <image src="../../images/indexIcon/trip_baobiao.png"></image>
+                    <view class="label">车保镖</view>
+                    <view class="desc">出行轨迹记录</view>
+                  </view>
+                  <view class="internet-item"
+                    data-url="faultWarning"
+                    bindtap='skipUrl'>
+                    <image src="../../images/indexIcon/trip_guzhang.png"></image>
+                    <view class="label">故障预警</view>
+                    <view class="desc">保障出行安全</view>
+                  </view>
+                  <view class="internet-item"
+                    data-url="tailWarn"
+                    bindtap='skipUrl'>
+                    <image src="../../images/indexIcon/trip_weiqi.png"></image>
+                    <view class="label">尾气预警</view>
+                    <view class="desc">尾气实时监测</view>
+                  </view>
+                </view>
+                <view class="columns-tr">
+                  <view class="internet-item"
+                    data-url="collisionWarn"
+                    bindtap='skipUrl'>
+                    <image src="../../images/indexIcon/trip_tip.png"></image>
+                    <view class="label">碰撞提醒</view>
+                    <view class="desc">碰撞实时提醒</view>
+                  </view>
+                  <view class="internet-item"
+                    data-url="qidai"
+                    bindtap='skipUrl'>
+                    <image src="../../images/indexIcon/trip_baoxian.png"></image>
+                    <view class="label">一键报险</view>
+                    <view class="desc">快捷理赔服务</view>
+                  </view>
+                  <view class="internet-item"
+                    data-url="protectiveCar"
+                    bindtap='skipUrl'>
+                    <image src="../../images/indexIcon/trip_yanghu.png"></image>
+                    <view class="label">养护提醒</view>
+                    <view class="desc">车辆养护提醒</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <xi-bottom-line xi-class="bottom-line" size="max" msg="这是我的底线"></xi-bottom-line>
+
+      </view>
+    </view>
+
+
+
+  </scroll-view>

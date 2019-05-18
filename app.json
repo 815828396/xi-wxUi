@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/draw/index",
     "pages/containerLayout/index",
     "pages/checkbox/index",
     "pages/swiper/index",

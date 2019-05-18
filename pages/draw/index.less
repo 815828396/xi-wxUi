@@ -1,0 +1,92 @@
+@import '../../assets/styles/mixinFn.less';
+page { overflow: hidden; }
+page,
+.wrap,
+.xi-drawer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+// 设置滚动条为透明
+.wrap::-webkit-scrollbar {
+  width: 0px;
+}
+/* 中间抽屉 */
+
+.header { 
+  position: relative;
+  // top: 0;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  z-index: 50;
+  height: 300rpx; background: yellow; }
+.drawer { 
+  height: 200rpx;
+  transform: translateY(-200rpx); 
+  // transform: translate(0px, 0px) scale(1) translateZ(0px);
+  // transition: all .1s cubic-bezier(0.165, 0.84, 0.44, 1); 
+  
+  overflow: hidden; background: #ccc; 
+
+}
+.transi {
+  
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-duration: 200ms;
+}
+.container { height: 800rpx; margin-top: 20rpx; background: #ccc; }
+.footer { height: 200rpx; margin-top: 20rpx; background: @thameMidColor; }
+.content { transform: translateY(-200rpx) }
+.scroll {
+  position: relative;
+}
+.main-content {
+  // margin-top: 300rpx;
+}
+
+// 侧边抽屉
+// .wrap {
+//   display: flex;
+// }
+// .xi-drawer {
+//   position: fixed;
+//   width: 70%;
+//   height: 100%;
+//   transition: all .3s;
+//   transform: translate(-100%);
+//   z-index: -20;
+//   background: @backgroundGhostWhite;
+//   &.hide {
+//     transform: translate(0rpx);
+//     z-index: 20;
+//     box-shadow: 10rpx 0 10rpx @thameMidColor;
+//   }
+// }
+// .xi-drawer_out {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   transition: all .3s;
+//   background: @warningColor;
+//   transform-origin:100% 100%;
+//   &.hide {
+//     position: relative;
+//     // left: 70%;
+//     // box-shadow:-10rpx -10rpx 10rpx #ccc;
+//     // transform: scale3d(0.9, 0.99, 1);
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 100%;
+
+//       background: rgba(0, 0, 0, .3);
+//     }
+//   }
+// }

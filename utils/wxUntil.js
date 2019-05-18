@@ -3,7 +3,7 @@ import { qs } from './util'
 import regeneratorRuntime  from './regenerator-runtime/runtime'
 
 /**
- * 获取 单个或多个标签 selector 元素属性信息
+ * 获取 单个或多个标签元素的属性信息
  * 可获取属性:
  *  height, width, top, left, right, bottom, dataset
  * @param {String} property 需要获取的属性, 当传入 {} 空对象时， 返回所有属性
@@ -46,15 +46,18 @@ export let getSelectorAttr = ({ property: ARG_property = {} }, ...args) => {
  */
 export let getScrollViewFixedTop = async function (ARG_interfere = 90, ...args) {
   let interfereHeight = 0
+
   // 采用默认 90 rpx
   if (typeof ARG_interfere === 'number' && args.length === 0)
     interfereHeight = ARG_interfere
+
   // 传入一个干扰元素 ID
   else if (ARG_interfere && args.length === 0)
-    interfereHeight = await getSelectorAttr({ property: 'height' }, ARG_interfere)
+    interfereHeight = await getSelectorAttr({ property: 'top' }, ARG_interfere)
+
   // 传入了多个干扰元素 ID
   else if (args.length > 0)
-    interfereHeight = await getSelectorAttr({ property: 'height' }, ARG_interfere, ...args)
+    interfereHeight = await getSelectorAttr({ property: 'top' }, ARG_interfere, ...args)
 
 
   /** 获取的是一个数组,求和 */
@@ -62,8 +65,6 @@ export let getScrollViewFixedTop = async function (ARG_interfere = 90, ...args) 
     interfereHeight = interfereHeight.reduce((p, n) => p + n)
 
   let { height: clientHeight, dpr } = await screenHeight()
-
-  // if (this.__proto__) {}
 
   /** interferHeight: 干扰元素高度, clientHeight： 屏幕高度 */
   return { interfereHeight, clientHeight, dpr }

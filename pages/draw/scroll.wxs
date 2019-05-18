@@ -1,0 +1,10 @@
+/**
+ * scroll 配置文件
+ * 
+ */
+var userOptions = {
+  maxPosY: 50,
+  scrollY: 200,
+  duration: 300
+}
+module.exports.userOptions = userOptions
