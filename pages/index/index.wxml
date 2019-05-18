@@ -1,4 +1,10 @@
 <!--index.wxml-->
+
+
+<view class="box">
+
+</view>
+
 <message-close id="message-close"
   bind:onMessageCloseClick="aaa"></message-close>
 <view>分包页面</view>

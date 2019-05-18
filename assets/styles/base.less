@@ -3,146 +3,240 @@
   * @desc 命名方式 使用 --[*] 双横线 + *修饰词
   * @desc Grid 布局的 比例尺 类名都是以 24 等分原则 col-24 col-12 col-8
   * @desc Flex 布局的 比例尺 col-1 col-2 col-3 份
-  */
-  @import '../../assets/styles/mixinFn.less';
-  .wrapper { color: #fff; text-align: center; }
+*/
+@import '../../assets/styles/mixinFn.less';
+.wrapper { color: #fff; text-align: center; }
+
+view,
+swiper,
+button,
+label,
+scroll-view,
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+/* start 外边距 */
+.margin {
+  &--s { margin: @5 };
+  &--m { margin: @10 };
+  &--l { margin: @15 };
   
-  view,
-  swiper,
-  button,
-  label,
-  scroll-view,
-  input,
-  textarea {
-    box-sizing: border-box;
+  &-top {
+    &--s { margin-top: @5 }
+    &--m { margin-top: @10 }
+    &--l { margin-top: @15 }
   }
+  &-right {
+    &--s { margin-right: @5 }
+    &--m { margin-right: @10 }
+    &--l { margin-right: @15 }
+  }
+  &-bottom {
+    &--s { margin-bottom: @5 }
+    &--m { margin-bottom: @10 }
+    &--l { margin-bottom: @15 }
+  }
+  &-left {
+    &--s { margin-left: @5 }
+    &--m { margin-left: @10 }
+    &--l { margin-left: @15 }
+  }
+
+  &-tb {
+    &--s { margin: @5 0 }
+    &--m { margin: @10 0 }
+    &--l { margin: @15 0 }
+  }
+  &-lr  {
+    &--s { margin: 0 @5 }
+    &--m { margin: 0 @10 }
+    &--l { margin: 0 @15 }
+  }
+}
+/* end 外边距 */
+
+/* start 内边距 */
+.padding {
+  &--s { padding: @5 };
+  &--m { padding: @10 };
+  &--l { padding: @15 };
   
-  /* start 外边距 */
-  .margin {
-    &--s { margin: @5 };
-    &--m { margin: @10 };
-    &--l { margin: @15 };
-    
-    &-top,
-    &-right,
-    &-bottom,
-    &-left {
-      &--s { margin-top: @5 }
-      &--m { margin-top: @10 }
-      &--l { margin-top: @15 }
-    }
+  &-top {
+    &--s { padding-top: @5 }
+    &--m { padding-top: @10 }
+    &--l { padding-top: @15 }
+  }
+  &-right {
+    &--s { padding-right: @5 }
+    &--m { padding-right: @10 }
+    &--l { padding-right: @15 }
+  }
+  &-bottom {
+    &--s { padding-bottom: @5 }
+    &--m { padding-bottom: @10 }
+    &--l { padding-bottom: @15 }
+  }
+  &-left {
+    &--s { padding-left: @5 }
+    &--m { padding-left: @10 }
+    &--l { padding-left: @15 }
+  }
+
+  &-tb {
+    &--s { padding: @5 0 }
+    &--m { padding: @10 0 }
+    &--l { padding: @15 0 }
+  }
+  &-lr  {
+    &--s { padding: 0 @5 }
+    &--m { padding: 0 @10 }
+    &--l { padding: 0 @15 }
+  }
+}
+/* end 内边距 */
+
+/* start 背景颜色 */
+.bg {
+  &-thame { background: @thameColor }
+  &-gray { background: @thameMidColor }
+  &-yellow { background: @warningColor }
+}
+/* end 背景颜色 */
+
+/* start box-shadow */
+// .shadow {
+
+// }
+/* end box-shadow */
+
+/* start title */
+.xi-title {
+  height: 80rpx;
+  padding: 0 30rpx;
+  font-size: @16;
+  font-weight: bold;
+  color: @thameColor;
+}
+.xi-sign {
+  display: inline-block;
+  background: @thameColor;
+  border-radius: 5rpx;
+  &.sign-vertical {
+    width: 10rpx;
+    height: 30rpx;
+  }
+  &.sign-horiz {
+    width: 30rpx;
+    height: 10rpx;
+  }
+  &.sign-circle {
+    width: 15rpx;
+    height: 15rpx;
+    border-radius: 50%;
+  }
+}
+/* end title */
+
+/* start 文本 */
+.xi-fz {
+  &--s { font-size: @9; }
+  &--m { font-size: @10; }
+  &--l { font-size: @11; }
+  &--xl { font-size: @12; }
+  &--normal { font-size: @14; }
+  &--xxl { font-size: @15; }
   
-    &-tb {
-      &--s { margin: @5 0 }
-      &--m { margin: @10 0 }
-      &--l { margin: @15 0 }
-    }
-    &-lr  {
-      &--s { margin: 0 @5 }
-      &--m { margin: 0 @10 }
-      &--l { margin: 0 @15 }
+  &[class*="--red"] { color: @errorColor; }
+  &[class*="--success"] { color: @successColor; }
+  &[class*="--warning"] { color: @warningColor; }
+  &[class*="--thame"] { color: @defaultColor; }
+}
+/* end 文本 */
+
+/* start button */
+button {
+  &::after { border: none }
+  display: inline-block;
+  padding: 10rpx 20rpx;
+  font-size: @13;
+  background: transparent;
+}
+// button.xi-btn-primary[disabled] { background: red } 
+// button[class*="-primary"][disabled] { background: red } 
+
+.xi-btn {
+  width: 100%;
+  &-primary { .buttonStyle(@thameColor); }
+  &-warning { .buttonStyle(@warningColor); }
+  &-success { .buttonStyle(@successColor); }
+  &-error { .buttonStyle(@errorColor); }
+
+  &.xi-mini { width: auto; padding: 0 20rpx; }
+
+  &[class*="shadow--primary"] { box-shadow: 5rpx 5rpx 16rpx @thameColor; }
+  &[class*="shadow--primary"] { box-shadow: 5rpx 5rpx 16rpx @thameColor; }
+  &[class*="shadow--primary"] { box-shadow: 5rpx 5rpx 16rpx @thameColor; }
+
+  // &[disabled*="disabled"] { background }
+}
+/* end button */
+
+/* start flex布局 */
+.xi-flex {
+  display: flex;
+  flex-wrap: wrap;
+  &-list {
+    .xi-row {
+      padding: 0 30rpx;
     }
   }
-  /* end 外边距 */
-  
-  /* start 内边距 */
-  .padding {
-    &--s { padding: @5 };
-    &--m { padding: @10 };
-    &--l { padding: @15 };
-    
-    &-top,
-    &-right,
-    &-bottom,
-    &-left {
-      &--s { padding-top: @5 }
-      &--m { padding-top: @10 }
-      &--l { padding-top: @15 }
-    }
-  
-    &-tb {
-      &--s { padding: @5 0 }
-      &--m { padding: @10 0 }
-      &--l { padding: @15 0 }
-    }
-    &-lr  {
-      &--s { padding: 0 @5 }
-      &--m { padding: 0 @10 }
-      &--l { padding: 0 @15 }
-    }
+  &.nowrap {
+    flex-wrap: nowrap;
   }
-  /* end 内边距 */
-  
-  /* start 背景颜色 */
-  .bg {
-    &-thame { background: @thameColor }
-    &-gray { background: @thameMidColor }
-    &-yellow { background: @warningColor }
+  &.justify-center {
+    justify-content: center;
   }
-  /* end 背景颜色 */
-  
-  /* start 文本 */
-  .xi-fz {
-    &--s { font-size: @9; }
-    &--m { font-size: @10; }
-    &--l { font-size: @11; }
-    &--xl { font-size: @12; }
-    &--normal { font-size: @14; }
-    &--xxl { font-size: @15; }
-    
-    &[class*="--red"] { color: @errorColor; }
-    &[class*="--success"] { color: @successColor; }
-    &[class*="--warning"] { color: @warningColor; }
-    &[class*="--thame"] { color: @defaultColor; }
+  &.justify-end {
+    justify-content: end;
   }
-  /* end 文本 */
-  
-  /* start flex布局 */
-  .xi-flex {
-    display: flex;
-    flex-wrap: wrap;
-    &.nowrap {
-      flex-wrap: nowrap;
-    }
-    &.justify-center {
-      justify-content: center;
-    }
-    &.justify-end {
-      justify-content: end;
-    }
-    &.justify-between {
-      justify-content: space-between;
-    }
-    &.justify-around {
-      justify-content: space-around;
-    }
-    .col-1 {
-      flex-grow: 1
-    }
-    .col-2 {
-      flex-grow: 2
-    }
-    .col-3 {
-      flex-grow: 3
-    }
+  &.justify-between {
+    justify-content: space-between;
   }
-  /* end flex布局 */
-  
-  /* start Grid 布局 24等分法 */
-  .xi-grid {
-    display: flex;
-    flex-wrap: wrap;
-    &.col-24 > view {
-      .calcWidth(1);
-    }
-    &.col-12 > view {
-      .calcWidth(2);
-    }
-    &.col-8 > view {
-      .calcWidth(3);
-    }
-    &.col-6 > view {
-      .calcWidth(4);
-    }
+  &.justify-around {
+    justify-content: space-around;
   }
-  /* end Grid 布局 */
+  &.align-center {
+    align-items: center;
+  }
+  .col-1 {
+    flex-grow: 1
+  }
+  .col-2 {
+    flex-grow: 2
+  }
+  .col-3 {
+    flex-grow: 3
+  }
+}
+/* end flex布局 */
+
+/* start Grid 布局 24等分法 */
+.xi-grid {
+  display: flex;
+  flex-wrap: wrap;
+  &.col-24 > view {
+    .calcWidth(1);
+  }
+  &.col-12 > view {
+    .calcWidth(2);
+  }
+  &.col-8 > view {
+    .calcWidth(3);
+  }
+  &.col-6 > view {
+    .calcWidth(4);
+  }
+}
+/* end Grid 布局 */

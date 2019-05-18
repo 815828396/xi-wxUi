@@ -1,0 +1,46 @@
+<view class="">
+
+
+  <view class="xi-flex xi-title align-center">
+    <view class="xi-sign sign-vertical"></view>
+    <view class="col-1 padding-left--m">按钮样式</view>
+  </view>
+
+
+  <view class="xi-btn xi-btn_prarmy"></view>
+  <!-- 按钮组 -->
+  <view style="padding: 30rpx">
+
+    <button class="xi-btn xi-btn-primary">主要按钮</button>
+    <button class="xi-btn xi-btn-success">成功按钮</button>
+    <button class="xi-btn xi-btn-warning">警告按钮</button>
+    <button class="xi-btn xi-btn-error">失败按钮</button>
+  </view>
+  
+  <view class="xi-flex-list">
+    
+    <view class="xi-flex xi-title align-center">
+      <view class="xi-sign sign-horiz"></view>
+      <view class="col-1 padding-left--m">mini按钮</view>
+    </view>
+
+    <view class="xi-row">
+      <button class="xi-btn xi-mini xi-btn-primary">主要</button>
+      <button class="xi-btn xi-mini xi-btn-warning">主要</button>
+    </view>
+  </view>
+
+
+  <view class="xi-flex-list">
+    <view class="xi-flex xi-title align-center">
+      <view class="xi-sign sign-circle"></view>
+      <view class="col-1 padding-left--m">禁止状态</view>
+    </view>
+
+    <view class="xi-row">
+      <button class="xi-btn" disabled="disabled">主要按钮-禁止</button>
+    </view>
+  </view>
+
+
+</view>
