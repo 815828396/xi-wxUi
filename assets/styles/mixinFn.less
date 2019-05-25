@@ -42,6 +42,10 @@
 .calcHeight (@calc) {
   height: 100% / @calc;
 }
+.gridSquareSize(@margin, @num) {
+  width: calc(~"(100% - @{margin}) / @{num}");
+  padding-bottom: calc(~"(100% - @{margin}) / @{num}");
+}
 /* end calc 100% 计算 */
 
 /* start button 函数 */

@@ -1,31 +1,64 @@
 <!--index.wxml-->
 
-
-<view class="box">
-
-</view>
-
 <message-close id="message-close"
   bind:onMessageCloseClick="aaa"></message-close>
-<view>分包页面</view>
+
+<view class="xi-title xi-flex align-center">
+  <view class="xi-sign sign-vertical"></view>
+  <view class="padding-left--m">分包页面</view>
+</view>
 <view class="compnent-wrap">
-  <view class="title">
-    <navigator wx:for="{{ navlist }}" wx:key="{{ index }}"
-      class="nav"
-      url="../../package_component/pages/{{ item.url }}/index" 
-      hover-class="className">{{ item.title }}</navigator>
+  <view class="component padding--m">
+    <view 
+      class="xi-flex nowrap"
+      wx:for="{{ navlist.length / 2 }}" 
+      wx:key="{{ index }}"
+      wx:for-item="nav">
+      <navigator
+        wx:for="{{ 2 }}"
+        wx:for-index="colIndex"
+        wx:key="{{ colIndex }}"
+        class="component-nav margin--m {{ for.col(index, colIndex) }}"
+        url="../../package_component/pages/{{ for.component(index, colIndex, navlist).url }}/index" 
+        hover-class="className">
+          <text> {{ for.component(index, colIndex, navlist).title }} </text>
+        </navigator>
+    </view>
   </view>
 </view>
-<view>主包页面</view>
-<view class="pages">
-  <navigator 
+
+<!-- asd -->
+<view class="xi-title xi-flex align-center">
+  <view class="xi-sign sign-vertical"></view>
+  <view class="padding-left--m">主包页面</view>
+</view>
+<view class="pages xi-grid col-12 grid-square padding--m">
+  <view
     class="item"
-    url="../{{ item.url }}/index"
     wx:for="{{ pagesList }}"
-    wx:key="{{ index }}"
-    >{{ item.title }}</navigator>
+    wx:key="{{ index }}">
+    <navigator 
+      url="../{{ item.url }}/index"
+      >{{ item.title }}</navigator>
+  </view>
 </view>
 <xi-button bind:click="asd">tanchu</xi-button>
-<xi-bottom-line size="normal" msg="我是有底线的"></xi-bottom-line>
-<xi-bottom-line size="max" msg="我是有底线的"></xi-bottom-line>
-<xi-bottom-line size="min" msg="我是有底线的"></xi-bottom-line>
+
+<xi-bottom-line size="min" msg="你看见我了呦 - _ - !"></xi-bottom-line>
+
+<wxs module="for">
+module.exports = {
+  component: function(index, current, obj) {
+    return obj[index + index + current];
+  },
+  col: function(index, current) {
+    return index % 2 
+      ? (current === 0 
+        ? 'col-1'
+        : 'col-2')
+      : (current === 0) 
+        ? 'col-2'
+        : 'col-1'
+  }
+}
+</wxs>

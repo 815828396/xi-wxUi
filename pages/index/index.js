@@ -7,6 +7,7 @@ const MessageClose = new $MessageClose();
 Page({
   data: {
     pagesList: [
+      { url: 'shadow', title: 'box-shadow应用' },
       { url: 'papaw', title: '对话内容' },
       { url: 'timeAxis', title: '步骤条' },
       { url: 'province', title: '省份选择器' },
@@ -25,7 +26,7 @@ Page({
         title: 'modal组件'
       }, {
         url: 'action-sheet',
-        title: 'action-sheet组件'
+        title: 'action-sheet'
       }, {
         url: 'cell',
         title: 'cell组件'

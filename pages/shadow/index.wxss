@@ -1,0 +1,5 @@
+
+.box-shadow {
+  height: 200rpx;
+  background: #fff;
+}

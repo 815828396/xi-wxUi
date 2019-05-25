@@ -1,0 +1,17 @@
+<view class="xi-flex xi-title align-center">
+  <view class="xi-sign sign-vertical"></view>
+  <view class="padding-left--m">这是翘头 shadow</view>
+</view>
+<view class="padding--m">
+  <view class="box-shadow xi-shadow shadow-warped"></view>
+</view>
+
+<view class="xi-flex nowrap justify-around">
+  <view class="box">
+
+  </view>
+
+  <view class="box">
+
+  </view>
+</view>

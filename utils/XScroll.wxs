@@ -30,7 +30,7 @@ var instance = [],
 
   isPassCheck = false;
 
-  canPullDown = true,
+canPullDown = true,
   isOpen = false;
 
 // 函数对象
@@ -40,8 +40,8 @@ var XScroll = {};
  * 初始化：配置变量函数
  * 将自定义变量与默认变量 合并
  */
-XScroll.initObserver = function (conf, oldConf) {
-  
+XScroll.initObserver = function(conf, oldConf) {
+
   var defaultOptions = {
     // 抽屉 scroll 类名, 默认获取 XSdraw, XScontent ID名称
     drawer: "XSdrawer",
@@ -126,8 +126,7 @@ XScroll.move = function(ev) {
     insContent.setStyle({
       transform: domStyle.transform(transY)
     })
-  } 
-  else {
+  } else {
     insDrawer.setStyle({
       transform: domStyle.transform(transY),
       opacity: domStyle.opacity(1 - Math.abs(diffY / scrollY))
@@ -151,7 +150,9 @@ XScroll.end = function(ev) {
       // 改变开启状态
       isOpen = true;
       originY = scrollY;
-      insDrawer.callMethod('onOpenObserver', { open: isOpen });
+      insDrawer.callMethod('onOpenObserver', {
+        open: isOpen
+      });
     } else {
       if (isOpen) {
         ok(insDrawer, insContent);
@@ -167,7 +168,9 @@ XScroll.end = function(ev) {
       reset(insDrawer, insContent);
       isOpen = false;
       originY = 0;
-      insDrawer.callMethod('onOpenObserver', { open: isOpen });
+      insDrawer.callMethod('onOpenObserver', {
+        open: isOpen
+      });
     } else if (~dropY <= maxPosY && isOpen) {
       ok(insDrawer, insContent);
     }

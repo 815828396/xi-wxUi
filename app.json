@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/button/index",
+    "pages/swiper/index",
     "pages/index/index",
+    "pages/button/index",
     "pages/draw/index",
     "pages/containerLayout/index",
     "pages/checkbox/index",
-    "pages/swiper/index",
     "pages/skeleton/index",
     "pages/papaw/index",
     "pages/movable-view/movable-view",
@@ -16,7 +16,8 @@
     "pages/image/index",
     "pages/picker/index",
     "pages/timeAxis/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/shadow/index"
   ],
   "subpackages": [
     {

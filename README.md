@@ -1,5 +1,12 @@
 # xi-wxUi
 原生小程序Ui组件
+#### 2019.05.25
+  1. `F` _修复_ `CSS`
+    ```html
+      view {
+        box-sizing: border-box;
+      }
+    ```导致 progress 样式混乱
 #### 2019.05.18
   1. `A` _新增_ `API` 抽屉动画， XScroll.wxs 
 #### 2019.05.15

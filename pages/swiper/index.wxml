@@ -1,5 +1,6 @@
 <!--pages/swiper/index.wxml-->
-<view>简单图片数组轮播</view>
+
+<view>简单图片数组轮播asd</view>
 <xi-swiper-group
   swiper-url="{{ swiperUrl }}"
   interval="3000"
@@ -46,7 +47,7 @@
     <text class="news_icon_circle max"></text>
     <text class="news_icon_circle right"></text>
   </view>
-  <view class="news_span">您有未读消息</view>
+  <view class="news_span">您有未读消息您有未读消息您有未读消息您有未读消息</view>
 </view>
 <!-- 抖动提示 -->
 <view class="news-wrapper shake {{ hide ? 'hide' : '' }}">
