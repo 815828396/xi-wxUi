@@ -1,5 +1,5 @@
 
-import { $MessageClose} from '../../utils/uiBase';
+import { $MessageClose } from '../../utils/uiBase';
 import fetch from '../../assets/js/fetch/fetch'
 const app = getApp();
 const MessageClose = new $MessageClose();

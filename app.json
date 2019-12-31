@@ -1,23 +1,24 @@
 {
   "pages": [
     "pages/swiper/index",
+    "pages/papaw/index",
     "pages/index/index",
+    "pages/image/index",
+    "pages/selectGroup/index",
+    "pages/shadow/index",
+    "pages/containerLayout/index",
     "pages/button/index",
     "pages/draw/index",
-    "pages/containerLayout/index",
     "pages/checkbox/index",
     "pages/skeleton/index",
-    "pages/papaw/index",
     "pages/movable-view/movable-view",
     "pages/loading/loading",
     "pages/date/index",
     "pages/divider/index",
     "pages/province/index",
-    "pages/image/index",
     "pages/picker/index",
     "pages/timeAxis/index",
-    "pages/logs/logs",
-    "pages/shadow/index"
+    "pages/logs/logs"
   ],
   "subpackages": [
     {
@@ -71,6 +72,11 @@
     "xi-skeleton": "./public/components/skeleton/index",
     "xi-progress": "./public/components/progress/index",
     "xi-image": "./public/components/image/index"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于获取您附近的维修厂"
+    }
   },
   "sitemapLocation": "sitemap.json"
 }

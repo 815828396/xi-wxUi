@@ -1,0 +1,28 @@
+<view class="select-group">
+  <!-- 已选择标签组 -->
+  <view class="select-header-tag xi-shadow shadow-warped">
+    <view class="padding--l xi-flex">
+      <view class="tag xi-fz--normal margin-right--m"
+        wx:for="{{ selectTags }}"
+        wx:key="{{ index }}">
+        <xi-icon icon="icon-zhifeiji"></xi-icon>
+        宝马
+      </view>
+    </view>
+  </view>
+  <!-- 供选择卡片组 -->
+  <view class="select-container">
+    <view class="card {{ activeIndex == 1 ? 'active show' : '' }}"
+      bindtap="checkoutCard">
+      1
+    </view>
+    <view class="card {{ activeIndex >= 2 ? 'cardSecond' : '' }}"
+      bindtap="checkoutCard">
+      2
+    </view>
+    <view class="card {{ activeIndex >= 3 ? 'cardThird' : '' }}"
+      bindtap="checkoutCard">
+      3
+    </view>
+  </view>
+</view>

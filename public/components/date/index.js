@@ -61,15 +61,22 @@ Component({
       })
     },
     pickerChange ({ detail }) {
-      const [y_index, m_index, d_index] = detail.value;
+      const [y_index, m_index] = detail.value;
       const days = this.getDaysBymonth(this.data.year[y_index], m_index + 1);
 
       this.setData({ days, keep_live_value: detail.value });
     },
     sureChange () {
+      const {years} = this.data;
+      const [y, m, d] = this.data.keep_live_value;
       this.setData({ visiable: false });
       this.trigger('change', {
         ...this.returnPro(),
+        date: {
+          year: years[y],
+          month: this.addZero(m + 1),
+          day: this.addZero(d + 1)
+        }
       })
     },
     // 获取当年当月有多少天

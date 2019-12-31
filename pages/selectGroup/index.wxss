@@ -1,0 +1,45 @@
+page,
+.select-group {
+  position: relative;
+  height: 100%;
+  /* overflow: hidden; */
+  /* background: #f1f1f1; */
+}
+.select-header-tag {
+  background: #fff;
+}
+.select-container {
+  position: absolute;
+  top: 160rpx; 
+  bottom: 0;
+  display: flex;
+  width: 100%;
+}
+.select-container .card {
+  width: 100%;
+  height: 100%;
+  box-shadow: -3px 3px 5px #ccc;
+  border-radius: 0 10rpx;
+  flex-shrink: 0;
+  background: #fff;
+  transition: all .5s;
+}
+.select-container .cardSecond {
+  transform: translateX(-90%);
+}
+.select-container .cardThird {
+  transform: translateX(-180%);
+}
+@keyframes cardShow {
+  40% {
+    transform: translateX(30px) scale3d(1, 1, 1);
+  }
+  60% {
+    transform: scale(1.1);
+    /* z-index: 10 !important; */
+  }
+  100% {
+    transform: translateX(0px) scale3d(1, 1, 1);
+    z-index: 10 !important;
+  }
+}
