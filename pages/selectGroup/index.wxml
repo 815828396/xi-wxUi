@@ -4,7 +4,7 @@
     <view class="padding--l xi-flex">
       <view class="tag xi-fz--normal margin-right--m"
         wx:for="{{ selectTags }}"
-        wx:key="{{ index }}">
+        wx:key="index">
         <xi-icon icon="icon-zhifeiji"></xi-icon>
         宝马
       </view>

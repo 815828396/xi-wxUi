@@ -20,7 +20,7 @@
         <view class="question-wrap">
           <view class="question"
             wx:for="{{ question }}"
-            wx:key="{{ index }}"
+            wx:key="index"
             data-qindex="{{ index }}"
             hover-class="click"
             hover-stay-time="100"
@@ -41,7 +41,7 @@
                 <view class="desc">{{ item.val }}</view>
                 <view class="question"
                   wx:for="{{ item.fnVal }}"
-                  wx:key="{{ index }}"
+                  wx:key="index"
                   data-qindex="{{ qindex }}"
                   data-index="{{ index }}"
                   wx:for-item="fnVal"

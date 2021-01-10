@@ -10,7 +10,7 @@
         <view
           class="tr content"
           wx:for="{{ columns }}"
-          wx:key="{{ index }}"></view>        
+          wx:key="index"></view>        
       </view>
       <view class="table-footer"
         wx:if="{{ footer }}">

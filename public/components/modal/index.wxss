@@ -1,4 +1,4 @@
-@import '../../../assets/styles/_mixin.wxss';
+@import '../../../assets/css/_mixin.wxss';
 .xi-modal {
   position: fixed;
   top: 0;

@@ -31,19 +31,19 @@
       <picker-view-column>
         <view style="line-height: 50px;"
           wx:for="{{ province }}"
-          wx:key="{{ index }}">{{item.name}}</view>
+          wx:key="index">{{item.name}}</view>
       </picker-view-column>
       <picker-view-column
         wx:if="{{ zIndex > 1 }}">
         <view style="line-height: 50px;"
           wx:for="{{ city }}"
-          wx:key="{{ index }}">{{item.name}}</view>
+          wx:key="index">{{item.name}}</view>
       </picker-view-column>
       <picker-view-column
         wx:if="{{ zIndex > 2 }}">
         <view style="line-height: 50px;"
           wx:for="{{ area }}"
-          wx:key="{{ index }}">{{item.name}}</view>
+          wx:key="index">{{item.name}}</view>
       </picker-view-column>
     </picker-view>
   </view>

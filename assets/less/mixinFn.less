@@ -1,5 +1,5 @@
 /**
-  * @file less 配置变量
+  * @file less 配置变量测试
   * @desc 单位可手动全局改变 rpx <==> px <==> em <==> rem
   */
 @thameColor: #1EA0FF;
@@ -23,7 +23,7 @@
 @backgroundColorBlack: rgba(0, 0, 0, .5);
 @borderColor: #E6E6EB;
 
-// @2x 小程序 rpx = 2px
+// @2x 小程序 2rpx = 1px
 @5: 10rpx;
 @9: 18rpx;
 @10: 20rpx;
@@ -85,7 +85,7 @@
 }
 // 无线旋转
 .loading-rotate () {
-  display: inline-block; 
+  display: inline-block;
   animation: rotateAll .8s linear infinite;
 }
 // 超出省略号
@@ -99,7 +99,7 @@
   height: @height;
   line-height: @height;
 }
-// 未知元素垂直居中 
+// 未知元素垂直居中
 .height-center () {
   display: flex;
   align-items: center;
@@ -155,7 +155,7 @@
   .border-after_v();
   width: 1px;
   right: 0;
-  top: 0; 
+  top: 0;
   height: 100%;
 }
 .border-left () {

@@ -1,0 +1,34 @@
+<!--public/components/calendar/calendar.wxml-->
+<view class="calendar-wrap">
+  <!-- 日历头部 -->
+  <view class="calendar-title">
+    <view class="sub-title"
+      wx:for="{{calendarTitle}}"
+      wx:key="index">{{item}}</view>
+  </view>
+  <!-- 日历列表 -->
+  <view class="calendar-list">
+    <view class="calendar-column margin-bottom--s"
+      wx:for="{{calendarRender}}"
+      wx:for-item="subItem"
+      wx:key="index">
+      <view class="calendar-item {{(current == item.val) && (!item.ignore) ? 'activeHover radiusAll' : ''}} {{item.bgClasses}} {{item.radius}} {{item.ignore ? 'disabled' : ''}}"
+        hover-class="click-hover"
+        hover-stay-time="100"
+        wx:for="{{subItem}}"
+        wx:key="index">
+        <text class="value"
+          hover-class="click-hover"
+          hover-stay-time="100"
+          data-val="{{item.val}}"
+          data-ignore="{{item.ignore}}"
+          bindtap="handleClickDate">{{item.val}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view>
+  {{year}} - {{month}} - {{date}}
+</view>
+<!-- 插槽 -->
+<slot></slot>

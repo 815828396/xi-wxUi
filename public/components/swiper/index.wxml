@@ -12,7 +12,7 @@
     <swiper-item
       class="xi-swiper-item"
       wx:for="{{ swiperType === 'image' ? swiperUrl : swiperCustom }}"
-      wx:key="{{ index }}">
+      wx:key="index">
       <!-- 图片轮播 -->
       <image class="image" 
         wx:if="{{ swiperType === 'image' }}"

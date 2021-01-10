@@ -8,7 +8,7 @@
       class="canvas-wrap__{{ option.type }} {{ option.direction || '' }}"
       wx:for="{{ canvasOptions }}"
       wx:for-item="option"
-      wx:key="{{ index }}"
+      wx:key="index"
       style="{{ style.textStyle(option) }}"
 
       out-of-bounds="true"

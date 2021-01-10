@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/calendar/calendar",
     "pages/swiper/index",
     "pages/papaw/index",
     "pages/index/index",
@@ -50,6 +51,7 @@
     "message": "./public/components/message/index",
     "cell": "./public/components/cell/index",
     "province-group": "./public/components/province/index",
+    "xi-calendar": "./public/components/calendar/calendar",
     "xi-poster": "./public/components/poster/index",
     "xi-poster-canvas": "./public/components/poster-canvas/index",
     "xi-poster-operate": "./public/components/poster-operate/index",

@@ -8,7 +8,7 @@
   <view class="xi-fz xi-fz--normal fz--thame padding-tb--l">grid布局样式</view>
   <view class="xi-grid col-{{ 24 / (item + 1) }} margin-top--m"
     wx:for="{{ 4 }}"
-    wx:key="{{ index }}">
+    wx:key="index">
     <view class="bg-thame {{ inner % 2 == 0 ? 'bg-yellow' : '' }}"
       wx:for="{{ (index + 1) * 2 }}"
       wx:for-item="inner">{{ inner + 1 }}</view>

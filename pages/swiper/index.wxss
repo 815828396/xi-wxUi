@@ -96,7 +96,7 @@
     -webkit-transform: rotate(45deg);
   }
 }
-
+/* start 消息弹窗 */
 .news-wrapper {
   position: fixed;
   right: 0;
@@ -219,3 +219,4 @@
     transform: scale3d(1, 1, 1) translateY(10rpx);
   }
 }
+/* end 消息弹窗 */

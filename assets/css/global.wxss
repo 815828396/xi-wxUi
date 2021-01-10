@@ -22,7 +22,7 @@
 .resetBtn { padding-left: 10rpx; border-left: 1rpx solid #73737D !important; }
 .scroll-h { height: 100%; }
 /* 图片, 描述 列表样式 */
-.xi-list .xi-list__header { padding: 0 30rpx; box-sizing: border-box; line-height: 88rpx; min-height: 88rpx; 
+.xi-list .xi-list__header { padding: 0 30rpx; box-sizing: border-box; line-height: 88rpx; min-height: 88rpx;
   background: #F5F5FA; font-size: 28rpx; color: #73737D;  }
 .xi-list .xi-list__item { padding-left: 30rpx; }
 .xi-list .xi-list__inner { padding-left: 30rpx; box-sizeing: border-box; display: flex; align-items: center; padding: 20rpx 30rpx 20rpx 0; }
@@ -39,4 +39,3 @@
 .xi-list__item .cont,
 .xi-list__item .cont .desc,
 .xi-list__item .cont .title { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-

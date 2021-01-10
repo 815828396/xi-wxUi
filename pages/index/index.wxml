@@ -10,7 +10,7 @@
     <view 
       class="xi-flex nowrap"
       wx:for="{{ navlist.length / 2 }}" 
-      wx:key="{{ index }}"
+      wx:key="index"
       wx:for-item="nav">
       <navigator
         wx:for="{{ 2 }}"
@@ -34,7 +34,7 @@
   <view
     class="item"
     wx:for="{{ pagesList }}"
-    wx:key="{{ index }}">
+    wx:key="index">
     <navigator 
       url="../{{ item.url }}/index"
       >{{ item.title }}</navigator>

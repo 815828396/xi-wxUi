@@ -13,17 +13,17 @@
       <picker-view-column>
         <view class="column" 
           wx:for="{{ year }}"
-          wx:key="{{ index }}">{{ item }}年</view>
+          wx:key="index">{{ item }}年</view>
       </picker-view-column>
       <picker-view-column>
         <view class="column" 
           wx:for="{{ months }}"
-          wx:key="{{ index }}">{{ item + 1 }}月</view>
+          wx:key="index">{{ item + 1 }}月</view>
       </picker-view-column>
       <picker-view-column>
         <view class="column" 
           wx:for="{{ days }}"
-          wx:key="{{ index }}">{{ item + 1 }}日</view>
+          wx:key="index">{{ item + 1 }}日</view>
       </picker-view-column>
     </picker-view>
     <view class="picker-btn">

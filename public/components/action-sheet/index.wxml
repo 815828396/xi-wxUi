@@ -14,7 +14,7 @@
     <view class="xi-item ellipsis {{ 'item-class' }} {{ action.disabled ? 'disabled' : '' }}"
       wx:for="{{ actions }}"
       wx:for-item="action"
-      wx:key="{{ index }}"
+      wx:key="index"
       catchtap="handleItemClick"
 
       data-index="{{ index }}"

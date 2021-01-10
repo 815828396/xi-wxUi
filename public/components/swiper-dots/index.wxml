@@ -2,7 +2,7 @@
   <view class="dots square {{ currentIndex === index ? 'active' : '' }}"
     wx:if="{{ dotsType === 'square' }}"
     wx:for="{{ dots }}"
-    wx:key="{{ index }}"></view>
+    wx:key="index"></view>
 
     <xi-progress
       xi-class="xi-circle"
@@ -11,6 +11,6 @@
       pie-duration="{{ duration }}"
       progress-style="pie"
       wx:for="{{ dots }}"
-      wx:key="{{ index }}"
+      wx:key="index"
     ></xi-progress>
 </view>

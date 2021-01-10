@@ -14,6 +14,16 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+// 获取某年的当月有多少天
+const getMonthDays = (year, month) => {
+  return new Date(year, month, 0).getDate();
+}
+// 获取某年某月的一号是周几
+const getMonthFirstDay = (year, month) => {
+  return new Date(year, month - 1, 1).getDay();
+}
+
+
 /** url 参数转换 */
 const qs = {
   stringify: (path, query) => {
@@ -35,5 +45,7 @@ const qs = {
 
 module.exports = {
   formatTime: formatTime,
-  qs: qs
+  qs: qs,
+  getMonthDays: getMonthDays,
+  getMonthFirstDay: getMonthFirstDay
 }

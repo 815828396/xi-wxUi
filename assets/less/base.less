@@ -1,10 +1,11 @@
+// "out": "../css/base.wxss", "compress": true
 /**
   * @file 全局 基础样式
   * @desc 命名方式 使用 --[*] 双横线 + *修饰词
   * @desc Grid 布局的 比例尺 类名都是以 24 等分原则 col-24 col-12 col-8
   * @desc Flex 布局的 比例尺 col-1 col-2 col-3 份
 */
-@import '../../assets/styles/mixinFn.less';
+@import '../../assets/less/mixinFn.less';
 .wrapper { color: #fff; text-align: center; }
 
 view,
@@ -22,7 +23,7 @@ textarea {
   &--s { margin: @5 };
   &--m { margin: @10 };
   &--l { margin: @15 };
-  
+
   &-top {
     &--s { margin-top: @5 }
     &--m { margin-top: @10 }
@@ -62,7 +63,7 @@ textarea {
   &--s { padding: @5 };
   &--m { padding: @10 };
   &--l { padding: @15 };
-  
+
   &-top {
     &--s { padding-top: @5 }
     &--m { padding-top: @10 }
@@ -176,7 +177,7 @@ textarea {
   &--xl { font-size: @12; }
   &--normal { font-size: @14; }
   &--xxl { font-size: @15; }
-  
+
   &[class*="--red"] { color: @errorColor; }
   &[class*="--success"] { color: @successColor; }
   &[class*="--warning"] { color: @warningColor; }
@@ -192,8 +193,8 @@ button {
   font-size: @13;
   background: transparent;
 }
-// button.xi-btn-primary[disabled] { background: red } 
-// button[class*="-primary"][disabled] { background: red } 
+// button.xi-btn-primary[disabled] { background: red }
+// button[class*="-primary"][disabled] { background: red }
 
 .xi-btn {
   width: 100%;
