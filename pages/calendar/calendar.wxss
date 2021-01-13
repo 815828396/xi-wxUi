@@ -1,1 +1,71 @@
-/* pages/calendar/calendar.wxss */
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* background: linear-gradient(#272c64 60%, rgba(0, 0, 0, .6)); */
+  background: #272c63;
+}
+.wrap {
+  /* background: linear-gradient(50deg, #272c64, rgba(0, 0, 0, .6)); */
+}
+.header {
+  color: #fff;
+}
+.calendar-logs {
+  flex: 1;
+  border-radius: 20px 20px 0 0;
+  overflow: scroll;
+  /* background: linear-gradient(rgba(255,255,255, .2) 20%, rgba(255, 255, 255, 0)); */
+}
+.calendar-log-item {
+  color: #fff;
+  background: linear-gradient(#4c5ad4, #3b49ce);
+}
+.calendar-log-item .impt {
+  font-size: 22rpx;
+  padding-left: 40px;
+}
+.calendar-log-item .time .clock {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-right: 5rpx;
+  flex-shrink: 0;
+}
+.calendar-log-item .time .clock text {
+  width: 40px;
+}
+.calendar-log-item .time .title {
+  flex-grow: 1;
+}
+.calendar-log-item .time .title .title-line {
+  position: relative;
+  width: 20px;
+  height: 3px;
+  background: #e6438c;
+}
+.calendar-log-item .time .title .title-line::after {
+  position: absolute;
+  left: -3px;
+  top: -2px;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e6438c;
+  box-shadow: 0 0 5px 1px #e63b82bf, 0 0 5px 3px #e63b8236;
+}
+.calendar-log-item .time .title .title-desc {
+  border-radius: 30rpx;
+  padding: 5rpx 20rpx;
+  font-size: 26rpx;
+  background: #e6438c;
+  box-shadow: 0 0 5px 1px #e63b82bf, 0 0 5px 3px #e63b8236;
+}
+.calendar-log-item .time .detail {
+  flex-shrink: 0;
+}
+.calendar-log-item .desc {
+  font-size: 22rpx;
+  color: #ccc;
+  padding-left: 40px;
+}

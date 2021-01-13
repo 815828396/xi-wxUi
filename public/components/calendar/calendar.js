@@ -5,7 +5,8 @@ Component({
     pureDataPattern: /^_/
   },
   properties: {
-    division: Array
+    division: Array,
+    thame: String // 默认 Light   Dark
   },
 
   data: {
@@ -71,7 +72,7 @@ Component({
           // 设置当天的背景块儿
           if (val === this.data.date && !calendarRender[i][j].ignore && this.data._todayYear == this.data.year && this.data._todayMonth == this.data.month)
           {
-            calendarRender[i][j].bgClasses = 'bgColor bg1 radiusAll';
+            calendarRender[i][j].bgClasses = 'bgColor bg2 radiusAll';
           }
           // 存在时间轴端 并且 时间轴端已经查找完毕 division.flat();
           if (division.length > 0 && calc !== division.flat().length)
@@ -157,6 +158,7 @@ Component({
       {
         return;
       }
+      wx.vibrateShort()
       this.setData({current: value});
     }
   }

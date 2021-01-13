@@ -1,5 +1,10 @@
 <!--public/components/calendar/calendar.wxml-->
-<view class="calendar-wrap">
+<view class="calendar-handle">
+  <view><xi-icon icon="icon-jiantou1" /></view>
+  <view class="margin-lr--l">{{year}} - {{month}} - {{date}}</view>
+  <view><xi-icon icon="icon-jiantou1" /></view>
+</view>
+<view class="calendar-wrap {{ thame }}">
   <!-- 日历头部 -->
   <view class="calendar-title">
     <view class="sub-title"
@@ -13,12 +18,10 @@
       wx:for-item="subItem"
       wx:key="index">
       <view class="calendar-item {{(current == item.val) && (!item.ignore) ? 'activeHover radiusAll' : ''}} {{item.bgClasses}} {{item.radius}} {{item.ignore ? 'disabled' : ''}}"
-        hover-class="click-hover"
         hover-stay-time="100"
         wx:for="{{subItem}}"
         wx:key="index">
-        <text class="value"
-          hover-class="click-hover"
+        <text class="value {{ item.val == 4 ? 'log' : '' }}"
           hover-stay-time="100"
           data-val="{{item.val}}"
           data-ignore="{{item.ignore}}"
@@ -26,9 +29,6 @@
       </view>
     </view>
   </view>
-</view>
-<view>
-  {{year}} - {{month}} - {{date}}
 </view>
 <!-- 插槽 -->
 <slot></slot>

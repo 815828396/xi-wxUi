@@ -1,5 +1,15 @@
-<!--pages/calendar/calendar.wxml-->
-<view class="header">日历页面</view>
-<view>
-  <xi-calendar></xi-calendar>
+<view class="wrap" style="padding: 30rpx;">
+  <xi-calendar thame="Dark"></xi-calendar>
+</view>
+
+<view class="calendar-logs">
+  <view class="calendar-log-item padding--m" wx:for="{{ 10 }}" wx:key="index">
+    <view class="impt">优先完成</view>
+    <view class="time margin-tb--m xi-flex nowrap align-center">
+      <view class="clock"><text class="margin-right--s">9.30</text>AM</view>
+      <view class="title xi-flex nowrap align-center margin-lr--m"><text class="title-line"></text><text class="title-desc">仲达事业部开会</text></view>
+      <view class="detail"><xi-icon icon="icon-jiantouarrow486" /></view>
+    </view>
+    <view class="desc">9点之前不需要到；</view>
+  </view>
 </view>
