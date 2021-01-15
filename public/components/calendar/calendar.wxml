@@ -1,10 +1,10 @@
 <!--public/components/calendar/calendar.wxml-->
-<view class="calendar-handle">
-  <view><xi-icon icon="icon-jiantou1" /></view>
+<view class="calendar-handle {{ thame }}">
+  <view data-handle="prev" bindtap="handleClickEvent">prev</view>
   <view class="margin-lr--l">{{year}} - {{month}} - {{date}}</view>
-  <view><xi-icon icon="icon-jiantou1" /></view>
+  <view data-handle="next" bindtap="handleClickEvent" >next</view>
 </view>
-<view class="calendar-wrap {{ thame }}">
+<view class="calendar-wrap {{ thame }} {{ isLoading ? 'loading' : '' }}">
   <!-- 日历头部 -->
   <view class="calendar-title">
     <view class="sub-title"

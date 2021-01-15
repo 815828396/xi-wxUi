@@ -1,5 +1,5 @@
 <view class="wrap" style="padding: 30rpx;">
-  <xi-calendar thame="Dark"></xi-calendar>
+  <xi-calendar id="calendar" thame="Dark" bind:switch="handleCheckDate"></xi-calendar>
 </view>
 
 <view class="calendar-logs">

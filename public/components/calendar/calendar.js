@@ -1,6 +1,9 @@
 import {getMonthDays, getMonthFirstDay} from '../../../utils/util';
+import behavior from '../../../utils/behaviors/behaviors'
+
 Component({
   externalClasses: ['xi-class'],
+  behaviors: [ behavior ],
   options: {
     pureDataPattern: /^_/
   },
@@ -15,6 +18,7 @@ Component({
     _firstDay: '',
     _todayYear: '',
     _todayMonth: '',
+    isLoading: true,
     date: '',
     year: '',
     lastYear: '',
@@ -32,26 +36,78 @@ Component({
   lifetimes: {
     attached() {
       this.data._today = new Date();
-      this.setData({date: this.data._today.getDate(), _todayYear: this.data._today.getFullYear(), _todayMonth: this.data._today.getMonth() + 1})
+      this.data._todayYear = this.data._today.getFullYear();
+      this.data._todayMonth = this.data._today.getMonth() + 1;
+
+      this.setData({ date: this.data._today.getDate() });
       this.initRender(new Date().getFullYear(), new Date().getMonth() + 1);
       // this.initRender(2020, 12);
     }
   },
   methods: {
     /**
-     * 初始化日历时间
+     * 初始化渲染日历
      * @param {Number} year 年份
      * @param {Number} month 月份
      */
     initRender(year, month) {
-      this.setMonthInfo(year, month);
-      this.renderCalendar();
+      this.loading(true);
+      this._setMonthInfo(year, month);
+      this._renderCalendar();
+    },
+    /**
+     * 加载渲染日历动画
+     * @param {Boolean} bool 是否加载动画 
+     */
+    loading(bool) {
+      this.setData({ isLoading: bool })
+    },
+    /**
+     * 查找二维数组中某个值的位置
+     * @param {Array} arr 二维查找数组
+     * @param {Number} val 查找值
+     */
+    _selectVal(arr, val) {
+      let f = -1, s = -1;
+      for (let i = 0, l = arr.length; i < l; i++)
+      {
+        if (arr[i].indexOf(val) >= 0)
+        {
+          f = i;
+          s = arr[i].indexOf(val);
+          break;
+        }
+      };
+      return { f, s };
+    },
+    /**
+     * 设置年月信息
+     * @param {Number} year 年份
+     * @param {Number} month 实际月份
+     */
+    _setMonthInfo(year, month) {
+      const { _isLessYear, _isMoreYear } = this._isCriticalMonth(month);
+      // 获取
+      let [lastMonth, prevMonth] = [_isLessYear ? 12 : month - 1, _isMoreYear ? 1 : month + 1];
+      let [lastYear, prevYear] = [_isLessYear ? year - 1 : year, _isMoreYear ? year + 1 : year];
+      let days = getMonthDays(year, month);
+      let _firstDay = getMonthFirstDay(year, month);
+
+      this.setData({
+        year, lastYear, prevYear,
+        month, lastMonth, prevMonth,
+        days, _firstDay
+      })
+      console.log(`服务器时间：${this.data._todayYear} - ${this.data._todayMonth}`);
+      console.log(`日历渲染 ${month} 月份有 ${days} 天，并且${month} 月 1 号是星期 ${_firstDay}(数组索引)`);
+      console.log(`上一月份：${lastYear}-${lastMonth}, 当前月份：${year}-${month}，下一月份：${prevYear}-${prevMonth}`);
     },
     // 渲染日历列表
-    renderCalendar() {
+    _renderCalendar() {
       let calendarRender = [];
       let calc = 0;
-      let division = [[3,4], [7,8,9,10,11,12]];
+      // 
+      let division = [[3,4], [7,8,9,10,11,12], [30, 31]];
       for (let i = 0; i < 6; i++)
       {
         calendarRender[i] = [];
@@ -74,10 +130,10 @@ Component({
           {
             calendarRender[i][j].bgClasses = 'bgColor bg2 radiusAll';
           }
-          // 存在时间轴端 并且 时间轴端已经查找完毕 division.flat();
-          if (division.length > 0 && calc !== division.flat().length)
+          // 存在时间轴端 && 时间轴端已经查找完毕 division.flat() && 日期处于当前渲染月份中
+          if (division.length > 0 && calc !== division.flat().length && !calendarRender[i][j].ignore)
           {
-            const { f, s } = this.selectVal(division, val);
+            const { f, s } = this._selectVal(division, val);
             if (f >= 0 && s >= 0)
             {
               calendarRender[i][j].bgClasses = 'activeHover';
@@ -99,46 +155,7 @@ Component({
         };
       };
       this.setData({ calendarRender });
-    },
-    /**
-     * 查找二维数组中某个值的位置
-     * @param {Array} arr 二维查找数组
-     * @param {Number} val 查找值
-     */
-    selectVal(arr, val) {
-      let f = -1, s = -1;
-      for (let i = 0, l = arr.length; i < l; i++)
-      {
-        if (arr[i].indexOf(val) >= 0)
-        {
-          f = i;
-          s = arr[i].indexOf(val);
-          break;
-        }
-      };
-      return { f, s };
-    },
-    /**
-     * 设置年月信息
-     * @param {Number} year 年份
-     * @param {Number} month 实际月份
-     */
-    setMonthInfo(year, month) {
-      const { _isLessYear, _isMoreYear } = this._isCriticalMonth(month);
-      // 获取
-      let [lastMonth, prevMonth] = [_isLessYear ? 12 : month - 1, _isMoreYear ? 1 : month + 1];
-      let [lastYear, prevYear] = [_isLessYear ? year - 1 : year, _isMoreYear ? year + 1 : year];
-      let days = getMonthDays(year, month);
-      let _firstDay = getMonthFirstDay(year, month);
-
-      this.setData({
-        year, lastYear, prevYear,
-        month, lastMonth, prevMonth,
-        days, _firstDay
-      })
-      console.log(`服务器时间：${this.data._todayYear} - ${this.data._todayMonth}`);
-      console.log(`日历渲染 ${month} 月份有 ${days} 天，并且${month} 月 1 号是星期 ${_firstDay}(数组索引)`);
-      console.log(`上一月份：${lastYear}-${lastMonth}, 当前月份：${year}-${month}，下一月份：${prevYear}-${prevMonth}`);
+      this.loading(false);
     },
     /**
      * 判断传入月份 是否处于当年的跨年月
@@ -150,11 +167,15 @@ Component({
     _isCriticalMonth(month) {
       return { _isLessYear: month - 1 <= 0, _isMoreYear: month + 1 > 12 };
     },
+    // 切换年份
+    handleClickEvent({ currentTarget: { dataset: { handle } } }) {
+      const { year, month, date } = this.data;
+      this.trigger('switch', { handle, year, month, date });
+    },
     // 点击日历项目
     handleClickDate({currentTarget}) {
       const { val: value, ignore } = currentTarget.dataset;
-      console.log(value, ignore)
-      if (ignore === "true")
+      if (ignore)
       {
         return;
       }
