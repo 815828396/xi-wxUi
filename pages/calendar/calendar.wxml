@@ -1,15 +1,35 @@
 <view class="wrap" style="padding: 30rpx;">
-  <xi-calendar id="calendar" thame="Dark" bind:switch="handleCheckDate"></xi-calendar>
+  <xi-calendar id="calendar" scale="{{ isScale }}" thame="Dark" 
+    bind:switch="handleCheckDate"
+    bind:clickDate="handleClickDate"></xi-calendar>
 </view>
 
-<view class="calendar-logs">
-  <view class="calendar-log-item padding--m" wx:for="{{ 10 }}" wx:key="index">
-    <view class="impt">优先完成</view>
-    <view class="time margin-tb--m xi-flex nowrap align-center">
-      <view class="clock"><text class="margin-right--s">9.30</text>AM</view>
-      <view class="title xi-flex nowrap align-center margin-lr--m"><text class="title-line"></text><text class="title-desc">仲达事业部开会</text></view>
-      <view class="detail"><xi-icon icon="icon-jiantouarrow486" /></view>
+<view class="calendar-logs-wrap" style="flex: 1">
+  <view class="xi-fz xi-fz--xl" style="color: #fff; padding: 10rpx 30rpx">{{ val }}号日程安排</view>
+  <scroll-view scroll-y="{{ true }}" class="calendar-logs">
+    <view class="calendar-log-item padding--m" wx:for="{{ logsList }}" wx:key="index"
+      data-idx="{{index}}"
+      bindtap="handleSkipDetail">
+      <view class="impt">{{ item.lev }}</view>
+      <view class="time margin-tb--m xi-flex nowrap align-center">
+        <view class="clock"><text class="margin-right--s">{{ item.t }}</text>{{ item.s }}</view>
+        <view class="title xi-flex nowrap align-center margin-lr--m"><text class="title-line"></text><text class="title-desc">{{ item.title }}</text></view>
+        <view class="detail"><xi-icon icon="icon-jiantouarrow486" /></view>
+      </view>
+      <view class="desc">{{ item.desc || '暂无注意事项' }}</view>
     </view>
-    <view class="desc">9点之前不需要到；</view>
+    <view wx:if="{{ logsList.length == 0 }}" class="xi-fz xi-fz--xl xi-fz--red"
+      style="text-align: center; margin-top: 30rpx">
+      <view>今日无行程安排，快去添加吧</view>
+    </view>
+  </scroll-view >
+</view>
+
+<view class="tabbar">
+  <view class="tabbar-item" wx:for="{{ 3 }}" wx:key="index" >
+    <!-- <xi-icon icon="icon-meiyoudingdan-01" wx:if="{{ index !== 1 }}" /> -->
+    <view class="xi-fz xi-fz--l" wx:if="{{ index === 0 }}" bindtap="handleClick">展开/收缩</view>
+    <view class="xi-fz xi-fz--l" wx:if="{{ index === 2 }}">我的</view>
+    <view class="cen" wx:if="{{ index === 1 }}" bindtap="handleInsert"><xi-icon icon="icon-jiahao" /></view>
   </view>
 </view>

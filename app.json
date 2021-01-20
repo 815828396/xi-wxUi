@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/calendar/calendar",
-    "pages/swiper/index",
     "pages/papaw/index",
+    "pages/swiper/index",
     "pages/index/index",
     "pages/image/index",
     "pages/selectGroup/index",

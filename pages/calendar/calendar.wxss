@@ -2,24 +2,31 @@ page {
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding-bottom: 48px;
+  box-sizing: border-box;
   /* background: linear-gradient(#272c64 60%, rgba(0, 0, 0, .6)); */
-  background: #272c63;
-}
-.wrap {
-  /* background: linear-gradient(50deg, #272c64, rgba(0, 0, 0, .6)); */
+  /* background: #3b3c4e; */
+  background: #3b3c4e;
 }
 .header {
   color: #fff;
 }
+.calendar-logs-wrap {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#272731, rgba(255, 255, 255, .2));
+}
 .calendar-logs {
   flex: 1;
-  border-radius: 20px 20px 0 0;
-  overflow: scroll;
+  height: 220rpx;
+  /* border-radius: 20px 20px 0 0; */
   /* background: linear-gradient(rgba(255,255,255, .2) 20%, rgba(255, 255, 255, 0)); */
+  /* background: linear-gradient(#4951b4, #212c95);
+  background: #272731; */
 }
 .calendar-log-item {
   color: #fff;
-  background: linear-gradient(#4c5ad4, #3b49ce);
+  /* background: linear-gradient(#4c5ad4, #3b49ce); */
 }
 .calendar-log-item .impt {
   font-size: 22rpx;
@@ -68,4 +75,34 @@ page {
   font-size: 22rpx;
   color: #ccc;
   padding-left: 40px;
+}
+
+/*  */
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 48px;
+  display: flex;
+  z-index: 100;
+  color: #fff;
+  background: #3b3c4e;
+  box-shadow: 0 -3px 3px #101225;
+}
+.tabbar .tabbar-item {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  line-height: 48px;
+}
+.tabbar .cen {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 5px 5px #101225;
+  background: #3b3c4e;
+  border-radius: 50%;
 }

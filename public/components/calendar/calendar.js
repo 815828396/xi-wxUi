@@ -9,6 +9,7 @@ Component({
   },
   properties: {
     division: Array,
+    scale: Boolean,
     thame: String // 默认 Light   Dark
   },
 
@@ -19,6 +20,7 @@ Component({
     _todayYear: '',
     _todayMonth: '',
     isLoading: true,
+    currentI: -1,
     date: '',
     year: '',
     lastYear: '',
@@ -129,6 +131,8 @@ Component({
           if (val === this.data.date && !calendarRender[i][j].ignore && this.data._todayYear == this.data.year && this.data._todayMonth == this.data.month)
           {
             calendarRender[i][j].bgClasses = 'bgColor bg2 radiusAll';
+            this.setData({ currentI: i });
+            this.trigger('clickDate', { val: val });
           }
           // 存在时间轴端 && 时间轴端已经查找完毕 division.flat() && 日期处于当前渲染月份中
           if (division.length > 0 && calc !== division.flat().length && !calendarRender[i][j].ignore)
@@ -181,6 +185,7 @@ Component({
       }
       wx.vibrateShort()
       this.setData({current: value});
+      this.trigger('clickDate', { val: value });
     }
   }
 })

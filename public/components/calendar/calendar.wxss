@@ -20,6 +20,12 @@
 .calendar-wrap .calendar-column {
   display: flex;
 }
+.calendar-wrap .calendar-column.hide {
+  display: none;
+}
+.calendar-wrap .calendar-column[hide *= "hide"] {
+  display: none;
+}
 .calendar-wrap.Dark {
   color: #fff;
 }

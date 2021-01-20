@@ -13,7 +13,7 @@
   </view>
   <!-- 日历列表 -->
   <view class="calendar-list">
-    <view class="calendar-column margin-bottom--s"
+    <view class="calendar-column margin-bottom--s {{ (scale && currentI !== index) ? 'hide' : '' }}"
       wx:for="{{calendarRender}}"
       wx:for-item="subItem"
       wx:key="index">
