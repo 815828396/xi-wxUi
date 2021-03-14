@@ -44,6 +44,7 @@ Component({
       this.setData({ date: this.data._today.getDate() });
       this.initRender(new Date().getFullYear(), new Date().getMonth() + 1);
       // this.initRender(2020, 12);
+      console.log(getCurrentPages())
     }
   },
   methods: {
@@ -109,7 +110,8 @@ Component({
       let calendarRender = [];
       let calc = 0;
       // 
-      let division = [[3,4], [7,8,9,10,11,12], [30, 31]];
+      let division = [];
+      // let division = [[3,4], [7,8,9,10,11,12], [30, 31]];
       for (let i = 0; i < 6; i++)
       {
         calendarRender[i] = [];
@@ -134,6 +136,7 @@ Component({
             this.setData({ currentI: i });
             this.trigger('clickDate', { val: val });
           }
+
           // 存在时间轴端 && 时间轴端已经查找完毕 division.flat() && 日期处于当前渲染月份中
           if (division.length > 0 && calc !== division.flat().length && !calendarRender[i][j].ignore)
           {
