@@ -3,13 +3,15 @@
   color: @color;
   background: @background;
 }
-.line-size (@width; @height) {
+.line-base () {
   position: absolute;
   content: "";
   display: block;
+  background: #fff;
+}
+.line-size (@width; @height) {
   width: @width;
   height: @height;
-  background: #fff;
 }
 
 .xi-step-item {
@@ -26,15 +28,7 @@
       position: relative;
       &::after,
       &::before {
-        .line-size(30rpx; 5px);
-      }
-      &::before {
-        top: 5px;
-        left: -32rpx;
-      }
-      &::after {
-        top: 5px;
-        right: -32rpx
+        .line-base();
       }
     } // 线条定位
     &.active {
@@ -47,10 +41,6 @@
       }
     } // e 图标状态样式
     .xi-step-icon--number {
-      // width: 30rpx;
-      // height: 30rpx;
-      // line-height: 28rpx;
-      
       width: 16px;
       height: 16px;
       line-height: 16px;
@@ -89,6 +79,7 @@
     }
   } // e xi-step-ico
   .xi-step-main {
+    flex: 1 0;
     .xi-step-main--content {
       font-size: @12;
       color: @thameAuxColor;
@@ -110,6 +101,36 @@
       .xi-step--line {
         height: 150rpx;
         width: 1px;
+      }
+      .line-pos {
+        &::after,
+        &::before {
+          .line-size(5px; 6px);
+        }
+        &::before {
+          top: -6px;
+          left: 5px;
+        }
+        &::after {
+          top: 16px;
+          right: 5px
+        }
+      }
+    }
+  }
+  &.horiz {
+    .line-pos {
+      &::after,
+      &::before {
+        .line-size(15px; 5px);
+      }
+      &::before {
+        top: 5px;
+        left: -16px;
+      }
+      &::after {
+        top: 5px;
+        right: -16px
       }
     }
   }

@@ -1,8 +1,6 @@
 <!--public/components/calendar/calendar.wxml-->
 <view class="calendar-handle {{ thame }}">
-  <view data-handle="prev" bindtap="handleClickEvent">prev</view>
-  <view class="margin-lr--l">{{year}} - {{month}} - {{date}}</view>
-  <view data-handle="next" bindtap="handleClickEvent" >next</view>
+  <slot name="header"></slot>
 </view>
 <view class="calendar-wrap {{ thame }} {{ isLoading ? 'loading' : '' }}">
   <!-- 日历头部 -->
@@ -17,15 +15,16 @@
       wx:for="{{calendarRender}}"
       wx:for-item="subItem"
       wx:key="index">
-      <view class="calendar-item {{(current == item.val) && (!item.ignore) ? 'activeHover radiusAll' : ''}} {{item.bgClasses}} {{item.radius}} {{item.ignore ? 'disabled' : ''}}"
+      <view class="calendar-item {{item.bgClasses}} {{(currentDate == item.val) && (!item.ignore) ? 'activeHover radiusAll' : ''}} {{item.radius}} {{item.ignore ? 'disabled' : ''}}"
         hover-stay-time="100"
         wx:for="{{subItem}}"
-        wx:key="index">
-        <text class="value {{ item.val == 4 ? 'log' : '' }}"
-          hover-stay-time="100"
-          data-val="{{item.val}}"
-          data-ignore="{{item.ignore}}"
-          bindtap="handleClickDate">{{item.val}}</text>
+        wx:key="index"
+        data-val="{{item.val}}"
+        data-ignore="{{item.ignore}}"
+        bindtap="handleClickDate">
+        <text class="value {{ item.logClass }}"
+          hover-stay-time="100">{{item.text || item.val}}</text>
+        <text class="desc {{ item.desc ? 'showDesc' : '' }}">{{ item.desc }}</text>
       </view>
     </view>
   </view>

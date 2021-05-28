@@ -1,0 +1,8 @@
+<view class="scroll-list" style="height: {{scrollHeight}}px">
+  <view class="card" 
+    wx:for="{{renderList}}" 
+    wx:key="index"> 
+    你好这是无限滚动第 <text>{{index + 1}}</text> 个
+  </view>
+
+</view>

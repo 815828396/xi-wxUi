@@ -1,0 +1,27 @@
+.tab-wrap {
+  display: flex;
+  padding: 30rpx;
+  font-size: 28rpx;
+  color: #647382;
+}
+.tab-wrap .tab-title {
+  flex: 1;
+  text-align: center;
+}
+.tab-wrap .tab-btn {
+  width: 50px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.tab-wrap .tab-btn.confirm {
+  color: #4883f1;
+}
+.picker-view {
+  width: 100%;
+  height: 500rpx;
+  font-size: 26rpx;
+}
+.picker-view .picker-column {
+  line-height: 40px;
+  text-align: center;
+}

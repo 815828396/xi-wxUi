@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/calendar/calendar",
+    "pages/timeAxis/index",
     "pages/papaw/index",
     "pages/swiper/index",
     "pages/index/index",
@@ -18,7 +19,6 @@
     "pages/divider/index",
     "pages/province/index",
     "pages/picker/index",
-    "pages/timeAxis/index",
     "pages/logs/logs"
   ],
   "subpackages": [

@@ -39,6 +39,19 @@ export let getSelectorAttr = ({ property: ARG_property = {} }, ...args) => {
 }
 
 /**
+ * 获取图片信息
+ * @param {String} src 图片路径
+ */
+ export let $getImageInfo = src => {
+  return new Promise((resolve, reject) => {
+    wx.getImageInfo({
+      src,
+      success: res => resolve(res),
+      fail: err => reject(err)
+    })
+  })
+}
+/**
  * 设置 scroll view 中目标元素固定位置
  * 需要安装 https://github.com/facebook/regenerator/blob/master/packages/regenerator-runtime/runtime.js 插件使用 async
  * @param {element} ARG_interfere 单个干扰元素,如果没有传入 默认 90 rpx 一个 tabbar 高度

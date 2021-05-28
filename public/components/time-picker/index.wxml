@@ -1,0 +1,19 @@
+
+<van-popup show="{{show}}" position="bottom" >
+  <view class="tab-wrap">
+    <view class="tab-btn" data-tag="cancel" bindtap="handlePopupBtn">取消</view>
+    <view class="tab-title">{{ title || '请选择' }}</view>
+    <view class="tab-btn confirm" data-tag="confirm" bindtap="handlePopupBtn">确认</view>
+  </view>
+	<picker-view class="picker-view" indicator-style="height: 40px; color: #4883f1" value="{{ pickerIndex }}" bindchange="handleChange">
+		<picker-view-column>
+			<view class="picker-column" wx:for="{{timeDays}}" wx:key="index">{{item.render}}</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view class="picker-column" wx:for="{{timeHours}}" wx:key="index">{{item > 9 ? item : '0' + item }}时</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view class="picker-column" wx:for="{{timeMinutes}}" wx:key="index">{{item > 9 ? item : '0' + item }}分</view>
+		</picker-view-column>
+	</picker-view>
+</van-popup>

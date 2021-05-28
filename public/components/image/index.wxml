@@ -1,14 +1,11 @@
 <!--public/components/uploadImage/upload-image.wxml-->
-<view class="upload-wrap {{ (uploadImagePath != '' || privewImagePath != '') ? '' : 'upload-wrap--line' }}"
+<view class="upload-wrap {{ (uploadImagePath != '' || privewImagePath != '') ? '' : '' }}"
   hover-class="upload--active"
   hover-stay-time="100"
   bindtap="handleChooseImage">
   <!-- 上传图片进度条 -->
   <view class="upload-progress {{ progress ? 'visiable' : '' }}">
-    <view class="upload-progress--line {{ style.getClass(progress) }}"
-      style="width: {{ progress }}%"
-    >
-    </view>
+    <view class="upload-progress--line {{ style.getClass(progress) }}" style="width: {{ progress }}%"></view>
   </view>
   
   <!-- 展示图片 -->
@@ -19,6 +16,7 @@
 
   <!-- 上传图片 -->
   <view class="upload-image--up" wx:else>
+    <icon icon="{{ icon }}" xi-class="icon"></icon>
     <image class="upload-image--up_image {{ imageSize }}" src="{{ defaultSrc }}"></image>
     <text class="upload-image--up_text">{{ label }}</text>
   </view>
@@ -28,6 +26,8 @@
   wx:if="{{ zoom }}"
   bindtap="handleZoomImage">查看大图</view>
 
+<!-- <canvas class="canvas" canvas-id="canvas" style="width: {{ canvasWidth }}px; height: {{canvasHeight}}px;" ></canvas> -->
+<canvas class="canvas" canvas-id="canvas" style="width: {{ canvasWidth }}px; height: {{canvasHeight}}px; left:-{{canvasWidth}}px" ></canvas>
 <wxs module="style">
 module.exports = {
   getClass: function (progress) {

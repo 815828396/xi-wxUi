@@ -1,5 +1,5 @@
 <wxs src="./index.wxs" module="step"></wxs>
-<view class="xi-step-item {{ direction === 'vertical' ? 'colums' : '' }}" style="{{ step.calcWidth(length, direction) }}">
+<view class="xi-step-item {{ direction === 'vertical' ? 'colums' : 'horiz' }}" style="{{ step.calcWidth(length, direction) }}">
   <!-- 图标 -->
   <view class="xi-step-ico {{ step.active(currentIndex, activeIndex) }}">
     <view class="xi-step-icon--number line-pos {{ status }}">
